@@ -1,0 +1,410 @@
+/* ==========================================================================
+   PAU CANELLES — EXACT GUILLERMO LORCA REFERENCE COMPOSITION STYLES
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. DARK HEADER
+   -------------------------------------------------------------------------- */
+.header-reference {
+  background-color: var(--color-dark-bg);
+  padding: 1.8rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-nav-flex {
+  max-width: var(--max-width-site);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.header-links-group {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  align-items: center;
+}
+
+.header-link-item {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity var(--transition-smooth);
+}
+
+.header-link-item:hover,
+.header-link-item.active {
+  opacity: 1;
+  color: #FFFFFF;
+}
+
+.header-instagram-icon {
+  margin-left: 1.5rem;
+  color: var(--color-text-light);
+  display: flex;
+  align-items: center;
+  transition: opacity var(--transition-smooth);
+}
+
+.header-instagram-icon:hover {
+  opacity: 0.7;
+}
+
+/* --------------------------------------------------------------------------
+   2. 50/50 HERO SPLIT SECTION
+   -------------------------------------------------------------------------- */
+.split-hero-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 85vh;
+  background-color: var(--color-cream-bg);
+}
+
+.hero-left-content {
+  background-color: var(--color-cream-bg);
+  padding: clamp(3rem, 6vw, 6rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-artist-name-title {
+  font-family: var(--font-serif-display);
+  font-size: clamp(3.2rem, 5.5vw, 5.5rem);
+  color: var(--color-text-dark);
+  line-height: 0.95;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+
+.hero-bio-narrative {
+  font-family: var(--font-serif-body);
+  font-size: clamp(1.1rem, 1.4vw, 1.3rem);
+  color: #38342D;
+  line-height: 1.65;
+  max-width: 580px;
+}
+
+.hero-right-image-container {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  background-color: #E2DDD5;
+  overflow: hidden;
+}
+
+.hero-right-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   3. ABOUT STRIP SECTION
+   -------------------------------------------------------------------------- */
+.split-about-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: var(--color-cream-bg);
+  border-top: 1px solid rgba(36, 35, 30, 0.08);
+}
+
+.about-strip-left {
+  background-color: var(--color-cream-bg);
+  padding: 4rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --------------------------------------------------------------------------
+   4. QUOTE STATEMENT SECTION
+   -------------------------------------------------------------------------- */
+.quote-section-white {
+  background-color: var(--color-white-bg);
+  padding: 7rem 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.quote-nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--color-text-dark);
+  cursor: pointer;
+  padding: 1rem;
+  opacity: 0.6;
+  transition: opacity var(--transition-smooth);
+}
+
+.quote-nav-arrow:hover {
+  opacity: 1;
+}
+
+.quote-nav-arrow.left { left: clamp(1rem, 4vw, 4rem); }
+.quote-nav-arrow.right { right: clamp(1rem, 4vw, 4rem); }
+
+.quote-dot-indicators {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 2.5rem;
+}
+
+.quote-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #C0BBB3;
+  cursor: pointer;
+}
+
+.quote-dot.active {
+  background-color: var(--color-text-dark);
+}
+
+/* --------------------------------------------------------------------------
+   5. FEATURED CONTENT / EXHIBITION SPLIT SECTION
+   -------------------------------------------------------------------------- */
+.split-featured-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 80vh;
+  background-color: var(--color-beige-bg);
+}
+
+.featured-left-content {
+  background-color: var(--color-beige-bg);
+  padding: clamp(3rem, 6vw, 6rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   6. PORTFOLIO SHOWCASE SECTION (DARK)
+   -------------------------------------------------------------------------- */
+.portfolio-section-dark {
+  background-color: var(--color-dark-bg);
+  color: var(--color-text-light);
+  padding: 6rem 2rem;
+}
+
+.portfolio-header-center {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.portfolio-title-text {
+  font-family: var(--font-serif-display);
+  font-size: 2.4rem;
+  letter-spacing: 0.15em;
+  color: var(--color-text-light);
+  margin-bottom: 1rem;
+}
+
+.portfolio-underline-accent {
+  width: 50px;
+  height: 1px;
+  background-color: var(--color-text-light);
+  margin: 0 auto;
+}
+
+.portfolio-grid-4col {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: var(--max-width-site);
+  margin: 0 auto;
+}
+
+.portfolio-grid-item {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: #1A1916;
+  cursor: pointer;
+}
+
+.portfolio-grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-grid-item:hover img {
+  transform: scale(1.04);
+}
+
+.portfolio-year-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(36, 35, 30, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif-display);
+  font-size: 1.6rem;
+  color: var(--color-text-light);
+  letter-spacing: 0.1em;
+}
+
+/* --------------------------------------------------------------------------
+   7. CONTACT SECTION (CREAM BACKGROUND)
+   -------------------------------------------------------------------------- */
+.contact-section-cream {
+  background-color: var(--color-cream-bg);
+  padding: 6rem 2rem;
+  position: relative;
+}
+
+.contact-container-center {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.contact-input-underline {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-text-dark);
+  padding: 0.8rem 0;
+  font-family: var(--font-serif-body);
+  font-size: 1.1rem;
+  color: var(--color-text-dark);
+  margin-bottom: 2rem;
+}
+
+.contact-input-underline:focus {
+  outline: none;
+  border-bottom-width: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   8. SUBSCRIBE SECTION (DARK BACKGROUND)
+   -------------------------------------------------------------------------- */
+.subscribe-section-dark {
+  background-color: var(--color-dark-bg);
+  color: var(--color-text-light);
+  padding: 4rem 2rem;
+}
+
+.subscribe-flex-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.subscribe-title {
+  font-family: var(--font-serif-display);
+  font-size: 2rem;
+  letter-spacing: 0.25em;
+  color: var(--color-text-light);
+}
+
+.subscribe-input-box {
+  border: 1px solid var(--color-text-muted);
+  background: transparent;
+  padding: 0.75rem 1rem;
+  color: var(--color-text-light);
+  font-family: var(--font-serif-body);
+  font-size: 1rem;
+  width: 280px;
+}
+
+.subscribe-input-box:focus {
+  outline: none;
+  border-color: var(--color-text-light);
+}
+
+/* --------------------------------------------------------------------------
+   9. FOOTER SECTION (CREAM BACKGROUND)
+   -------------------------------------------------------------------------- */
+.footer-section-cream {
+  background-color: var(--color-cream-bg);
+  padding: 5rem 2rem 3rem 2rem;
+  text-align: center;
+}
+
+.footer-faq-title {
+  font-family: var(--font-serif-display);
+  font-size: 1.8rem;
+  letter-spacing: 0.2em;
+  color: var(--color-text-dark);
+  margin-bottom: 1.5rem;
+}
+
+.footer-social-icons-group {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.footer-social-icon-link {
+  color: var(--color-text-dark);
+  transition: opacity var(--transition-smooth);
+}
+
+.footer-social-icon-link:hover {
+  opacity: 0.6;
+}
+
+/* --------------------------------------------------------------------------
+   10. RESPONSIVE BREAKPOINTS (Mobile & Tablet)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .split-hero-section,
+  .split-about-strip,
+  .split-featured-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-right-image-container {
+    min-height: 400px;
+  }
+
+  .portfolio-grid-4col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .subscribe-flex-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-links-group {
+    display: none;
+  }
+
+  .portfolio-grid-4col {
+    grid-template-columns: 1fr;
+  }
+}

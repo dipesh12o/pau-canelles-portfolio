@@ -1,0 +1,90 @@
+/* ==========================================================================
+   PAU CANELLES — EXACT GUILLERMO LORCA REFERENCE DESIGN SYSTEM
+   Recreated precisely from the reference screenshots
+   ========================================================================== */
+
+:root {
+  /* Exact Reference Color Palette */
+  --color-dark-bg: #24231E;      /* Dark Charcoal / Bronze Black (Header, Portfolio, Footer) */
+  --color-cream-bg: #FCE8D2;     /* Warm Peach / Ivory Cream (Hero Left, Contact) */
+  --color-beige-bg: #EFECE8;     /* Soft Studio Beige (Featured Section Left) */
+  --color-white-bg: #FFFFFF;     /* Pure White (Quote Section) */
+  
+  --color-text-dark: #24231E;    /* Dark Charcoal Text */
+  --color-text-light: #FCE8D2;   /* Cream Text on Dark */
+  --color-text-muted: #8A857B;   /* Muted Neutral */
+  
+  /* Typography Families */
+  --font-serif-display: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-serif-body: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset & Base Rules */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--color-dark-bg);
+  color: var(--color-text-dark);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Typography Classes */
+h1, h2, h3, .heading-serif {
+  font-family: var(--font-serif-display);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+}
+
+.serif-quote {
+  font-family: var(--font-serif-body);
+  font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+  font-style: italic;
+  line-height: 1.4;
+}
+
+/* Outlined Rectangular Reference Button (Exact match from screenshot) */
+.btn-reference-outline {
+  display: inline-block;
+  padding: 0.75rem 2.5rem;
+  border: 1px solid var(--color-text-dark);
+  background: transparent;
+  color: var(--color-text-dark);
+  font-family: var(--font-serif-display);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+}
+
+.btn-reference-outline:hover {
+  background-color: var(--color-text-dark);
+  color: var(--color-cream-bg);
+}
+
+.btn-reference-outline-dark {
+  border-color: var(--color-text-light);
+  color: var(--color-text-light);
+}
+
+.btn-reference-outline-dark:hover {
+  background-color: var(--color-text-light);
+  color: var(--color-dark-bg);
+}
