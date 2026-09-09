@@ -115,6 +115,10 @@
   display: block;
 }
 
+.mobile-hero-overlay {
+  display: none;
+}
+
 /* --------------------------------------------------------------------------
    3. ABOUT STRIP SECTION
    -------------------------------------------------------------------------- */
@@ -426,6 +430,7 @@
   /* Mobile Header: Hamburger LEFT, Instagram RIGHT */
   .header-reference {
     padding: 1.2rem 1.5rem;
+    background-color: var(--color-dark-bg);
   }
   
   .header-links-group {
@@ -501,14 +506,131 @@
     color: #FFFFFF;
   }
 
-  /* Mobile Portfolio Grid: Clean 2-Column Grid (50% / 50% matching Screenshot 3) */
+  /* --------------------------------------------------------------------------
+     MOBILE HERO HOMEPAGE COMPOSITION (Matching Guillermo Lorca Reference)
+     DARK HEADER -> FULL-WIDTH ARTWORK -> OVERLAID ABOUT BUTTON -> WHITE STATEMENT
+     -------------------------------------------------------------------------- */
+  .split-hero-section {
+    display: block !important;
+    width: 100% !important;
+    position: relative !important;
+    background-color: var(--color-dark-bg) !important;
+    min-height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Hide Desktop Bio & Left Text Container on Mobile */
+  .hero-left-content {
+    display: none !important;
+  }
+
+  /* Full-width, tall mobile artwork hero container */
+  .hero-right-image-container {
+    width: 100% !important;
+    height: calc(100vh - 65px) !important;
+    min-height: 520px !important;
+    max-height: 750px !important;
+    position: relative !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+    background-color: #1A1916 !important;
+  }
+
+  .hero-right-image-container img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 25% !important;
+    border-radius: 0 !important;
+    display: block !important;
+  }
+
+  /* Mobile Hero Overlay: Artist title near top, About button near bottom */
+  .mobile-hero-overlay {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    position: absolute !important;
+    inset: 0 !important;
+    padding: 2.5rem 1.5rem 3.5rem 1.5rem !important;
+    z-index: 10 !important;
+    pointer-events: none !important;
+    background: linear-gradient(
+      180deg,
+      rgba(26, 25, 22, 0.55) 0%,
+      rgba(0, 0, 0, 0) 30%,
+      rgba(0, 0, 0, 0) 65%,
+      rgba(26, 25, 22, 0.65) 100%
+    ) !important;
+  }
+
+  .mobile-hero-artist-title {
+    font-family: var(--font-serif-display) !important;
+    font-size: clamp(2.2rem, 8vw, 3rem) !important;
+    line-height: 1.05 !important;
+    color: #FCE8D2 !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.12em !important;
+    font-weight: 400 !important;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7) !important;
+    margin-top: 1rem !important;
+  }
+
+  .btn-mobile-about-overlay {
+    pointer-events: auto !important;
+    background: rgba(26, 25, 22, 0.3) !important;
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+    border: 1px solid rgba(252, 232, 210, 0.8) !important;
+    color: #FCE8D2 !important;
+    font-family: var(--font-sans) !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.25em !important;
+    text-transform: uppercase !important;
+    padding: 0.8rem 2.6rem !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .btn-mobile-about-overlay:active,
+  .btn-mobile-about-overlay:hover {
+    background: rgba(252, 232, 210, 0.25) !important;
+    border-color: #FFFFFF !important;
+    color: #FFFFFF !important;
+  }
+
+  /* Hide Desktop About Strip on Mobile (About button is now overlaid on artwork) */
+  .split-about-strip {
+    display: none !important;
+  }
+
+  /* Mobile Quote Section (White Editorial Statement Section) */
+  .quote-section-white {
+    padding: 5rem 1.5rem !important;
+    background-color: #FFFFFF !important;
+  }
+
+  .serif-quote {
+    font-size: clamp(1.2rem, 4.5vw, 1.5rem) !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Mobile Portfolio Grid: Clean 2-Column Grid (50% / 50%) */
   .portfolio-section-dark {
-    padding: 4rem 1rem;
+    padding: 4rem 1rem !important;
   }
 
   .portfolio-title-text {
-    font-size: 1.8rem;
-    letter-spacing: 0.18em;
+    font-size: 1.8rem !important;
+    letter-spacing: 0.18em !important;
   }
 
   .portfolio-grid-4col {
@@ -522,6 +644,6 @@
   }
 
   .portfolio-grid-item {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 4 / 3 !important;
   }
 }

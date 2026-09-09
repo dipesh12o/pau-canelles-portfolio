@@ -34,7 +34,7 @@ export default function Home({ setCurrentPage }) {
   return (
     <div className="home-page">
       {/* ==================================================================
-          SECTION 1: HERO (50/50 SPLIT) — Exact Screenshot 1 Match
+          SECTION 1: HERO (50/50 SPLIT ON DESKTOP, FULL-SCREEN ARTWORK ON MOBILE)
           ================================================================== */}
       <section className="split-hero-section">
         <div className="hero-left-content">
@@ -48,11 +48,28 @@ export default function Home({ setCurrentPage }) {
 
         <div className="hero-right-image-container img-container-hover" onClick={() => setSelectedArtwork(ARTIST_DATA.artworks[0])}>
           <ArtworkFrame artwork={ARTIST_DATA.artworks[0]} />
+
+          {/* Mobile Overlay (Only visible on mobile <= 768px): Top Artist Title & Bottom About Button */}
+          <div className="mobile-hero-overlay">
+            <h1 className="mobile-hero-artist-title">
+              Pau<br />CANELLES
+            </h1>
+            <button 
+              className="btn-mobile-about-overlay" 
+              onClick={(e) => {
+                e.stopPropagation();
+                setCurrentPage('about');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            >
+              About
+            </button>
+          </div>
         </div>
       </section>
 
       {/* ==================================================================
-          SECTION 2: ABOUT STRIP — Exact Screenshot 2 Match
+          SECTION 2: ABOUT STRIP (DESKTOP ONLY — Hidden on Mobile)
           ================================================================== */}
       <section className="split-about-strip">
         <div className="about-strip-left">
