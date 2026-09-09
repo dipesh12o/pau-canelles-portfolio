@@ -3,7 +3,7 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. DARK HEADER
+   1. DARK HEADER & NAVIGATION
    -------------------------------------------------------------------------- */
 .header-reference {
   background-color: var(--color-dark-bg);
@@ -60,6 +60,10 @@
   opacity: 0.7;
 }
 
+.header-mobile-bar {
+  display: none;
+}
+
 /* --------------------------------------------------------------------------
    2. 50/50 HERO SPLIT SECTION
    -------------------------------------------------------------------------- */
@@ -101,6 +105,7 @@
   min-height: 500px;
   background-color: #E2DDD5;
   overflow: hidden;
+  position: relative;
 }
 
 .hero-right-image-container img {
@@ -257,16 +262,38 @@
   transform: scale(1.04);
 }
 
-.portfolio-year-overlay {
+/* Hover/Tap Overlay — Hidden by default, visible on hover/tap */
+.portfolio-hover-overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(36, 35, 30, 0.6);
+  background-color: rgba(36, 35, 30, 0.85);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 1rem;
+  text-align: center;
+  pointer-events: none;
+}
+
+.portfolio-grid-item:hover .portfolio-hover-overlay,
+.portfolio-grid-item:focus .portfolio-hover-overlay {
+  opacity: 1;
+}
+
+.portfolio-overlay-title {
   font-family: var(--font-serif-display);
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   color: var(--color-text-light);
+  margin-bottom: 0.25rem;
+}
+
+.portfolio-overlay-year {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
   letter-spacing: 0.1em;
 }
 
@@ -375,7 +402,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   10. RESPONSIVE BREAKPOINTS (Mobile & Tablet)
+   10. RESPONSIVE BREAKPOINTS (Exact Reference Mobile Alignment)
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
   .split-hero-section,
@@ -388,10 +415,6 @@
     min-height: 400px;
   }
 
-  .portfolio-grid-4col {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .subscribe-flex-container {
     flex-direction: column;
     text-align: center;
@@ -400,11 +423,105 @@
 }
 
 @media (max-width: 768px) {
+  /* Mobile Header: Hamburger LEFT, Instagram RIGHT */
+  .header-reference {
+    padding: 1.2rem 1.5rem;
+  }
+  
   .header-links-group {
-    display: none;
+    display: none !important;
+  }
+  
+  .header-mobile-bar {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .mobile-hamburger-btn,
+  .mobile-instagram-link {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+  }
+
+  /* Full Screen Mobile Menu Overlay */
+  .mobile-full-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background-color: var(--color-dark-bg);
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-overlay-header {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 3.5rem;
+  }
+
+  .mobile-overlay-close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .mobile-overlay-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .mobile-overlay-item {
+    font-family: var(--font-sans);
+    font-size: 1.4rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+  }
+
+  .mobile-overlay-item.active,
+  .mobile-overlay-item:hover {
+    opacity: 1;
+    color: #FFFFFF;
+  }
+
+  /* Mobile Portfolio Grid: Clean 2-Column Grid (50% / 50% matching Screenshot 3) */
+  .portfolio-section-dark {
+    padding: 4rem 1rem;
+  }
+
+  .portfolio-title-text {
+    font-size: 1.8rem;
+    letter-spacing: 0.18em;
   }
 
   .portfolio-grid-4col {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+  
+  .portfolio-gallery-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+
+  .portfolio-grid-item {
+    aspect-ratio: 4 / 3;
   }
 }

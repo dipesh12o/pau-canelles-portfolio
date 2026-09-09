@@ -145,18 +145,17 @@ export default function Home({ setCurrentPage }) {
         </div>
 
         <div className="portfolio-grid-4col">
-          {ARTIST_DATA.artworks.slice(0, 4).map((work, idx) => (
+          {ARTIST_DATA.artworks.slice(0, 4).map((work) => (
             <div 
               key={work.id} 
               className="portfolio-grid-item"
               onClick={() => setSelectedArtwork(work)}
             >
               <ArtworkFrame artwork={work} />
-              {idx === 2 && (
-                <div className="portfolio-year-overlay">
-                  <span>2025–2026</span>
-                </div>
-              )}
+              <div className="portfolio-hover-overlay">
+                <span className="portfolio-overlay-title">{work.title}</span>
+                <span className="portfolio-overlay-year">{work.year}</span>
+              </div>
             </div>
           ))}
         </div>
