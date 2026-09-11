@@ -21,16 +21,11 @@ export default function Contact() {
   };
 
   return (
-    <div className="about-editorial-page" style={{ paddingTop: '5rem', minHeight: '100vh' }}>
-      <div className="about-container" style={{ maxWidth: '1100px' }}>
-        {/* Editorial Page Tag */}
-        <div style={{ marginBottom: '2.5rem' }}>
-          <span className="about-page-tag">{isEs ? 'CONTACTO' : 'CONTACT'}</span>
-        </div>
-
+    <div className="about-editorial-page" style={{ paddingTop: '1.5rem', minHeight: '100vh' }}>
+      <div className="about-container" style={{ maxWidth: '1100px', paddingTop: '1.5rem' }}>
         {/* Hero Section Title & Intro */}
-        <div style={{ marginBottom: '4rem' }}>
-          <h1 className="about-intro-statement" style={{ fontSize: 'clamp(2.4rem, 4vw, 3.8rem)', marginBottom: '1.5rem' }}>
+        <div style={{ marginBottom: '3rem' }}>
+          <h1 className="about-intro-statement" style={{ fontSize: 'clamp(2.4rem, 4vw, 3.8rem)', marginBottom: '1.25rem' }}>
             {isEs ? 'Contacto' : 'Contact'}
           </h1>
           <p className="about-body-paragraph" style={{ maxWidth: '780px', fontSize: 'clamp(1.1rem, 1.4vw, 1.3rem)', color: '#4A463F' }}>
@@ -40,7 +35,7 @@ export default function Contact() {
           </p>
         </div>
 
-        <hr className="about-hairline-separator" style={{ marginBottom: '4rem' }} />
+        <hr className="about-hairline-separator" style={{ marginBottom: '3.5rem' }} />
 
         {/* 2-Column Responsive Layout: Left Info, Right Form */}
         <div className="contact-grid-container">

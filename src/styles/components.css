@@ -830,7 +830,8 @@
 }
 
 .photo-2-wide {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 8;
+  max-height: 480px;
   width: 100%;
   margin-top: 2.5rem;
 }
@@ -841,7 +842,8 @@
 }
 
 .photo-4-mural-expansive {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 7.5;
+  max-height: 440px;
   width: 100%;
   margin-top: 2.5rem;
 }
