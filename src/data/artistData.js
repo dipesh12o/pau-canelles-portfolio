@@ -41,7 +41,7 @@ export const ARTIST_DATA = {
       pageTitle: "ABOUT",
       intro: "I’m Pau Canelles, a visual artist and muralist born in Onda, Castellón, in 1999.",
       sectionHeadings: [
-        { number: "01", tag: "RETURN TO PAINTING", heading: "Childhood & Early Curiosities" },
+        { number: "01", tag: "RETURN TO PAINTING", heading: "" },
         { number: "02", tag: "A DIFFERENT PATH", heading: "Education & Design" },
         { number: "03", tag: "REDISCOVERING PAINTING", heading: "Return at 21 & Materiality" },
         { number: "04", tag: "MATERIALITY & IDENTITY", heading: "Current Practice & Neoexpresivos" },

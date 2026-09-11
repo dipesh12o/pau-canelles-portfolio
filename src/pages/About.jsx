@@ -2,13 +2,7 @@ import React, { useState } from 'react';
 import { ARTIST_DATA } from '../data/artistData';
 
 export default function About({ setCurrentPage }) {
-  const [lang, setLang] = useState(() => {
-    try {
-      return localStorage.getItem('pau_about_lang') || 'en';
-    } catch {
-      return 'en';
-    }
-  });
+  const [lang, setLang] = useState('es');
 
   const handleLangChange = (newLang, e) => {
     if (e) {
@@ -16,14 +10,9 @@ export default function About({ setCurrentPage }) {
       e.stopPropagation();
     }
     setLang(newLang);
-    try {
-      localStorage.setItem('pau_about_lang', newLang);
-    } catch {
-      // Fallback if localStorage is disabled
-    }
   };
 
-  const content = ARTIST_DATA.aboutStory[lang] || ARTIST_DATA.aboutStory.en;
+  const content = ARTIST_DATA.aboutStory[lang] || ARTIST_DATA.aboutStory.es;
   const headings = content.sectionHeadings;
   const captions = ARTIST_DATA.aboutStory.photoCaptions;
   const images = ARTIST_DATA.aboutImages;
@@ -71,12 +60,13 @@ export default function About({ setCurrentPage }) {
               </div>
               <h2 className="about-section-heading">{headings[0].heading}</h2>
 
-              <h1 className="about-intro-statement" style={{ marginTop: '1rem', marginBottom: '2rem' }}>
-                "{content.intro}"
-              </h1>
-              
-              <div className="about-story-text-block">
-                <p className="about-body-paragraph">{p[0]}</p>
+              <div className="about-story-text-block" style={{ marginTop: '1.5rem' }}>
+                <h1 className="about-intro-statement" style={{ marginBottom: '1.5rem' }}>
+                  "{content.intro}"
+                </h1>
+                <p className="about-intro-statement" style={{ fontWeight: '400' }}>
+                  {p[0]}
+                </p>
               </div>
             </div>
 

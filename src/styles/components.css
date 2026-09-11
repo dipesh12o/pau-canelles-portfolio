@@ -717,28 +717,28 @@
 .about-container {
   max-width: var(--max-width-site);
   margin: 0 auto;
-  padding: 4rem 2rem 0 2rem;
+  padding: 1.5rem 2rem 0 2rem;
 }
 
 /* 01 — Hero Introduction Section */
 .about-hero-section {
-  padding: 2rem 0 4rem 0;
+  padding: 0.5rem 0 3.5rem 0;
 }
 
 .about-hero-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 4rem;
-  align-items: center;
+  align-items: start;
 }
 
 .about-intro-statement {
   font-family: var(--font-serif-display);
-  font-size: clamp(2rem, 3.6vw, 3.2rem);
-  line-height: 1.25;
+  font-size: clamp(1.65rem, 2.5vw, 2.3rem);
+  line-height: 1.4;
   color: var(--color-text-dark);
   font-weight: 400;
-  margin: 0;
+  margin: 0 0 1.5rem 0;
 }
 
 /* Story Sections & Paragraph Blocks */
@@ -900,7 +900,7 @@
 /* Responsive Mobile Rules for About Page */
 @media (max-width: 768px) {
   .about-container {
-    padding: 2rem 1.25rem 0 1.25rem;
+    padding: 1rem 1.25rem 0 1.25rem;
   }
 
   .about-header-bar {

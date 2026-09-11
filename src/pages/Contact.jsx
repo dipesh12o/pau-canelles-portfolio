@@ -7,9 +7,9 @@ export default function Contact() {
 
   const lang = (() => {
     try {
-      return localStorage.getItem('pau_about_lang') || 'en';
+      return localStorage.getItem('pau_about_lang') || 'es';
     } catch {
-      return 'en';
+      return 'es';
     }
   })();
 
