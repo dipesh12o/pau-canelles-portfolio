@@ -944,3 +944,71 @@
   }
 }
 
+/* Wide Text Paragraph Container Fix */
+.about-story-text-block.wide .about-body-paragraph {
+  max-width: 1050px;
+}
+
+/* Contact Page Editorial Architecture */
+.contact-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.contact-link-serif {
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.3rem, 1.8vw, 1.7rem);
+  color: var(--color-text-dark);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.contact-link-serif:hover {
+  opacity: 0.7;
+}
+
+.contact-location-text {
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.3rem, 1.8vw, 1.7rem);
+  color: var(--color-text-dark);
+}
+
+.contact-input,
+.contact-textarea {
+  width: 100%;
+  padding: 0.9rem 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(26, 25, 22, 0.2);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--color-text-dark);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.contact-input:focus,
+.contact-textarea:focus {
+  border-bottom-color: var(--color-text-dark);
+}
+
+.contact-textarea {
+  resize: vertical;
+}
+
+.contact-success-box {
+  background-color: #E2DDD5;
+  padding: 2.5rem;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .contact-grid-container {
+    grid-template-columns: 1fr !important;
+    gap: 3.5rem !important;
+  }
+}
+
+

@@ -5,109 +5,145 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
+  const lang = (() => {
+    try {
+      return localStorage.getItem('pau_about_lang') || 'en';
+    } catch {
+      return 'en';
+    }
+  })();
+
+  const isEs = lang === 'es';
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
   };
 
   return (
-    <div className="contact-page site-container" style={{ paddingTop: '7.5rem', paddingBottom: '8rem' }}>
-      <div className="text-container">
-        {/* Header */}
+    <div className="about-editorial-page" style={{ paddingTop: '5rem', minHeight: '100vh' }}>
+      <div className="about-container" style={{ maxWidth: '1100px' }}>
+        {/* Editorial Page Tag */}
+        <div style={{ marginBottom: '2.5rem' }}>
+          <span className="about-page-tag">{isEs ? 'CONTACTO' : 'CONTACT'}</span>
+        </div>
+
+        {/* Hero Section Title & Intro */}
         <div style={{ marginBottom: '4rem' }}>
-          <span className="meta-label">Contact</span>
-          <h1 className="heading-serif" style={{ fontSize: '3.2rem', margin: '0.5rem 0 1.5rem 0' }}>
-            Inquiries & Masterclasses
+          <h1 className="about-intro-statement" style={{ fontSize: 'clamp(2.4rem, 4vw, 3.8rem)', marginBottom: '1.5rem' }}>
+            {isEs ? 'Contacto' : 'Contact'}
           </h1>
-          <p style={{ color: '#555555', lineHeight: '1.7' }}>
-            For direct inquiries regarding artwork commissions, workshop registrations, institutional projects, or custom group masterclasses, contact Pau Canelles directly.
+          <p className="about-body-paragraph" style={{ maxWidth: '780px', fontSize: 'clamp(1.1rem, 1.4vw, 1.3rem)', color: '#4A463F' }}>
+            {isEs
+              ? 'Para consultas sobre adquisición de obra, proyectos murales, talleres creativos, colaboraciones o información general, no dudes en ponerte en contacto.'
+              : 'For inquiries regarding artwork acquisitions, custom mural projects, creative workshops, collaborations, or general professional inquiries, feel free to get in touch.'}
           </p>
         </div>
 
-        {/* Direct Channels List */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem', marginBottom: '4rem', paddingBottom: '3rem', borderBottom: '1px solid var(--color-hairline)' }}>
-          <div>
-            <span className="meta-label">Email</span>
-            <a href={`mailto:${ARTIST_DATA.contact.email}`} style={{ fontFamily: 'var(--font-serif-display)', fontSize: '1.6rem', color: 'var(--color-charcoal)' }}>
-              {ARTIST_DATA.contact.email}
-            </a>
-          </div>
+        <hr className="about-hairline-separator" style={{ marginBottom: '4rem' }} />
 
-          <div>
-            <span className="meta-label">Phone & WhatsApp</span>
-            <a href={ARTIST_DATA.contact.whatsappUrl} target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'var(--font-serif-display)', fontSize: '1.6rem', color: 'var(--color-charcoal)' }}>
-              {ARTIST_DATA.contact.phone}
-            </a>
-          </div>
+        {/* 2-Column Responsive Layout: Left Info, Right Form */}
+        <div className="contact-grid-container">
+          {/* Left Column: Direct Contact Information */}
+          <div className="contact-info-col">
+            <h2 className="about-section-heading" style={{ fontSize: '1.5rem', marginBottom: '2.5rem' }}>
+              {isEs ? 'Información de Contacto' : 'Direct Channels'}
+            </h2>
 
-          <div>
-            <span className="meta-label">Instagram</span>
-            <a href={ARTIST_DATA.contact.instagramUrl} target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'var(--font-serif-display)', fontSize: '1.6rem', color: 'var(--color-charcoal)' }}>
-              {ARTIST_DATA.contact.instagram}
-            </a>
-          </div>
-
-          <div>
-            <span className="meta-label">Website</span>
-            <a href={`https://${ARTIST_DATA.contact.website}`} target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'var(--font-serif-display)', fontSize: '1.6rem', color: 'var(--color-charcoal)' }}>
-              {ARTIST_DATA.contact.website}
-            </a>
-          </div>
-        </div>
-
-        {/* Minimal Message Form */}
-        <div>
-          <h3 style={{ fontFamily: 'var(--font-serif-display)', fontSize: '1.8rem', marginBottom: '2rem' }}>Send Direct Message</h3>
-          
-          {submitted ? (
-            <div style={{ padding: '2rem 0', color: 'var(--color-charcoal)' }}>
-              <p style={{ fontStyle: 'italic', fontSize: '1.1rem' }}>
-                Thank you for reaching out. Pau Canelles will respond to your message shortly.
-              </p>
+            <div className="contact-item">
+              <span className="about-section-tag" style={{ display: 'block', marginBottom: '0.4rem' }}>EMAIL</span>
+              <a 
+                href={`mailto:${ARTIST_DATA.contact.email}`} 
+                className="contact-link-serif"
+              >
+                {ARTIST_DATA.contact.email}
+              </a>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-              <div>
-                <label className="meta-label" style={{ marginBottom: '0.5rem' }}>Full Name</label>
-                <input 
-                  type="text" 
-                  required 
-                  value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  style={{ width: '100%', padding: '0.8rem 0', border: 'none', borderBottom: '1px solid var(--color-hairline)', backgroundColor: 'transparent', fontFamily: 'var(--font-sans)', fontSize: '1rem' }}
-                  placeholder="Your Name"
-                />
-              </div>
 
-              <div>
-                <label className="meta-label" style={{ marginBottom: '0.5rem' }}>Email Address</label>
-                <input 
-                  type="email" 
-                  required 
-                  value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  style={{ width: '100%', padding: '0.8rem 0', border: 'none', borderBottom: '1px solid var(--color-hairline)', backgroundColor: 'transparent', fontFamily: 'var(--font-sans)', fontSize: '1rem' }}
-                  placeholder="your@email.com"
-                />
-              </div>
+            <div className="contact-item" style={{ marginTop: '2.5rem' }}>
+              <span className="about-section-tag" style={{ display: 'block', marginBottom: '0.4rem' }}>INSTAGRAM</span>
+              <a 
+                href={ARTIST_DATA.contact.instagramUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="contact-link-serif"
+              >
+                {ARTIST_DATA.contact.instagram}
+              </a>
+            </div>
 
-              <div>
-                <label className="meta-label" style={{ marginBottom: '0.5rem' }}>Message</label>
-                <textarea 
-                  rows="4" 
-                  required 
-                  value={formData.message}
-                  onChange={(e) => setFormData({...formData, message: e.target.value})}
-                  style={{ width: '100%', padding: '0.8rem 0', border: 'none', borderBottom: '1px solid var(--color-hairline)', backgroundColor: 'transparent', fontFamily: 'var(--font-sans)', fontSize: '1rem', resize: 'vertical' }}
-                  placeholder="Inquiry or message details..."
-                />
-              </div>
+            <div className="contact-item" style={{ marginTop: '2.5rem' }}>
+              <span className="about-section-tag" style={{ display: 'block', marginBottom: '0.4rem' }}>LOCATION</span>
+              <span className="contact-location-text">
+                Onda, Castellón
+              </span>
+            </div>
+          </div>
 
-              <button type="submit" className="btn-minimal" style={{ alignSelf: 'flex-start', marginTop: '1rem' }}>
-                Send Message &rarr;
-              </button>
-            </form>
-          )}
+          {/* Right Column: Minimal Form */}
+          <div className="contact-form-col">
+            <h2 className="about-section-heading" style={{ fontSize: '1.5rem', marginBottom: '2.5rem' }}>
+              {isEs ? 'Enviar Mensaje' : 'Send Message'}
+            </h2>
+
+            {submitted ? (
+              <div className="contact-success-box">
+                <p className="about-body-paragraph" style={{ fontStyle: 'italic', color: '#1A1916', margin: 0 }}>
+                  {isEs 
+                    ? 'Gracias por tu mensaje. Pau Canelles te responderá a la brevedad.'
+                    : 'Thank you for reaching out. Pau Canelles will respond to your message shortly.'}
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="contact-form">
+                <div className="contact-field-group">
+                  <label className="about-section-tag" style={{ display: 'block', marginBottom: '0.5rem' }}>
+                    {isEs ? 'NOMBRE' : 'NAME'}
+                  </label>
+                  <input 
+                    type="text" 
+                    required 
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="contact-input"
+                    placeholder={isEs ? 'Tu nombre' : 'Your name'}
+                  />
+                </div>
+
+                <div className="contact-field-group" style={{ marginTop: '2rem' }}>
+                  <label className="about-section-tag" style={{ display: 'block', marginBottom: '0.5rem' }}>
+                    EMAIL
+                  </label>
+                  <input 
+                    type="email" 
+                    required 
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="contact-input"
+                    placeholder="your@email.com"
+                  />
+                </div>
+
+                <div className="contact-field-group" style={{ marginTop: '2rem' }}>
+                  <label className="about-section-tag" style={{ display: 'block', marginBottom: '0.5rem' }}>
+                    {isEs ? 'MENSAJE' : 'MESSAGE'}
+                  </label>
+                  <textarea 
+                    rows="5" 
+                    required 
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="contact-textarea"
+                    placeholder={isEs ? 'Detalles de la consulta...' : 'Inquiry details...'}
+                  />
+                </div>
+
+                <button type="submit" className="btn-reference-outline" style={{ marginTop: '2.5rem' }}>
+                  {isEs ? 'ENVIAR MENSAJE →' : 'SEND MESSAGE →'}
+                </button>
+              </form>
+            )}
+          </div>
         </div>
       </div>
     </div>

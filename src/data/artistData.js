@@ -20,101 +20,72 @@ export const ARTIST_DATA = {
   },
 
   aboutImages: {
-    photo1: "/artworks/pau-canelles-hero-artwork.jpg", // Portrait / photo of me with one of my artworks
-    photo2: "/artworks/pau-canelles-hero-artwork.jpg", // Me working on a painting in the studio
-    photo3: "/artworks/pau-canelles-hero-artwork.jpg", // Me working on current paintings / surrounded by work
-    photo4: "/artworks/pau-canelles-hero-artwork.jpg", // Me painting a large-scale mural
-    photo5: "/artworks/pau-canelles-hero-artwork.jpg"  // Me teaching / working during creative workshops
+    photo1: "/artworks/pau-canelles-hero-artwork.jpg",
+    photo2: "/artworks/pau-canelles-hero-artwork.jpg",
+    photo3: "/artworks/pau-canelles-hero-artwork.jpg",
+    photo4: "/artworks/pau-canelles-hero-artwork.jpg",
+    photo5: "/artworks/pau-canelles-hero-artwork.jpg",
+    photo6: "/artworks/pau-canelles-hero-artwork.jpg"
   },
 
   aboutStory: {
+    photoCaptions: {
+      photo1: "PHOTO 1 — Portrait / photo of me with one of my artworks",
+      photo2: "PHOTO 2 — Me working on a painting in the studio",
+      photo3: "PHOTO 3 — Me working on one of my current paintings / surrounded by my work",
+      photo4: "PHOTO 4 — Me painting a large-scale mural, preferably an image where the scale of the work is clearly visible",
+      photo5: "PHOTO 5 — Me teaching / working during one of my creative workshops",
+      photo6: "OPTIONAL FINAL PHOTO — Me in the studio surrounded by my work"
+    },
     en: {
       pageTitle: "ABOUT",
       intro: "I’m Pau Canelles, a visual artist and muralist born in Onda, Castellón, in 1999.",
-      sections: {
-        returnToPainting: {
-          number: "01",
-          tag: "RETURN TO PAINTING",
-          heading: "Childhood & Early Curiosity",
-          paragraphs: [
-            "I didn’t always know that I wanted to dedicate myself to painting.",
-            "When I was a child, I ended up setting art aside because there was no one around me with artistic interests or spaces where I could experiment freely. It wasn’t until years later that I felt the need to pick up a brush again and reconnect with painting, this time from a place of curiosity, freedom and a continuous search for new ways of working with paint and materials."
-          ]
-        },
-        identityNeoexpresivos: {
-          number: "02",
-          tag: "IDENTITY & MATERIALITY",
-          heading: "Intuition, Gesture & Texture",
-          paragraphs: [
-            "My work revolves primarily around the construction of identity, human emotion and personal narrative.",
-            "Through neo-expressionism, abstract figuration and matter painting, I explore how color, rough textures and expressive gestures can capture states of mind, memories and silent internal dialogues that words cannot always express.",
-            "I work with acrylics, earth pigments, sand, plaster, sawdust and textile interventions, turning canvas and raw surfaces into layered tactile maps where intuition and matter meet."
-          ]
-        },
-        murals: {
-          number: "03",
-          tag: "MURALS & PUBLIC SPACE",
-          heading: "Scale, Architecture & Community",
-          paragraphs: [
-            "My practice has also progressively moved beyond the studio and onto public walls.",
-            "Murals allow me to work on a large scale, transforming public architecture and urban spaces into open visual dialogues with the community. Painting outdoors brings a physical, monumental dimension to my work, where the surrounding landscape and light become part of the composition itself."
-          ]
-        },
-        artEducation: {
-          number: "04",
-          tag: "CREATIVE EDUCATION",
-          heading: "Guiding Young Minds",
-          paragraphs: [
-            "Alongside my artistic practice, art education has become another core pillar of my trajectory.",
-            "Remembering my own childhood experience, I design creative workshops for children, young minds and adults. My goal is to be that guiding figure I would have loved to meet when I was young — someone to guide their curiosity, introduce them to universal masters from art history (Picasso, Miró, Basquiat, Matisse, Pollock, Tàpies) and show them that art is within everyone's reach, you just have to dare to create."
-          ]
-        }
-      },
-      closing: "Painting, murals and education have ultimately become different parts of the same trajectory — one that did not begin in a straight line and that continues to transform alongside my own understanding of painting."
+      sectionHeadings: [
+        { number: "01", tag: "RETURN TO PAINTING", heading: "Childhood & Early Curiosities" },
+        { number: "02", tag: "A DIFFERENT PATH", heading: "Education & Design" },
+        { number: "03", tag: "REDISCOVERING PAINTING", heading: "Return at 21 & Materiality" },
+        { number: "04", tag: "MATERIALITY & IDENTITY", heading: "Current Practice & Neoexpresivos" },
+        { number: "05", tag: "BEYOND THE STUDIO", heading: "Murals & Public Space" },
+        { number: "06", tag: "SHARING THE PROCESS", heading: "Art Education & Workshops" },
+        { number: "07", tag: "ONE CONTINUOUS JOURNEY", heading: "Conclusion & Trajectory" }
+      ],
+      paragraphs: [
+        "I didn’t always know that I wanted to dedicate myself to painting. In fact, for thirteen years, I didn’t paint at all. I used to draw and paint as a child, but around the age of eight I stopped completely and didn’t pick up a paintbrush again until I was 21.",
+        "By then, my path had taken me in a different direction. I studied Industrial Design Engineering and later completed a Master’s degree in Design Team Management, an education that brought me closer to image-making, composition and creative processes from a different perspective.",
+        "My development as a painter, however, has been self-taught, shaped through practice, experimentation and a continuous search for new ways of working with paint and materials.",
+        "Returning to painting at 21 wasn’t about going back to a plan I had left unfinished. It was about rediscovering, as an adult, something that had been part of me a long time before. What began simply as a return to painting gradually took up more and more space, eventually becoming the centre of my professional life.",
+        "Today, I develop my practice from Onda, working mainly with acrylic, oil and spray paint. Materiality plays a central role in my work: I build surfaces through layers, textures, volume and irregularities that become part of both the image and what I want to communicate through it.",
+        "My work revolves primarily around the construction of identity and the way our experiences continuously reshape who we are. Our environment, relationships, experiences and the stimuli of contemporary life leave traces that accumulate, overlap and, in some way, remain with us.",
+        "This exploration currently runs through my painting and particularly through Neoexpresivos, an evolving project in which I examine the identity of a generation that has grown up amid profound social, technological and cultural transformations.",
+        "My practice has also progressively moved beyond the studio. Mural painting has allowed me to translate my visual language to a different scale and connect painting directly with architecture, public space and the people who experience it. These projects have led me to work on walls of very different scales and contexts, from large urban surfaces to projects connected with cultural and social spaces.",
+        "Alongside my artistic practice, art education has become another part of my trajectory. Through creative workshops, I work with children and young people, sharing techniques and processes and using art as a space to experiment, make mistakes, discover and develop their own way of seeing.",
+        "Painting, murals and education have ultimately become different parts of the same trajectory — one that did not begin in a straight line and that continues to transform alongside my own understanding of painting."
+      ]
     },
     es: {
       pageTitle: "SOBRE MÍ",
       intro: "Soy Pau Canelles, artista visual y muralista nacido en Onda, Castellón, en 1999.",
-      sections: {
-        returnToPainting: {
-          number: "01",
-          tag: "RETORNO A LA PINTURA",
-          heading: "Infancia y Primeras Inquietudes",
-          paragraphs: [
-            "No siempre supe que quería dedicarme a la pintura.",
-            "De niño acabé dejando el arte de lado porque en mi entorno no había nadie con inquietudes artísticas ni espacios donde experimentar libremente. No fue hasta años después cuando sentí la necesidad de retomar los pinceles y reencontrarme con la pintura, esta vez desde la curiosidad, la libertad y la búsqueda continua de nuevas formas de trabajar la materia."
-          ]
-        },
-        identityNeoexpresivos: {
-          number: "02",
-          tag: "IDENTIDAD Y MATERIA",
-          heading: "Intuición, Gesto y Textura",
-          paragraphs: [
-            "Mi trabajo gira principalmente en torno a la construcción de la identidad, las emociones humanas y la narrativa personal.",
-            "A través del neoexpresionismo, la figuración abstracta y la pintura de materia, exploro cómo el color, las texturas rugosas y el gesto expresivo pueden capturar estados de ánimo, recuerdos y diálogos internos silenciosos que las palabras no siempre expresan.",
-            "Trabajo con acrílicos, pigmentos naturales, arena, yeso, serrín e intervenciones textiles, convirtiendo los lienzos y las superficies en bruto en mapas táctiles donde la intuición y la materia se encuentran."
-          ]
-        },
-        murals: {
-          number: "03",
-          tag: "MURALES Y ESPACIO PÚBLICO",
-          heading: "Escala, Arquitectura y Comunidad",
-          paragraphs: [
-            "Mi práctica se ha trasladado también de forma progresiva más allá del estudio, llegando a muros y espacios públicos.",
-            "Los murales me permiten trabajar a gran escala, transformando la arquitectura urbana y los entornos públicos en diálogos visuales abiertos con la comunidad. Pintar en el exterior aporta una dimensión física y monumental a mi trabajo, donde el entorno y la luz forman parte de la propia composición."
-          ]
-        },
-        artEducation: {
-          number: "04",
-          tag: "EDUCACIÓN CREATIVA",
-          heading: "Guiando Nuevas Miradas",
-          paragraphs: [
-            "Junto a mi práctica artística, la educación del arte se ha convertido en otro pilar fundamental de mi trayectoria.",
-            "Recordando mi propia experiencia de la infancia, diseño talleres creativos para niños, jóvenes y adultos. Mi objetivo es ser esa figura guía que me habría gustado encontrar de niño: alguien que guíe su curiosidad, les acerque a grandes maestros de la historia del arte (Picasso, Miró, Basquiat, Matisse, Pollock, Tàpies) y les recuerde que el arte está al alcance de todos, solo hay que atreverse a crear."
-          ]
-        }
-      },
-      closing: "La pintura, los murales y la educación se han convertido en distintas caras de una misma trayectoria: una que no empezó de forma lineal y que se sigue transformando con mi propia manera de entender la pintura."
+      sectionHeadings: [
+        { number: "01", tag: "RETORNO A LA PINTURA", heading: "Infancia y Primeras Inquietudes" },
+        { number: "02", tag: "UN CAMINO DIFERENTE", heading: "Formación y Diseño" },
+        { number: "03", tag: "REENCONTRARSE CON LA PINTURA", heading: "Volver a los 21 y la Materia" },
+        { number: "04", tag: "MATERIALIDAD E IDENTIDAD", heading: "Práctica Actual y Neoexpresivos" },
+        { number: "05", tag: "MÁS ALLÁ DEL ESTUDIO", heading: "Murales y Espacio Público" },
+        { number: "06", tag: "COMPARTIR EL PROCESO", heading: "Educación Artística" },
+        { number: "07", tag: "UNA MISMA TRAYECTORIA", heading: "Conclusión y Proceso" }
+      ],
+      paragraphs: [
+        "No siempre tuve claro que quisiera dedicarme a la pintura. De hecho, durante trece años no pinté. Dibujaba y pintaba de niño, pero alrededor de los ocho años lo dejé por completo y no volví a coger los pinceles hasta los 21.",
+        "Para entonces mi camino había ido en otra dirección. Estudié Ingeniería en Diseño Industrial y posteriormente un máster en Dirección de Equipos de Diseño, una formación que me acercó al mundo de la imagen, la composición y los procesos creativos desde una perspectiva diferente.",
+        "Mi formación como pintor, sin embargo, ha sido autodidacta, construida a través de la práctica, la experimentación y la búsqueda constante de nuevas formas de trabajar con la pintura y los materiales.",
+        "Volver a pintar a los 21 no fue retomar un plan que había dejado pendiente. Fue reencontrarme, ya de adulto, con algo que había formado parte de mí mucho tiempo atrás. Lo que comenzó como una vuelta a la pintura fue ocupando cada vez más espacio hasta terminar convirtiéndose en el centro de mi vida profesional.",
+        "Actualmente desarrollo mi práctica desde Onda, trabajando principalmente con pintura acrílica, óleo y spray. La materialidad ocupa un lugar central en mi obra: construyo superficies marcadas por capas, texturas, volúmenes e irregularidades que forman parte tanto de la imagen como de aquello que quiero contar.",
+        "Mi trabajo gira principalmente alrededor de la construcción de la identidad y de cómo aquello que vivimos va modificando quiénes somos. El entorno, las relaciones, las experiencias y los estímulos del presente dejan huellas que se acumulan, se superponen y, de alguna manera, permanecen.",
+        "Esta investigación se desarrolla actualmente en mi obra pictórica y especialmente en Neoexpresivos, un proyecto en continuo crecimiento desde el que observo la identidad de una generación que ha crecido entre profundas transformaciones sociales, tecnológicas y culturales.",
+        "Mi práctica también ha ido saliendo progresivamente del estudio. A través del mural he podido trasladar mi lenguaje a otra escala y relacionar la pintura directamente con la arquitectura, el espacio público y las personas que conviven con ella. Estos proyectos me han llevado a intervenir muros de diferentes formatos y contextos, desde grandes superficies urbanas hasta proyectos vinculados a espacios culturales y sociales.",
+        "Paralelamente, otra parte de mi trayectoria ha estado vinculada a la educación artística. A través de talleres creativos trabajo con niños y jóvenes, compartiendo técnicas y procesos y utilizando el arte como un espacio para experimentar, equivocarse, descubrir y desarrollar una mirada propia.",
+        "Pintura, mural y educación han acabado formando diferentes partes de una misma trayectoria. Una trayectoria que no comenzó de manera lineal y que continúa transformándose a medida que lo hace mi propia forma de entender la pintura."
+      ]
     }
   },
 
