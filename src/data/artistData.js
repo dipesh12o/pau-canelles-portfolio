@@ -15,7 +15,7 @@ export const ARTIST_DATA = {
   
   quote: {
     text: "El arte está al alcance de todos, solo hay que atreverse a crear.",
-    englishText: "Art is within everyone's reach, you just have to dare to create.",
+    englishText: "Cada experiencia es una capa. Debajo de quienes somos, siguen estando quienes fuimos",
     author: "Pau Canelles"
   },
 
