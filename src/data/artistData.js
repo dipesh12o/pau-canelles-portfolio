@@ -19,6 +19,105 @@ export const ARTIST_DATA = {
     author: "Pau Canelles"
   },
 
+  aboutImages: {
+    photo1: "/artworks/pau-canelles-hero-artwork.jpg", // Portrait / photo of me with one of my artworks
+    photo2: "/artworks/pau-canelles-hero-artwork.jpg", // Me working on a painting in the studio
+    photo3: "/artworks/pau-canelles-hero-artwork.jpg", // Me working on current paintings / surrounded by work
+    photo4: "/artworks/pau-canelles-hero-artwork.jpg", // Me painting a large-scale mural
+    photo5: "/artworks/pau-canelles-hero-artwork.jpg"  // Me teaching / working during creative workshops
+  },
+
+  aboutStory: {
+    en: {
+      pageTitle: "ABOUT",
+      intro: "I’m Pau Canelles, a visual artist and muralist born in Onda, Castellón, in 1999.",
+      sections: {
+        returnToPainting: {
+          number: "01",
+          tag: "RETURN TO PAINTING",
+          heading: "Childhood & Early Curiosity",
+          paragraphs: [
+            "I didn’t always know that I wanted to dedicate myself to painting.",
+            "When I was a child, I ended up setting art aside because there was no one around me with artistic interests or spaces where I could experiment freely. It wasn’t until years later that I felt the need to pick up a brush again and reconnect with painting, this time from a place of curiosity, freedom and a continuous search for new ways of working with paint and materials."
+          ]
+        },
+        identityNeoexpresivos: {
+          number: "02",
+          tag: "IDENTITY & MATERIALITY",
+          heading: "Intuition, Gesture & Texture",
+          paragraphs: [
+            "My work revolves primarily around the construction of identity, human emotion and personal narrative.",
+            "Through neo-expressionism, abstract figuration and matter painting, I explore how color, rough textures and expressive gestures can capture states of mind, memories and silent internal dialogues that words cannot always express.",
+            "I work with acrylics, earth pigments, sand, plaster, sawdust and textile interventions, turning canvas and raw surfaces into layered tactile maps where intuition and matter meet."
+          ]
+        },
+        murals: {
+          number: "03",
+          tag: "MURALS & PUBLIC SPACE",
+          heading: "Scale, Architecture & Community",
+          paragraphs: [
+            "My practice has also progressively moved beyond the studio and onto public walls.",
+            "Murals allow me to work on a large scale, transforming public architecture and urban spaces into open visual dialogues with the community. Painting outdoors brings a physical, monumental dimension to my work, where the surrounding landscape and light become part of the composition itself."
+          ]
+        },
+        artEducation: {
+          number: "04",
+          tag: "CREATIVE EDUCATION",
+          heading: "Guiding Young Minds",
+          paragraphs: [
+            "Alongside my artistic practice, art education has become another core pillar of my trajectory.",
+            "Remembering my own childhood experience, I design creative workshops for children, young minds and adults. My goal is to be that guiding figure I would have loved to meet when I was young — someone to guide their curiosity, introduce them to universal masters from art history (Picasso, Miró, Basquiat, Matisse, Pollock, Tàpies) and show them that art is within everyone's reach, you just have to dare to create."
+          ]
+        }
+      },
+      closing: "Painting, murals and education have ultimately become different parts of the same trajectory — one that did not begin in a straight line and that continues to transform alongside my own understanding of painting."
+    },
+    es: {
+      pageTitle: "SOBRE MÍ",
+      intro: "Soy Pau Canelles, artista visual y muralista nacido en Onda, Castellón, en 1999.",
+      sections: {
+        returnToPainting: {
+          number: "01",
+          tag: "RETORNO A LA PINTURA",
+          heading: "Infancia y Primeras Inquietudes",
+          paragraphs: [
+            "No siempre supe que quería dedicarme a la pintura.",
+            "De niño acabé dejando el arte de lado porque en mi entorno no había nadie con inquietudes artísticas ni espacios donde experimentar libremente. No fue hasta años después cuando sentí la necesidad de retomar los pinceles y reencontrarme con la pintura, esta vez desde la curiosidad, la libertad y la búsqueda continua de nuevas formas de trabajar la materia."
+          ]
+        },
+        identityNeoexpresivos: {
+          number: "02",
+          tag: "IDENTIDAD Y MATERIA",
+          heading: "Intuición, Gesto y Textura",
+          paragraphs: [
+            "Mi trabajo gira principalmente en torno a la construcción de la identidad, las emociones humanas y la narrativa personal.",
+            "A través del neoexpresionismo, la figuración abstracta y la pintura de materia, exploro cómo el color, las texturas rugosas y el gesto expresivo pueden capturar estados de ánimo, recuerdos y diálogos internos silenciosos que las palabras no siempre expresan.",
+            "Trabajo con acrílicos, pigmentos naturales, arena, yeso, serrín e intervenciones textiles, convirtiendo los lienzos y las superficies en bruto en mapas táctiles donde la intuición y la materia se encuentran."
+          ]
+        },
+        murals: {
+          number: "03",
+          tag: "MURALES Y ESPACIO PÚBLICO",
+          heading: "Escala, Arquitectura y Comunidad",
+          paragraphs: [
+            "Mi práctica se ha trasladado también de forma progresiva más allá del estudio, llegando a muros y espacios públicos.",
+            "Los murales me permiten trabajar a gran escala, transformando la arquitectura urbana y los entornos públicos en diálogos visuales abiertos con la comunidad. Pintar en el exterior aporta una dimensión física y monumental a mi trabajo, donde el entorno y la luz forman parte de la propia composición."
+          ]
+        },
+        artEducation: {
+          number: "04",
+          tag: "EDUCACIÓN CREATIVA",
+          heading: "Guiando Nuevas Miradas",
+          paragraphs: [
+            "Junto a mi práctica artística, la educación del arte se ha convertido en otro pilar fundamental de mi trayectoria.",
+            "Recordando mi propia experiencia de la infancia, diseño talleres creativos para niños, jóvenes y adultos. Mi objetivo es ser esa figura guía que me habría gustado encontrar de niño: alguien que guíe su curiosidad, les acerque a grandes maestros de la historia del arte (Picasso, Miró, Basquiat, Matisse, Pollock, Tàpies) y les recuerde que el arte está al alcance de todos, solo hay que atreverse a crear."
+          ]
+        }
+      },
+      closing: "La pintura, los murales y la educación se han convertido en distintas caras de una misma trayectoria: una que no empezó de forma lineal y que se sigue transformando con mi propia manera de entender la pintura."
+    }
+  },
+
   bio: {
     short: "Pau Canelles is a contemporary visual artist and creative educator. His work explores tactile abstraction, mixed media, textile intervention, and experiential workshops that make master-level art accessible to all.",
     full: [

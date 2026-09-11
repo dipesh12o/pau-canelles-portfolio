@@ -647,3 +647,300 @@
     aspect-ratio: 4 / 3 !important;
   }
 }
+
+/* ==========================================================================
+   11. ABOUT PAGE EDITORIAL VISUAL STORY STYLES
+   ========================================================================== */
+.about-editorial-page {
+  background-color: var(--color-cream-bg);
+  min-height: 100vh;
+  padding-bottom: 8rem;
+  color: var(--color-text-dark);
+}
+
+.about-header-bar {
+  background-color: var(--color-cream-bg);
+  border-bottom: 1px solid rgba(26, 25, 22, 0.08);
+  padding: 1.5rem 2rem;
+  position: sticky;
+  top: 60px;
+  z-index: 90;
+  backdrop-filter: blur(8px);
+}
+
+.about-header-inner {
+  max-width: var(--max-width-site);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about-page-tag {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-text-dark);
+  font-weight: 500;
+}
+
+.about-lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.about-lang-btn {
+  background: none;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  color: #7A756C;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  transition: color 0.3s ease;
+}
+
+.about-lang-btn.active {
+  color: var(--color-text-dark);
+  font-weight: 600;
+  border-bottom: 1px solid var(--color-text-dark);
+}
+
+.about-lang-divider {
+  color: #C0BBB3;
+  font-size: 0.8rem;
+}
+
+.about-container {
+  max-width: var(--max-width-site);
+  margin: 0 auto;
+  padding: 4rem 2rem 0 2rem;
+}
+
+/* 01 — Hero Introduction Section */
+.about-hero-section {
+  padding: 2rem 0 4rem 0;
+}
+
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-intro-statement {
+  font-family: var(--font-serif-display);
+  font-size: clamp(2rem, 3.6vw, 3.2rem);
+  line-height: 1.25;
+  color: var(--color-text-dark);
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Story Sections & Paragraph Blocks */
+.about-story-section {
+  padding: 3rem 0;
+}
+
+.about-section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.about-section-num {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: #8C8275;
+  font-weight: 600;
+}
+
+.about-section-tag {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #8C8275;
+}
+
+.about-section-heading {
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+  color: var(--color-text-dark);
+  font-weight: 400;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.about-narrative-block {
+  margin-bottom: 3.5rem;
+}
+
+.about-body-paragraph {
+  font-family: var(--font-serif-body);
+  font-size: clamp(1.05rem, 1.3vw, 1.22rem);
+  line-height: 1.85;
+  color: #2D2B26;
+  margin-bottom: 1.75rem;
+  max-width: 780px;
+}
+
+/* Photo Architecture & Asymmetric Layouts */
+.about-photo-wrapper {
+  position: relative;
+  overflow: hidden;
+  background-color: #E2DDD5;
+}
+
+.about-editorial-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-photo-wrapper:hover .about-editorial-img {
+  transform: scale(1.02);
+}
+
+.photo-caption-tag {
+  position: absolute;
+  bottom: 0.8rem;
+  left: 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  color: #FFFFFF;
+  background: rgba(26, 25, 22, 0.6);
+  backdrop-filter: blur(4px);
+  padding: 0.35rem 0.75rem;
+  text-transform: uppercase;
+}
+
+.photo-1-wrapper {
+  aspect-ratio: 4 / 5;
+  width: 100%;
+}
+
+.photo-2-wide {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  margin-top: 2.5rem;
+}
+
+.photo-3-wrapper {
+  aspect-ratio: 4 / 5;
+  width: 100%;
+}
+
+.photo-4-mural-expansive {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  margin-top: 2.5rem;
+}
+
+.photo-5-wrapper {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+}
+
+/* Asymmetric Grids */
+.about-asymmetric-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.about-asymmetric-grid.reverse {
+  grid-template-columns: 1fr 1fr;
+}
+
+.about-hairline-separator {
+  border: none;
+  border-top: 1px solid rgba(26, 25, 22, 0.1);
+  margin: 5rem 0;
+}
+
+/* 06 — Closing Section */
+.about-closing-section {
+  padding: 6rem 1.5rem;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-closing-quote {
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--color-text-dark);
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.about-closing-author {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #8C8275;
+}
+
+/* Responsive Mobile Rules for About Page */
+@media (max-width: 768px) {
+  .about-container {
+    padding: 2rem 1.25rem 0 1.25rem;
+  }
+
+  .about-header-bar {
+    top: 52px;
+    padding: 1rem 1.25rem;
+  }
+
+  .about-hero-grid,
+  .about-asymmetric-grid,
+  .about-asymmetric-grid.reverse {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+
+  .about-asymmetric-grid.reverse .about-photo-wrapper {
+    order: 2;
+  }
+
+  .about-asymmetric-grid.reverse .about-text-col {
+    order: 1;
+  }
+
+  .about-intro-statement {
+    font-size: 1.75rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .about-section-heading {
+    font-size: 1.6rem !important;
+  }
+
+  .photo-2-wide,
+  .photo-4-mural-expansive {
+    aspect-ratio: 4 / 3 !important;
+  }
+
+  .about-closing-section {
+    padding: 4rem 1rem !important;
+  }
+
+  .about-closing-quote {
+    font-size: 1.3rem !important;
+  }
+}
+

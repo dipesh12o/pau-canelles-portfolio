@@ -42,7 +42,7 @@ export default function Home({ setCurrentPage }) {
             Pau<br />CANELLES
           </h1>
           <p className="hero-bio-narrative">
-            Pau Canelles is a visual artist and creative educator. When he was a child, he set art aside because there were no spaces around him to experiment freely. Now he guides young minds in their artistic curiosity, demonstrating that art is within everyone's reach.
+            Pau Canelles (Onda, Castellón, 1999) es un artista visual y muralista cuya práctica se desarrolla principalmente a través de la pintura acrílica, el óleo y el spray. La materialidad ocupa un lugar central en su obra, construyendo superficies marcadas por la textura, el volumen y la irregularidad. Su trabajo explora la construcción de la identidad y cómo esta se transforma bajo la influencia del entorno, las relaciones y los estímulos que atraviesan la vida contemporánea.  
           </p>
         </div>
 
