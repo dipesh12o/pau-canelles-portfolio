@@ -505,6 +505,13 @@
 }
 
 @media (max-width: 768px) {
+  .works-page,
+  .murals-page,
+  .exhibitions-page,
+  .workshops-page {
+    padding-top: 1.5rem !important;
+  }
+
   /* Mobile Header: Hamburger LEFT, Instagram RIGHT */
   .header-reference {
     padding: 1.2rem 1.5rem;

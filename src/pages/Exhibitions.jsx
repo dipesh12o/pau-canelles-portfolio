@@ -54,9 +54,9 @@ export default function Exhibitions({ lang = 'es' }) {
   };
 
   return (
-    <div className="exhibitions-page site-container" style={{ paddingTop: '4.5rem', paddingBottom: '6rem' }}>
+    <div className="exhibitions-page site-container" style={{ paddingTop: '2rem', paddingBottom: '6rem' }}>
       {/* Header */}
-      <div style={{ marginBottom: '3.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+      <div style={{ marginBottom: '1.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
         <div>
           <span className="meta-label">{isEs ? 'Trayectoria & Registro Visual' : 'Trajectory & Visual Archive'}</span>
           <h1 className="heading-serif" style={{ fontSize: '2.5rem', marginTop: '0.4rem' }}>

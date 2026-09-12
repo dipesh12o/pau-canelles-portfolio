@@ -15,9 +15,9 @@ export default function Workshops({ lang = 'es', setCurrentPage }) {
   ];
 
   return (
-    <div className="workshops-page site-container" style={{ paddingTop: '4.5rem', paddingBottom: '6rem' }}>
+    <div className="workshops-page site-container" style={{ paddingTop: '2rem', paddingBottom: '6rem' }}>
       {/* 1. Page Header */}
-      <div style={{ marginBottom: '2.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+      <div style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
         <div>
           <span className="meta-label">{isEs ? 'Curso 2026 / 2027 • Onda' : '2026 / 2027 Season • Onda'}</span>
           <h1 className="heading-serif" style={{ fontSize: '2.5rem', marginTop: '0.4rem' }}>
