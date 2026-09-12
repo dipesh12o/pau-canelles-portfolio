@@ -11,18 +11,21 @@ export default function ArtworkFrame({ artwork, className = '', onClick }) {
       <div 
         className={`artwork-image-box ${className}`} 
         onClick={onClick}
-        style={{ width: '100%', height: '100%', overflow: 'hidden' }}
+        style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', background: 'transparent' }}
       >
         <img 
           src={artwork.image} 
           alt={artwork.title} 
           loading="eager"
           style={{ 
-            width: '100%', 
-            height: '100%', 
-            objectFit: 'cover', 
+            maxWidth: '100%', 
+            maxHeight: '100%', 
+            width: 'auto',
+            height: 'auto',
+            objectFit: 'contain', 
             objectPosition: 'center center',
             display: 'block',
+            margin: '0 auto',
             border: 'none',
             borderRadius: '0px'
           }}

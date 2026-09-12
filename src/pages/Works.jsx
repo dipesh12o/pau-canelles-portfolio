@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import { ARTIST_DATA } from '../data/artistData';
 import ArtworkFrame from '../components/ArtworkFrame';
 
+// Helper to filter out missing or "N/A" subtitles cleanly
+const hasSubtitle = (sub) => {
+  if (!sub) return false;
+  const trimmed = sub.trim();
+  return trimmed !== '' && trimmed.toUpperCase() !== 'N/A' && trimmed.toUpperCase() !== '[BLANK]';
+};
+
 export default function Works({ lang = 'es', onSelectArtwork }) {
   const isEs = lang === 'es';
   const artworks = ARTIST_DATA.artworks;
@@ -65,61 +72,52 @@ export default function Works({ lang = 'es', onSelectArtwork }) {
         </div>
       )}
 
-      {/* Visual Editorial Gallery Layout */}
+      {/* Symmetrical 3-Column Editorial Gallery Layout */}
       <div className="portfolio-gallery-grid">
-        {filteredArtworks.map((work, idx) => {
-          // Dynamic editorial span: first item in interval gets featured width
-          let spanClass = 'span-6';
-          if (filteredArtworks.length === 1) {
-            spanClass = 'span-8';
-          } else if (idx === 0) {
-            spanClass = 'span-8';
-          } else if (idx % 3 === 1) {
-            spanClass = 'span-4';
-          } else {
-            spanClass = 'span-6';
-          }
-
-          return (
-            <div
-              key={work.id}
-              className={`portfolio-item ${spanClass}`}
-              onClick={() => handleArtworkClick(work)}
-              style={{ cursor: 'pointer' }}
-              tabIndex={0}
-              role="button"
-              aria-label={`${work.title} (${work.year})`}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  handleArtworkClick(work);
-                }
-              }}
-            >
-              <div className="portfolio-image-wrapper">
-                <ArtworkFrame artwork={work} />
-              </div>
-              <div className="portfolio-meta-clean">
-                <div>
-                  <h3 className="portfolio-artwork-title">{work.title}</h3>
-                  <span className="portfolio-artwork-sub">{work.medium}</span>
-                </div>
-                <div style={{ textAlign: 'right' }}>
-                  {work.dimensions && (
-                    <span className="portfolio-artwork-sub" style={{ fontSize: '0.78rem', color: '#8C8275' }}>
-                      {work.dimensions}
-                    </span>
-                  )}
-                  <span className="portfolio-artwork-sub" style={{ fontWeight: 500, marginTop: '0.15rem' }}>
-                    {work.year}
+        {filteredArtworks.map((work) => (
+          <div
+            key={work.id}
+            className="portfolio-item"
+            onClick={() => handleArtworkClick(work)}
+            tabIndex={0}
+            role="button"
+            aria-label={`${work.title} (${work.year})`}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleArtworkClick(work);
+              }
+            }}
+          >
+            <div className="portfolio-image-wrapper">
+              <ArtworkFrame artwork={work} />
+            </div>
+            <div className="portfolio-meta-clean">
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <h3 className="portfolio-artwork-title">{work.title}</h3>
+                {hasSubtitle(work.subtitle) && (
+                  <span className="portfolio-artwork-sub font-italic" style={{ color: '#7A756C', fontSize: '0.82rem', marginBottom: '0.15rem', display: 'block' }}>
+                    {work.subtitle}
                   </span>
-                </div>
+                )}
+                <span className="portfolio-artwork-sub" style={{ fontSize: '0.8rem', color: '#666', lineHeight: 1.3 }}>
+                  {work.technique || work.medium}
+                </span>
+              </div>
+              <div style={{ textAlign: 'right', flexShrink: 0, paddingLeft: '0.5rem' }}>
+                {work.dimensions && (
+                  <span className="portfolio-artwork-sub" style={{ fontSize: '0.78rem', color: '#8C8275', display: 'block' }}>
+                    {work.dimensions}
+                  </span>
+                )}
+                <span className="portfolio-artwork-sub" style={{ fontWeight: 500, fontSize: '0.8rem', marginTop: '0.15rem', display: 'block' }}>
+                  {work.year}
+                </span>
               </div>
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
     </div>
   );
 }
-

@@ -45,10 +45,10 @@ export default function Home({ setCurrentPage, lang = 'es', onSelectArtwork }) {
 
         <div 
           className="hero-right-image-container img-container-hover" 
-          onClick={() => onSelectArtwork && onSelectArtwork(ARTIST_DATA.artworks[0])}
+          onClick={() => onSelectArtwork && onSelectArtwork(ARTIST_DATA.heroArtwork || ARTIST_DATA.artworks[0])}
           style={{ cursor: 'pointer' }}
         >
-          <ArtworkFrame artwork={ARTIST_DATA.artworks[0]} />
+          <ArtworkFrame artwork={ARTIST_DATA.heroArtwork || ARTIST_DATA.artworks[0]} />
 
           {/* Mobile Overlay */}
           <div className="mobile-hero-overlay">

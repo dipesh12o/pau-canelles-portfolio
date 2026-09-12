@@ -18,6 +18,19 @@ export const ARTIST_DATA = {
     author: "Pau Canelles"
   },
 
+  heroArtwork: {
+    id: "art-hero",
+    title: "Materia y Silencio",
+    category: "Matter & Abstraction",
+    medium: "Acrylic, earth pigments, and fine sand on stretched canvas",
+    dimensions: "120 × 100 cm",
+    year: "2025",
+    image: "/artworks/pau-canelles-hero-artwork.jpg",
+    aspectRatio: "portrait",
+    featured: true,
+    description: "Exploration of tactile surfaces through layered earth pigments, heavy impasto, and vivid magenta-pink contours. A powerful visual meditation on texture, expression, and human presence."
+  },
+
   aboutImages: {
     photo1: "/artworks/pau-canelles-hero-artwork.jpg",
     photo2: "/artworks/pau-canelles-hero-artwork.jpg",
@@ -74,52 +87,246 @@ export const ARTIST_DATA = {
 
   artworks: [
     {
-      id: "art-01",
-      title: "Materia y Silencio",
+      id: "art-completo",
+      title: "Así fué",
+      subtitle: "Lo que queda",
       category: "Matter & Abstraction",
-      medium: "Acrylic, earth pigments, and fine sand on stretched canvas",
-      dimensions: "120 × 100 cm",
-      year: "2025",
-      image: "/artworks/pau-canelles-hero-artwork.jpg", // Authentic uploaded client artwork
-      aspectRatio: "portrait",
-      featured: true,
-      description: "Exploration of tactile surfaces through layered earth pigments, heavy impasto, and vivid magenta-pink contours. A powerful visual meditation on texture, expression, and human presence."
-    },
-    {
-      id: "art-02",
-      title: "Ritmos de Luz Mironiana",
-      category: "Masters Tribute",
-      medium: "India ink and raw acrylic on rustic etching paper",
-      dimensions: "80 × 60 cm",
-      year: "2025",
-      image: "/artworks/pau-canelles-hero-artwork.jpg",
+      technique: "Acrílico, óleo, escayola y arena sobre panel XPS",
+      medium: "Acrílico, óleo, escayola y arena sobre panel XPS",
+      dimensions: "125x60 cm",
+      year: "2026",
+      edition: "Pieza única",
+      image: "/artworks/completo.png",
+      detailImages: [
+        "/artworks/asi-fue.jpg",
+        "/artworks/asi-fue-detail-1.jpg",
+        "/artworks/asi-fue-detail-2.jpg"
+      ],
+      images: [
+        "/artworks/completo.png",
+        "/artworks/asi-fue.jpg",
+        "/artworks/asi-fue-detail-1.jpg",
+        "/artworks/asi-fue-detail-2.jpg"
+      ],
       aspectRatio: "landscape",
-      featured: true,
-      description: "Chromatic study inspired by Joan Miró's poetic visual universe. Floating primary shapes in dialogue with lyrical line work."
+      featured: true
     },
     {
-      id: "art-03",
-      title: "Gesto Urbano N.º 4",
-      category: "Neo-Expressionism",
-      medium: "Water-based spray paint, oil stick, and acrylic on heavy canvas",
-      dimensions: "140 × 110 cm",
-      year: "2024",
-      image: "/artworks/pau-canelles-hero-artwork.jpg",
-      aspectRatio: "portrait",
-      featured: true,
-      description: "Large-format canvas inspired by Jean-Michel Basquiat's raw urban energy. Incorporates spontaneous script, symbolic icons, and neon accents."
-    },
-    {
-      id: "art-04",
-      title: "Construcción Cubista",
-      category: "Masters Tribute",
-      medium: "Mixed media, gouache, and paper cutouts on wood panel",
-      dimensions: "90 × 90 cm",
-      year: "2025",
-      image: "/artworks/pau-canelles-hero-artwork.jpg",
+      id: "art-completo-mini",
+      title: "Mientras todo pasaba",
+      subtitle: "La mirada de quien no podia hacer nada",
+      category: "Matter & Abstraction",
+      technique: "Óleo y acrílico sobre lienzo",
+      medium: "Óleo y acrílico sobre lienzo",
+      dimensions: "50x76 cm",
+      year: "2026",
+      edition: "Pieza única",
+      image: "/artworks/completo-mini.png",
+      detailImages: [
+        "/artworks/mientras-todo-pasaba-detail-1.jpg",
+        "/artworks/mientras-todo-pasaba-detail-2.jpg"
+      ],
+      images: [
+        "/artworks/completo-mini.png",
+        "/artworks/mientras-todo-pasaba-detail-1.jpg",
+        "/artworks/mientras-todo-pasaba-detail-2.jpg"
+      ],
       aspectRatio: "square",
-      featured: false,
-      description: "Reinterpretation of synthetic cubism's faceted geometry. Balanced interplay between geometric planes and warm chromatic tones."
+      featured: true
+    },
+    {
+      id: "art-corona-de-espinas",
+      title: "Corona de espinas",
+      subtitle: "Hastío o te ostio",
+      category: "Masters Tribute",
+      technique: "Acrílico, óleo, spray y arena sobre lienzo",
+      medium: "Acrílico, óleo, spray y arena sobre lienzo",
+      dimensions: "70x52 cm",
+      year: "2026",
+      edition: "Pieza única",
+      image: "/artworks/corona-de-espinas-completo.png",
+      detailImages: [
+        "/artworks/corona-de-espinas-detail-1.jpg",
+        "/artworks/corona-de-espinas-detail-2.jpg",
+        "/artworks/corona-de-espinas-detail-3.jpg",
+        "/artworks/corona-de-espinas-detail-4.jpg"
+      ],
+      images: [
+        "/artworks/corona-de-espinas-completo.png",
+        "/artworks/corona-de-espinas-detail-1.jpg",
+        "/artworks/corona-de-espinas-detail-2.jpg",
+        "/artworks/corona-de-espinas-detail-3.jpg",
+        "/artworks/corona-de-espinas-detail-4.jpg"
+      ],
+      aspectRatio: "square",
+      featured: true
+    },
+    {
+      id: "art-empachamama",
+      title: "Empacha mama",
+      category: "Neo-Expressionism",
+      technique: "Óleo, spray y acrílico sobre lienzo",
+      medium: "Óleo, spray y acrílico sobre lienzo",
+      dimensions: "90x72 cm",
+      year: "2026",
+      edition: "Pieza única",
+      image: "/artworks/empachamama-completo.png",
+      detailImages: [
+        "/artworks/empachamama-detail-1.jpg",
+        "/artworks/empachamama-detail-2.jpg"
+      ],
+      images: [
+        "/artworks/empachamama-completo.png",
+        "/artworks/empachamama-detail-1.jpg",
+        "/artworks/empachamama-detail-2.jpg"
+      ],
+      aspectRatio: "portrait",
+      featured: true
+    },
+    {
+      id: "art-entre-rabia-y-pena",
+      title: "Entre rabia y pena",
+      subtitle: "Brecha",
+      category: "Neo-Expressionism",
+      technique: "Óleo, spray, yeso y acrílico sobre panel de XPS",
+      medium: "Óleo, spray, yeso y acrílico sobre panel de XPS",
+      dimensions: "125x60x4 cm",
+      year: "2026",
+      edition: "Pieza única",
+      image: "/artworks/entre-rabia-y-pena.png",
+      detailImages: [
+        "/artworks/entre-rabia-y-pena-detail-1.jpg",
+        "/artworks/entre-rabia-y-pena-detail-2.jpg",
+        "/artworks/entre-rabia-y-pena-detail-3.jpg"
+      ],
+      images: [
+        "/artworks/entre-rabia-y-pena.png",
+        "/artworks/entre-rabia-y-pena-detail-1.jpg",
+        "/artworks/entre-rabia-y-pena-detail-2.jpg",
+        "/artworks/entre-rabia-y-pena-detail-3.jpg"
+      ],
+      aspectRatio: "portrait",
+      featured: true
+    },
+    {
+      id: "art-fragil",
+      title: "Frágil",
+      category: "Tactile Abstraction",
+      technique: "Óleo, spray y acrílico sobre tabla",
+      medium: "Óleo, spray y acrílico sobre tabla",
+      dimensions: "40x80 cm",
+      year: "2026",
+      edition: "Pieza única",
+      image: "/artworks/fragil.png",
+      detailImages: [
+        "/artworks/fragil-detail-1.jpg",
+        "/artworks/fragil-detail-2.jpg",
+        "/artworks/fragil-detail-3.jpg"
+      ],
+      images: [
+        "/artworks/fragil.png",
+        "/artworks/fragil-detail-1.jpg",
+        "/artworks/fragil-detail-2.jpg",
+        "/artworks/fragil-detail-3.jpg"
+      ],
+      aspectRatio: "portrait",
+      featured: true
+    },
+    {
+      id: "art-pienso-en-mi-pension",
+      title: "Pienso en mi pensión",
+      subtitle: "El papá Noel de los trabajadores",
+      category: "Neo-Expressionism",
+      technique: "Acrílico, óleo y arena sobre lienzo",
+      medium: "Acrílico, óleo y arena sobre lienzo",
+      dimensions: "70x59 cm",
+      year: "2026",
+      finish: "Barniz satinado",
+      edition: "Pieza única",
+      description: "Me resulta especialmente frustrante observar un sistema de pensiones cuya sostenibilidad se enfrenta a una pirámide poblacional cada vez más desequilibrada. Crecer contribuyendo a un sistema más aumenta la incertidumbre sobre si nosotros podremos beneficiarnos de él algún día, genera una mezcla de rabia, impotencia y desconfianza hacia el futuro.",
+      image: "/artworks/pienso-en-mi-pension.png",
+      detailImages: [
+        "/artworks/pienso-en-mi-pension-detail-1.jpg"
+      ],
+      images: [
+        "/artworks/pienso-en-mi-pension.png",
+        "/artworks/pienso-en-mi-pension-detail-1.jpg"
+      ],
+      aspectRatio: "portrait",
+      featured: true
+    },
+    {
+      id: "art-dsc-1360",
+      title: "Retrato abrupto 3",
+      subtitle: "N/A",
+      category: "Neo-Expressionism",
+      technique: "Óleo, spray, yeso y acrílico sobre panel de XPS",
+      medium: "Óleo, spray, yeso y acrílico sobre panel de XPS",
+      dimensions: "125x60x4 cm",
+      year: "2026",
+      edition: "Pieza única",
+      image: "/artworks/dsc-1360.png",
+      detailImages: [
+        "/artworks/retrato-abrupto-3-detail-1.jpg",
+        "/artworks/retrato-abrupto-3-detail-2.jpg"
+      ],
+      images: [
+        "/artworks/dsc-1360.png",
+        "/artworks/retrato-abrupto-3-detail-1.jpg",
+        "/artworks/retrato-abrupto-3-detail-2.jpg"
+      ],
+      aspectRatio: "portrait",
+      featured: true
+    },
+    {
+      id: "art-dsc-1370",
+      title: "Retrato abrupto 2",
+      subtitle: "N/A",
+      category: "Matter & Abstraction",
+      technique: "Óleo, spray, yeso y acrílico sobre panel de XPS",
+      medium: "Óleo, spray, yeso y acrílico sobre panel de XPS",
+      dimensions: "125x60x4 cm",
+      year: "2026",
+      edition: "Pieza única",
+      image: "/artworks/dsc-1370.png",
+      detailImages: [
+        "/artworks/retrato-abrupto-2-detail-1.jpg",
+        "/artworks/retrato-abrupto-2-detail-2.jpg",
+        "/artworks/retrato-abrupto-2-detail-3.jpg"
+      ],
+      images: [
+        "/artworks/dsc-1370.png",
+        "/artworks/retrato-abrupto-2-detail-1.jpg",
+        "/artworks/retrato-abrupto-2-detail-2.jpg",
+        "/artworks/retrato-abrupto-2-detail-3.jpg"
+      ],
+      aspectRatio: "portrait",
+      featured: true
+    },
+    {
+      id: "art-retratos-abruptos-1-amarillo",
+      title: "Retrato abrupto 1",
+      subtitle: "N/A",
+      category: "Matter & Abstraction",
+      technique: "Óleo, spray, yeso y acrílico sobre panel de XPS",
+      medium: "Óleo, spray, yeso y acrílico sobre panel de XPS",
+      dimensions: "125x60x4 cm",
+      year: "2026",
+      edition: "Pieza única",
+      image: "/artworks/retratos-abruptos-1-amarillo.png",
+      detailImages: [
+        "/artworks/retrato-abrupto-1-detail-1.jpg",
+        "/artworks/retrato-abrupto-1-detail-2.jpg",
+        "/artworks/retrato-abrupto-1-detail-3.jpg"
+      ],
+      images: [
+        "/artworks/retratos-abruptos-1-amarillo.png",
+        "/artworks/retrato-abrupto-1-detail-1.jpg",
+        "/artworks/retrato-abrupto-1-detail-2.jpg",
+        "/artworks/retrato-abrupto-1-detail-3.jpg"
+      ],
+      aspectRatio: "portrait",
+      featured: true
     }
   ]
 };

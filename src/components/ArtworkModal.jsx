@@ -2,12 +2,20 @@ import React, { useState, useEffect, useRef } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { ARTIST_DATA } from '../data/artistData';
 
+// Helper to filter out missing or "N/A" subtitles cleanly
+const hasSubtitle = (sub) => {
+  if (!sub) return false;
+  const trimmed = sub.trim();
+  return trimmed !== '' && trimmed.toUpperCase() !== 'N/A' && trimmed.toUpperCase() !== '[BLANK]';
+};
+
 export default function ArtworkModal({ artwork, item, itemList, activeImgIndex = 0, onClose, onSelectArtwork, lang = 'es' }) {
   const currentItem = artwork || item;
   const items = itemList || ARTIST_DATA.artworks;
   const currentIndex = items.findIndex(a => a.id === currentItem?.id);
+  const isEs = lang === 'es';
 
-  // Extract all available images for multi-image projects (murals, exhibitions)
+  // Extract all available images (main image first, followed by detail photos)
   const imageList = currentItem?.images || (currentItem?.mainImage ? [currentItem.mainImage, ...(currentItem.detailImages || [])] : (currentItem?.image ? [currentItem.image] : []));
   
   const [currentImgIndex, setCurrentImgIndex] = useState(activeImgIndex);
@@ -19,9 +27,7 @@ export default function ArtworkModal({ artwork, item, itemList, activeImgIndex =
 
   const handlePrev = (e) => {
     if (e) e.stopPropagation();
-    if (imageList.length > 1) {
-      setCurrentImgIndex((prev) => (prev - 1 + imageList.length) % imageList.length);
-    } else if (currentIndex > -1) {
+    if (currentIndex > -1 && items.length > 1) {
       const prevIndex = (currentIndex - 1 + items.length) % items.length;
       if (onSelectArtwork) onSelectArtwork(items[prevIndex]);
     }
@@ -29,9 +35,7 @@ export default function ArtworkModal({ artwork, item, itemList, activeImgIndex =
 
   const handleNext = (e) => {
     if (e) e.stopPropagation();
-    if (imageList.length > 1) {
-      setCurrentImgIndex((prev) => (prev + 1) % imageList.length);
-    } else if (currentIndex > -1) {
+    if (currentIndex > -1 && items.length > 1) {
       const nextIndex = (currentIndex + 1) % items.length;
       if (onSelectArtwork) onSelectArtwork(items[nextIndex]);
     }
@@ -78,6 +82,12 @@ export default function ArtworkModal({ artwork, item, itemList, activeImgIndex =
 
   const currentDisplayImage = imageList[currentImgIndex] || imageList[0];
 
+  const whatsappMessage = isEs 
+    ? `Hola Pau, me gustaría consultar información sobre la obra "${currentItem.title}".`
+    : `Hello Pau, I would like to inquire about the artwork "${currentItem.title}".`;
+  
+  const whatsappUrl = `https://wa.me/34619755639?text=${encodeURIComponent(whatsappMessage)}`;
+
   return (
     <div 
       className="artwork-lightbox-overlay" 
@@ -87,109 +97,172 @@ export default function ArtworkModal({ artwork, item, itemList, activeImgIndex =
       aria-label={currentItem.title}
     >
       <div className="artwork-lightbox-container" onClick={(e) => e.stopPropagation()}>
-        {/* Top Minimal Control Bar */}
+        {/* Top Control Bar */}
         <div className="lightbox-top-bar">
           <div className="lightbox-counter">
-            {imageList.length > 1 
-              ? `${currentImgIndex + 1} / ${imageList.length}`
-              : (currentIndex >= 0 ? `${currentIndex + 1} / ${items.length}` : '')}
+            {currentIndex >= 0 ? `${currentIndex + 1} / ${items.length}` : ''}
           </div>
 
           <div className="lightbox-nav-center">
-            <button 
-              className="lightbox-nav-btn" 
-              onClick={handlePrev}
-              aria-label={lang === 'es' ? 'Anterior' : 'Previous'}
-              type="button"
-            >
-              <ChevronLeft size={20} />
-            </button>
-            <button 
-              className="lightbox-nav-btn" 
-              onClick={handleNext}
-              aria-label={lang === 'es' ? 'Siguiente' : 'Next'}
-              type="button"
-            >
-              <ChevronRight size={20} />
-            </button>
+            {items.length > 1 && (
+              <>
+                <button 
+                  className="lightbox-nav-btn" 
+                  onClick={handlePrev}
+                  aria-label={isEs ? 'Anterior' : 'Previous'}
+                  type="button"
+                >
+                  <ChevronLeft size={20} />
+                </button>
+                <button 
+                  className="lightbox-nav-btn" 
+                  onClick={handleNext}
+                  aria-label={isEs ? 'Siguiente' : 'Next'}
+                  type="button"
+                >
+                  <ChevronRight size={20} />
+                </button>
+              </>
+            )}
           </div>
 
           <button 
             className="lightbox-close-btn" 
             onClick={onClose}
-            aria-label={lang === 'es' ? 'Cerrar vista' : 'Close view'}
+            aria-label={isEs ? 'Cerrar vista' : 'Close view'}
             type="button"
           >
             <X size={22} />
           </button>
         </div>
 
-        {/* Center Artwork / Project Image View Area */}
-        <div 
-          className="lightbox-image-stage"
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-        >
-          {/* Side Nav Arrows (Desktop) */}
-          <button 
-            className="lightbox-side-nav prev" 
-            onClick={handlePrev}
-            aria-label={lang === 'es' ? 'Anterior' : 'Previous'}
-            type="button"
-          >
-            <ChevronLeft size={28} />
-          </button>
+        {/* 2-Column Split Stage: Left Large Image + Thumbnails, Right Metadata + CTA */}
+        <div className="lightbox-detail-split-grid">
+          {/* Side Nav Prev Arrow (Desktop) */}
+          {items.length > 1 && (
+            <button 
+              className="lightbox-side-nav prev" 
+              onClick={handlePrev}
+              aria-label={isEs ? 'Anterior' : 'Previous'}
+              type="button"
+            >
+              <ChevronLeft size={24} />
+            </button>
+          )}
 
-          <div className="lightbox-image-wrapper">
-            {currentDisplayImage && currentDisplayImage !== 'null' ? (
-              <img 
-                src={currentDisplayImage} 
-                alt={`${currentItem.title} — Pau Canelles`} 
-                className="lightbox-img" 
-              />
-            ) : (
-              <div className="lightbox-fallback-frame">
-                <span className="lightbox-fallback-cat">{currentItem.category || currentItem.venue || 'Artwork'}</span>
-                <h3 className="lightbox-fallback-title">{currentItem.title}</h3>
-                <p className="lightbox-fallback-medium">{currentItem.medium || currentItem.technique}</p>
-                <span className="lightbox-fallback-dim">
-                  {[currentItem.dimensions, currentItem.year].filter(Boolean).join(' • ')}
-                </span>
+          {/* LEFT COLUMN: Main Image Stage & Thumbnail Bar */}
+          <div className="lightbox-left-stage" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+            <div className="lightbox-main-img-box">
+              {currentDisplayImage && currentDisplayImage !== 'null' ? (
+                <img 
+                  src={currentDisplayImage} 
+                  alt={`${currentItem.title} — Pau Canelles`} 
+                  className="lightbox-img-contain" 
+                />
+              ) : (
+                <div className="lightbox-fallback-frame">
+                  <span className="lightbox-fallback-cat">{currentItem.category || (isEs ? 'Obra' : 'Artwork')}</span>
+                  <h3 className="lightbox-fallback-title">{currentItem.title}</h3>
+                  <p className="lightbox-fallback-medium">{currentItem.technique || currentItem.medium}</p>
+                </div>
+              )}
+            </div>
+
+            {/* Thumbnail Row: Only shown if multiple images exist */}
+            {imageList.length > 1 && (
+              <div className="lightbox-thumbnails-row">
+                {imageList.map((imgSrc, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    className={`lightbox-thumb-btn ${currentImgIndex === idx ? 'active' : ''}`}
+                    onClick={() => setCurrentImgIndex(idx)}
+                    aria-label={`Ver foto ${idx + 1}`}
+                  >
+                    <img src={imgSrc} alt={`${currentItem.title} detalle ${idx + 1}`} />
+                  </button>
+                ))}
               </div>
             )}
           </div>
 
-          <button 
-            className="lightbox-side-nav next" 
-            onClick={handleNext}
-            aria-label={lang === 'es' ? 'Siguiente' : 'Next'}
-            type="button"
-          >
-            <ChevronRight size={28} />
-          </button>
-        </div>
+          {/* RIGHT COLUMN: Artwork Metadata & Enquiry CTA */}
+          <div className="lightbox-right-info">
+            <div className="lightbox-info-content">
+              <span className="lightbox-category-tag">{currentItem.category || (isEs ? 'Colección' : 'Collection')}</span>
+              
+              <h2 className="lightbox-artwork-title">{currentItem.title}</h2>
+              
+              {hasSubtitle(currentItem.subtitle) && (
+                <p className="lightbox-artwork-subtitle">
+                  {currentItem.subtitle}
+                </p>
+              )}
 
-        {/* Discreet Metadata Footer */}
-        <div className="lightbox-discreet-meta">
-          <h2 className="lightbox-artwork-title">{currentItem.title}</h2>
+              {(currentItem.technique || currentItem.medium) && (
+                <p className="lightbox-artwork-medium">
+                  {currentItem.technique || currentItem.medium}
+                </p>
+              )}
 
-          {(currentItem.medium || currentItem.technique) && (
-            <p className="lightbox-artwork-medium">{currentItem.medium || currentItem.technique}</p>
-          )}
+              {/* Stacked Specs Block */}
+              <div className="lightbox-specs-block">
+                {currentItem.dimensions && (
+                  <div className="lightbox-spec-item">
+                    <span className="spec-label">{isEs ? 'Medidas' : 'Dimensions'}:</span>
+                    <span className="spec-value">{currentItem.dimensions}</span>
+                  </div>
+                )}
+                {currentItem.year && (
+                  <div className="lightbox-spec-item">
+                    <span className="spec-label">{isEs ? 'Año' : 'Year'}:</span>
+                    <span className="spec-value">{currentItem.year}</span>
+                  </div>
+                )}
+                {currentItem.finish && (
+                  <div className="lightbox-spec-item">
+                    <span className="spec-label">{isEs ? 'Acabado' : 'Finish'}:</span>
+                    <span className="spec-value">{currentItem.finish}</span>
+                  </div>
+                )}
+                {currentItem.edition && (
+                  <div className="lightbox-spec-item">
+                    <span className="spec-label">{isEs ? 'Edición' : 'Edition'}:</span>
+                    <span className="spec-value">{currentItem.edition}</span>
+                  </div>
+                )}
+              </div>
 
-          <div className="lightbox-artwork-specs">
-            {currentItem.location && <span>{currentItem.location}</span>}
-            {currentItem.venue && <span>{currentItem.venue}{currentItem.city ? `, ${currentItem.city}` : ''}</span>}
-            {(currentItem.location || currentItem.venue) && currentItem.dimensions && <span className="meta-sep">&bull;</span>}
-            {currentItem.dimensions && <span>{currentItem.dimensions}</span>}
-            {(currentItem.location || currentItem.venue || currentItem.dimensions) && currentItem.year && <span className="meta-sep">&bull;</span>}
-            {currentItem.year && <span>{currentItem.year}</span>}
+              {currentItem.description && (
+                <div className="lightbox-description-block">
+                  <p>{currentItem.description}</p>
+                </div>
+              )}
+
+              {/* Action / Enquiry Button */}
+              <div className="lightbox-cta-wrapper">
+                <a 
+                  href={whatsappUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="lightbox-enquiry-btn"
+                >
+                  {isEs ? 'CONSULTAR SOBRE ESTA OBRA' : 'ENQUIRE ABOUT THIS ARTWORK'}
+                </a>
+              </div>
+            </div>
           </div>
 
-          {currentItem.description && (
-            <p style={{ fontFamily: 'var(--font-serif-body)', fontSize: '0.88rem', color: '#B5B0A4', marginTop: '0.4rem', lineHeight: '1.4' }}>
-              {currentItem.description}
-            </p>
+          {/* Side Nav Next Arrow (Desktop) */}
+          {items.length > 1 && (
+            <button 
+              className="lightbox-side-nav next" 
+              onClick={handleNext}
+              aria-label={isEs ? 'Siguiente' : 'Next'}
+              type="button"
+            >
+              <ChevronRight size={24} />
+            </button>
           )}
         </div>
       </div>
