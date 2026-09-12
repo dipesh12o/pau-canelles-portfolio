@@ -247,6 +247,71 @@
 }
 
 /* Curated Editorial Portfolio Gallery Architecture */
+/* Portfolio Year Interval Navigation */
+.portfolio-year-nav {
+  display: flex;
+  gap: 1.75rem;
+  align-items: center;
+  margin: 0 auto 2rem auto;
+  max-width: 1200px;
+  width: 100%;
+  border-bottom: 1px solid rgba(252, 232, 210, 0.15);
+  padding-bottom: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.portfolio-year-nav .portfolio-year-btn,
+.portfolio-year-btn {
+  background: transparent !important;
+  border: none !important;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  color: rgba(252, 232, 210, 0.75) !important;
+  cursor: pointer;
+  padding: 0.4rem 0.2rem;
+  position: relative;
+  transition: color 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  opacity: 1 !important;
+}
+
+.portfolio-year-nav .portfolio-year-btn:hover,
+.portfolio-year-btn:hover {
+  color: #FFFFFF !important;
+  background: transparent !important;
+  font-weight: 500;
+  opacity: 1 !important;
+}
+
+.portfolio-year-nav .portfolio-year-btn:focus-visible,
+.portfolio-year-btn:focus-visible {
+  outline: 2px solid #FCE8D2 !important;
+  outline-offset: 3px;
+  border-radius: 2px;
+  color: #FFFFFF !important;
+  background: transparent !important;
+}
+
+.portfolio-year-nav .portfolio-year-btn.active,
+.portfolio-year-btn.active {
+  color: #FCE8D2 !important;
+  font-weight: 600;
+  opacity: 1 !important;
+}
+
+.portfolio-year-nav .portfolio-year-btn.active::after,
+.portfolio-year-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -0.85rem;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #FCE8D2 !important;
+}
+
 .portfolio-gallery-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -261,6 +326,10 @@
   justify-content: space-between;
   cursor: pointer;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-item.span-8 {
+  grid-column: span 8;
 }
 
 .portfolio-item.span-6 {
