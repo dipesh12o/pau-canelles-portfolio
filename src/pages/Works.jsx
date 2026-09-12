@@ -2,13 +2,6 @@ import React, { useState } from 'react';
 import { ARTIST_DATA } from '../data/artistData';
 import ArtworkFrame from '../components/ArtworkFrame';
 
-// Helper to filter out missing or "N/A" subtitles cleanly
-const hasSubtitle = (sub) => {
-  if (!sub) return false;
-  const trimmed = sub.trim();
-  return trimmed !== '' && trimmed.toUpperCase() !== 'N/A' && trimmed.toUpperCase() !== '[BLANK]';
-};
-
 export default function Works({ lang = 'es', onSelectArtwork }) {
   const isEs = lang === 'es';
   const artworks = ARTIST_DATA.artworks;
@@ -42,15 +35,7 @@ export default function Works({ lang = 'es', onSelectArtwork }) {
     : artworks.filter((a) => getYearInterval(a.year) === selectedInterval);
 
   return (
-    <div className="works-page site-container" style={{ paddingTop: '0.5rem', paddingBottom: '5rem' }}>
-      {/* Portfolio Header */}
-      <div style={{ marginBottom: '1.25rem', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', maxWidth: '1200px', margin: '0 auto 1.25rem auto' }}>
-        <h1 className="heading-serif" style={{ fontSize: '1.75rem', margin: 0 }}>
-          {isEs ? 'Portafolio' : 'Portfolio'}
-        </h1>
-        <span className="meta-label">Pau Canelles &bull; {isEs ? 'Colección' : 'Collection'}</span>
-      </div>
-
+    <div className="works-page site-container" style={{ paddingTop: '1.5rem', paddingBottom: '5rem' }}>
       {/* Year-Wise Portfolio Navigation Row */}
       {availableIntervals.length > 0 && (
         <div className="portfolio-year-nav">
@@ -74,7 +59,7 @@ export default function Works({ lang = 'es', onSelectArtwork }) {
 
       {/* Symmetrical 3-Column Editorial Gallery Layout */}
       <div className="portfolio-gallery-grid">
-        {filteredArtworks.map((work) => (
+        {filteredArtworks.map((work, idx) => (
           <div
             key={work.id}
             className="portfolio-item"
@@ -90,30 +75,12 @@ export default function Works({ lang = 'es', onSelectArtwork }) {
             }}
           >
             <div className="portfolio-image-wrapper">
-              <ArtworkFrame artwork={work} />
+              <ArtworkFrame artwork={work} isPriority={idx < 6} />
             </div>
+            
+            {/* Title-only block directly underneath the artwork image */}
             <div className="portfolio-meta-clean">
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <h3 className="portfolio-artwork-title">{work.title}</h3>
-                {hasSubtitle(work.subtitle) && (
-                  <span className="portfolio-artwork-sub font-italic" style={{ color: '#7A756C', fontSize: '0.82rem', marginBottom: '0.15rem', display: 'block' }}>
-                    {work.subtitle}
-                  </span>
-                )}
-                <span className="portfolio-artwork-sub" style={{ fontSize: '0.8rem', color: '#666', lineHeight: 1.3 }}>
-                  {work.technique || work.medium}
-                </span>
-              </div>
-              <div style={{ textAlign: 'right', flexShrink: 0, paddingLeft: '0.5rem' }}>
-                {work.dimensions && (
-                  <span className="portfolio-artwork-sub" style={{ fontSize: '0.78rem', color: '#8C8275', display: 'block' }}>
-                    {work.dimensions}
-                  </span>
-                )}
-                <span className="portfolio-artwork-sub" style={{ fontWeight: 500, fontSize: '0.8rem', marginTop: '0.15rem', display: 'block' }}>
-                  {work.year}
-                </span>
-              </div>
+              <h3 className="portfolio-artwork-title">{work.title}</h3>
             </div>
           </div>
         ))}

@@ -1,22 +1,33 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 /**
  * Gallery-grade architectural artwork frame component.
- * Renders high-res image when available, or an elegant gallery canvas frame
- * displaying authentic artwork specs when direct client image files are pending upload.
+ * Renders artwork image with performance optimizations (lazy loading for below-fold items, async decoding)
+ * while preserving complete uncropped aspect ratios.
  */
-export default function ArtworkFrame({ artwork, className = '', onClick }) {
+const ArtworkFrame = memo(function ArtworkFrame({ artwork, className = '', isPriority = false, onClick }) {
   if (artwork.image && artwork.image !== 'null') {
     return (
       <div 
         className={`artwork-image-box ${className}`} 
         onClick={onClick}
-        style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', background: 'transparent' }}
+        style={{ 
+          width: '100%', 
+          height: '100%', 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'center', 
+          overflow: 'hidden', 
+          background: 'transparent' 
+        }}
       >
         <img 
           src={artwork.image} 
           alt={artwork.title} 
-          loading="eager"
+          loading={isPriority ? 'eager' : 'lazy'}
+          fetchPriority={isPriority ? 'high' : 'low'}
+          decoding="async"
+          sizes="(max-width: 640px) 100vw, (max-width: 992px) 50vw, 400px"
           style={{ 
             maxWidth: '100%', 
             maxHeight: '100%', 
@@ -76,9 +87,11 @@ export default function ArtworkFrame({ artwork, className = '', onClick }) {
           {artwork.dimensions}
         </span>
         <span style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.15em', fontWeight: 500, color: '#0D0D0D' }}>
-          View Details &rarr;
+          Ver Detalles &rarr;
         </span>
       </div>
     </div>
   );
-}
+});
+
+export default ArtworkFrame;

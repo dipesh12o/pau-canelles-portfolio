@@ -25,7 +25,7 @@ export const ARTIST_DATA = {
     medium: "Acrylic, earth pigments, and fine sand on stretched canvas",
     dimensions: "120 × 100 cm",
     year: "2025",
-    image: "/artworks/pau-canelles-hero-artwork.jpg",
+    image: "/artworks/DSC_0753.JPG",
     aspectRatio: "portrait",
     featured: true,
     description: "Exploration of tactile surfaces through layered earth pigments, heavy impasto, and vivid magenta-pink contours. A powerful visual meditation on texture, expression, and human presence."

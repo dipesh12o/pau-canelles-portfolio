@@ -158,6 +158,7 @@ export default function ArtworkModal({ artwork, item, itemList, activeImgIndex =
                   src={currentDisplayImage} 
                   alt={`${currentItem.title} — Pau Canelles`} 
                   className="lightbox-img-contain" 
+                  decoding="async"
                 />
               ) : (
                 <div className="lightbox-fallback-frame">
@@ -179,7 +180,12 @@ export default function ArtworkModal({ artwork, item, itemList, activeImgIndex =
                     onClick={() => setCurrentImgIndex(idx)}
                     aria-label={`Ver foto ${idx + 1}`}
                   >
-                    <img src={imgSrc} alt={`${currentItem.title} detalle ${idx + 1}`} />
+                    <img 
+                      src={imgSrc} 
+                      alt={`${currentItem.title} detalle ${idx + 1}`} 
+                      loading="lazy" 
+                      decoding="async"
+                    />
                   </button>
                 ))}
               </div>

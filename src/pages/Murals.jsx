@@ -32,18 +32,7 @@ export default function Murals({ lang = 'es' }) {
   };
 
   return (
-    <div className="murals-page site-container" style={{ paddingTop: '0.5rem', paddingBottom: '6rem' }}>
-      {/* Header */}
-      <div style={{ marginBottom: '0.4rem', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-        <div>
-          <span className="meta-label">{isEs ? 'Gran Formato & Espacio Público' : 'Large Scale & Public Space'}</span>
-          <h1 className="heading-serif" style={{ fontSize: '1.75rem', marginTop: '0.1rem', marginBottom: 0 }}>
-            {isEs ? 'Murales' : 'Murals'}
-          </h1>
-        </div>
-        <span className="meta-label">Pau Canelles &bull; {isEs ? 'Intervenciones' : 'Interventions'}</span>
-      </div>
-
+    <div className="murals-page site-container" style={{ paddingTop: '1.5rem', paddingBottom: '6rem' }}>
       {/* Murals Showcase List */}
       <div className="murals-showcase-list">
         {muralProjects.map((mural) => (
