@@ -1,37 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ARTIST_DATA } from '../data/artistData';
 import { Download } from 'lucide-react';
+import ArtworkModal from '../components/ArtworkModal';
 
 export default function Workshops({ lang = 'es', setCurrentPage }) {
   const isEs = lang === 'es';
   const images = ARTIST_DATA.aboutImages;
 
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
+
   // Workshop photo gallery items
   const galleryPhotos = [
-    { id: 'ws1', src: images.photo1, alt: isEs ? 'Taller creativo Pau Canelles' : 'Pau Canelles creative workshop' },
-    { id: 'ws2', src: images.photo2, alt: isEs ? 'Materiales y técnicas pictóricas' : 'Materials and painting techniques' },
-    { id: 'ws3', src: images.photo3, alt: isEs ? 'Procesos creativos' : 'Creative processes' },
-    { id: 'ws4', src: images.photo4, alt: isEs ? 'Proyectos de taller' : 'Workshop projects' }
+    { id: 'ws1', src: images.photo1, image: images.photo1, title: isEs ? 'Talleres Creativos' : 'Creative Workshops', alt: isEs ? 'Taller creativo Pau Canelles' : 'Pau Canelles creative workshop' },
+    { id: 'ws2', src: images.photo2, image: images.photo2, title: isEs ? 'Talleres Creativos' : 'Creative Workshops', alt: isEs ? 'Materiales y técnicas pictóricas' : 'Materials and painting techniques' },
+    { id: 'ws3', src: images.photo3, image: images.photo3, title: isEs ? 'Talleres Creativos' : 'Creative Workshops', alt: isEs ? 'Procesos creativos' : 'Creative processes' },
+    { id: 'ws4', src: images.photo4, image: images.photo4, title: isEs ? 'Talleres Creativos' : 'Creative Workshops', alt: isEs ? 'Proyectos de taller' : 'Workshop projects' }
   ];
 
   return (
-    <div className="workshops-page site-container" style={{ paddingTop: '2rem', paddingBottom: '6rem' }}>
+    <div className="workshops-page site-container" style={{ paddingTop: '0.5rem', paddingBottom: '6rem' }}>
       {/* 1. Page Header */}
-      <div style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+      <div style={{ marginBottom: '0.4rem', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
         <div>
           <span className="meta-label">{isEs ? 'Curso 2026 / 2027 • Onda' : '2026 / 2027 Season • Onda'}</span>
-          <h1 className="heading-serif" style={{ fontSize: '2.5rem', marginTop: '0.4rem' }}>
+          <h1 className="heading-serif" style={{ fontSize: '1.75rem', marginTop: '0.1rem', marginBottom: 0 }}>
             {isEs ? 'Talleres Creativos' : 'Creative Workshops'}
           </h1>
         </div>
         <span className="meta-label">Pau Canelles &bull; {isEs ? 'Educación Artística' : 'Art Education'}</span>
       </div>
 
-      {/* 2. Photo Gallery (3-4 Horizontal Photos) */}
+      {/* 2. Photo Gallery (3-4 Horizontal Photos - Clickable) */}
       <section className="workshops-gallery-section" style={{ marginBottom: '3.5rem' }}>
         <div className="gallery-strip-grid">
           {galleryPhotos.map((photo) => (
-            <div key={photo.id} className="gallery-strip-item">
+            <div 
+              key={photo.id} 
+              className="gallery-strip-item"
+              onClick={() => setSelectedPhoto(photo)}
+              style={{ cursor: 'pointer' }}
+              role="button"
+              tabIndex={0}
+              aria-label={photo.title}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setSelectedPhoto(photo);
+                }
+              }}
+            >
               <img 
                 src={photo.src} 
                 alt={photo.alt} 
@@ -142,7 +159,19 @@ export default function Workshops({ lang = 'es', setCurrentPage }) {
           {isEs ? 'Abre la programación completa del curso 2026/27 en PDF' : 'Opens full 2026/27 workshop calendar in PDF'}
         </p>
       </section>
+
+      {/* Lightbox Image Modal */}
+      {selectedPhoto && (
+        <ArtworkModal
+          artwork={selectedPhoto}
+          itemList={galleryPhotos}
+          onClose={() => setSelectedPhoto(null)}
+          onSelectArtwork={(photo) => setSelectedPhoto(photo)}
+          lang={lang}
+        />
+      )}
     </div>
   );
 }
+
 

@@ -13,10 +13,10 @@ export default function Works({ lang = 'es', onSelectArtwork }) {
   };
 
   return (
-    <div className="works-page site-container" style={{ paddingTop: '2rem', paddingBottom: '5rem' }}>
+    <div className="works-page site-container" style={{ paddingTop: '0.5rem', paddingBottom: '5rem' }}>
       {/* Portfolio Header */}
-      <div style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-        <h1 className="heading-serif" style={{ fontSize: '2.5rem' }}>
+      <div style={{ marginBottom: '0.4rem', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+        <h1 className="heading-serif" style={{ fontSize: '1.75rem', margin: 0 }}>
           {isEs ? 'Portafolio' : 'Portfolio'}
         </h1>
         <span className="meta-label">Pau Canelles &bull; {isEs ? 'Colección' : 'Collection'}</span>

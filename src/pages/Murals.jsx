@@ -32,12 +32,12 @@ export default function Murals({ lang = 'es' }) {
   };
 
   return (
-    <div className="murals-page site-container" style={{ paddingTop: '2rem', paddingBottom: '6rem' }}>
+    <div className="murals-page site-container" style={{ paddingTop: '0.5rem', paddingBottom: '6rem' }}>
       {/* Header */}
-      <div style={{ marginBottom: '1.75rem', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+      <div style={{ marginBottom: '0.4rem', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
         <div>
           <span className="meta-label">{isEs ? 'Gran Formato & Espacio Público' : 'Large Scale & Public Space'}</span>
-          <h1 className="heading-serif" style={{ fontSize: '2.5rem', marginTop: '0.4rem' }}>
+          <h1 className="heading-serif" style={{ fontSize: '1.75rem', marginTop: '0.1rem', marginBottom: 0 }}>
             {isEs ? 'Murales' : 'Murals'}
           </h1>
         </div>
