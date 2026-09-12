@@ -215,12 +215,12 @@
 .portfolio-section-dark {
   background-color: var(--color-dark-bg);
   color: var(--color-text-light);
-  padding: 6rem 2rem;
+  padding: 4.5rem 2rem;
 }
 
 .portfolio-header-center {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;
 }
 
 .portfolio-title-text {
@@ -244,6 +244,84 @@
   gap: 1.5rem;
   max-width: var(--max-width-site);
   margin: 0 auto;
+}
+
+/* Curated Editorial Portfolio Gallery Architecture */
+.portfolio-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 3.5rem 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.portfolio-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-item.span-6 {
+  grid-column: span 6;
+}
+
+.portfolio-item.span-4 {
+  grid-column: span 4;
+}
+
+.portfolio-item.span-12 {
+  grid-column: span 12;
+}
+
+.portfolio-image-wrapper {
+  width: 100%;
+  max-height: 460px;
+  overflow: hidden;
+  background-color: #F2EFE9;
+  border: 1px solid rgba(26, 25, 22, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+}
+
+.portfolio-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-item:hover .portfolio-image-wrapper img {
+  transform: scale(1.03);
+}
+
+.portfolio-meta-clean {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.portfolio-artwork-title {
+  font-family: var(--font-serif-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--color-text-dark);
+  margin-bottom: 0.2rem;
+  line-height: 1.3;
+}
+
+.portfolio-artwork-sub {
+  font-family: var(--font-serif-body);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: #7A756C;
+  display: block;
 }
 
 .portfolio-grid-item {
@@ -946,6 +1024,83 @@
   }
 }
 
+/* Continuous Biography Styles */
+.about-bio-continuous {
+  max-width: 800px;
+  margin: 0 auto 4rem auto;
+  padding: 0 1rem;
+}
+
+.about-continuous-paragraph {
+  font-family: var(--font-serif-body);
+  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+  line-height: 1.85;
+  color: #2D2B26;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+/* Top Horizontal Photo Gallery */
+.about-gallery-section {
+  max-width: var(--max-width-site);
+  margin: 1.5rem auto 3.5rem auto;
+  padding: 0;
+}
+
+.gallery-strip-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.gallery-strip-item {
+  position: relative;
+  overflow: hidden;
+  background-color: #E2DDD5;
+  aspect-ratio: 4 / 5;
+  border-radius: 2px;
+}
+
+.gallery-strip-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-strip-item:hover .gallery-strip-img {
+  transform: scale(1.03);
+}
+
+.gallery-strip-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.6rem 0.8rem;
+  background: linear-gradient(to top, rgba(26, 25, 22, 0.85), transparent);
+  color: #F7F5F0;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+}
+
+@media (max-width: 900px) {
+  .gallery-strip-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .gallery-strip-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
 /* Wide Text Paragraph Container Fix */
 .about-story-text-block.wide .about-body-paragraph {
   max-width: 1050px;
@@ -1012,5 +1167,648 @@
     gap: 3.5rem !important;
   }
 }
+
+/* Compact Header Language Switcher next to Instagram */
+.header-lang-item {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+}
+
+.header-lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  border: 1px solid rgba(252, 232, 210, 0.2);
+}
+
+.header-lang-btn {
+  background: none;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: #A8A095;
+  cursor: pointer;
+  padding: 0.1rem 0.3rem;
+  transition: all 0.3s ease;
+}
+
+.header-lang-btn.active {
+  color: #FCE8D2;
+  font-weight: 600;
+}
+
+.header-lang-divider {
+  color: rgba(252, 232, 210, 0.3);
+  font-size: 0.7rem;
+}
+
+/* Compact Quote Section */
+.quote-section-compact {
+  padding: 3.5rem 1.5rem;
+  background-color: #FFFFFF;
+}
+
+/* Segmented Control Selector for Contact Form */
+.enquiry-segmented-control {
+  display: flex;
+  background-color: rgba(26, 25, 22, 0.05);
+  padding: 4px;
+  border-radius: 4px;
+  gap: 4px;
+  border: 1px solid rgba(26, 25, 22, 0.1);
+}
+
+.segmented-btn {
+  flex: 1;
+  background: none;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: #666666;
+  padding: 0.65rem 1rem;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.segmented-btn.active {
+  background-color: var(--color-text-dark);
+  color: #FFFFFF;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Artwork Detail View Architecture */
+.artwork-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4.5rem;
+  align-items: start;
+}
+
+.artwork-detail-image-box {
+  width: 100%;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .artwork-detail-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+}
+
+/* ==========================================================================
+   OPTION B — PORTFOLIO LIGHTBOX / EXPANDED ARTWORK VIEW
+   ========================================================================== */
+.artwork-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: rgba(20, 19, 17, 0.94);
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  animation: lightboxFadeIn 0.3s ease-out forwards;
+}
+
+@keyframes lightboxFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.artwork-lightbox-container {
+  width: 100%;
+  max-width: 1400px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Lightbox Top Control Bar */
+.lightbox-top-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+}
+
+.lightbox-counter {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: #A09A90;
+  min-width: 60px;
+}
+
+.lightbox-nav-center {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.lightbox-nav-btn,
+.lightbox-close-btn {
+  background: transparent;
+  border: none;
+  color: #D4CEB8;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, transform 0.2s ease;
+  border-radius: 50%;
+}
+
+.lightbox-nav-btn:hover,
+.lightbox-close-btn:hover {
+  color: #FFFFFF;
+  transform: scale(1.1);
+}
+
+/* Center Stage */
+.lightbox-image-stage {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 0;
+}
+
+.lightbox-image-wrapper {
+  max-width: 85vw;
+  max-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  display: block;
+}
+
+.lightbox-side-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #E2DDD5;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.lightbox-side-nav.prev {
+  left: 1rem;
+}
+
+.lightbox-side-nav.next {
+  right: 1rem;
+}
+
+.lightbox-side-nav:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+}
+
+/* Fallback Architectural Canvas Frame */
+.lightbox-fallback-frame {
+  background-color: #1A1916;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 3rem 2.5rem;
+  text-align: center;
+  max-width: 550px;
+  width: 100%;
+}
+
+.lightbox-fallback-cat {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #A09A90;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.lightbox-fallback-title {
+  font-family: var(--font-serif-display);
+  font-size: 2rem;
+  color: #F7F5F0;
+  margin-bottom: 0.6rem;
+}
+
+.lightbox-fallback-medium {
+  font-family: var(--font-serif-body);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #B5B0A4;
+  margin-bottom: 1.2rem;
+}
+
+.lightbox-fallback-dim {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: #8A857B;
+}
+
+/* Discreet Metadata Footer */
+.lightbox-discreet-meta {
+  text-align: center;
+  padding-top: 0.5rem;
+  max-width: 750px;
+}
+
+.lightbox-artwork-title {
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.25rem, 1.8vw, 1.6rem);
+  font-weight: 400;
+  color: #F7F5F0;
+  margin-bottom: 0.25rem;
+  line-height: 1.25;
+}
+
+.lightbox-artwork-medium {
+  font-family: var(--font-serif-body);
+  font-style: italic;
+  font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+  color: #B5B0A4;
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+
+.lightbox-artwork-specs {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: #8C867A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.meta-sep {
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .artwork-lightbox-overlay {
+    padding: 1rem;
+  }
+
+  .lightbox-side-nav {
+    display: none;
+  }
+
+  .lightbox-image-wrapper {
+    max-width: 95vw;
+    max-height: 62vh;
+  }
+
+  .lightbox-img {
+    max-height: 62vh;
+  }
+}
+
+/* ==========================================================================
+   WORKSHOPS PAGE EDITORIAL ARCHITECTURE & STYLES
+   ========================================================================== */
+.workshops-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: var(--max-width-site);
+  margin: 0 auto;
+}
+
+.workshop-info-card {
+  background-color: #F4F1EA;
+  border: 1px solid rgba(26, 25, 22, 0.08);
+  padding: 1.5rem 1.8rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  border-radius: 2px;
+}
+
+.info-card-icon {
+  color: var(--color-text-dark);
+  padding-top: 0.2rem;
+}
+
+.info-card-title {
+  font-family: var(--font-serif-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-text-dark);
+  margin-bottom: 0.3rem;
+}
+
+.info-card-desc {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: #666666;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Workshop Package Cards (Bonos Creativos) */
+.packages-editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.package-card {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(26, 25, 22, 0.1);
+  padding: 2.2rem 1.8rem;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 2px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.package-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.package-card.featured {
+  border: 1.5px solid var(--color-text-dark);
+  background-color: #FAF8F5;
+}
+
+.package-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-text-dark);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  padding: 0.25rem 0.75rem;
+  text-transform: uppercase;
+}
+
+.package-discount {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  color: #8C8275;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.package-name {
+  font-family: var(--font-serif-display);
+  font-size: 1.35rem;
+  color: var(--color-text-dark);
+  margin-bottom: 1.25rem;
+}
+
+.package-price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.package-original-price {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  color: #A09A90;
+  text-decoration: line-through;
+}
+
+.package-final-price {
+  font-family: var(--font-serif-display);
+  font-size: 2.2rem;
+  color: var(--color-text-dark);
+  font-weight: 400;
+}
+
+.package-note {
+  font-family: var(--font-serif-body);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+}
+
+.btn-pdf-cta {
+  background-color: var(--color-text-dark);
+  color: #FFFFFF !important;
+  border: 1px solid var(--color-text-dark);
+  transition: all 0.3s ease;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.btn-pdf-cta:hover {
+  background-color: #38342D;
+  color: #FFFFFF !important;
+  border-color: #38342D;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(26, 25, 22, 0.2);
+}
+
+.btn-pdf-cta:focus-visible {
+  outline: 2px solid var(--color-text-dark);
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .workshops-info-grid,
+  .packages-editorial-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+}
+
+/* ==========================================================================
+   MURALS & EXHIBITIONS ARCHITECTURE & STYLES
+   ========================================================================== */
+
+/* Murals Page Styles */
+.mural-project-block {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mural-main-hero-wrapper {
+  width: 100%;
+  max-height: 600px;
+  overflow: hidden;
+  background-color: #E2DDD5;
+  border-radius: 2px;
+}
+
+.mural-hero-img {
+  width: 100%;
+  height: 100%;
+  max-height: 600px;
+  object-fit: cover;
+  display: block;
+}
+
+.mural-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.mural-detail-item {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: #E2DDD5;
+  border-radius: 2px;
+}
+
+.mural-detail-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mural-discreet-meta {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(26, 25, 22, 0.08);
+}
+
+.mural-meta-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.mural-title {
+  font-family: var(--font-serif-display);
+  font-size: 1.6rem;
+  color: var(--color-text-dark);
+  font-weight: 400;
+}
+
+.mural-year {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: #8C8275;
+}
+
+.mural-specs-row {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: #666666;
+  margin-bottom: 0.75rem;
+}
+
+.mural-description {
+  font-family: var(--font-serif-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #333333;
+}
+
+/* Exhibitions Page Styles */
+.exhibitions-timeline-archive {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.exhibition-archive-item {
+  position: relative;
+  padding-left: 3rem;
+  border-left: 1px solid rgba(26, 25, 22, 0.15);
+}
+
+.exhibition-year-badge {
+  position: absolute;
+  left: -1px;
+  top: 0;
+  transform: translateX(-50%);
+  background-color: var(--color-text-dark);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  padding: 0.25rem 0.6rem;
+  font-weight: 600;
+}
+
+.exhibition-discreet-meta {
+  padding-top: 0.5rem;
+}
+
+.exhibition-title {
+  font-family: var(--font-serif-display);
+  font-size: 1.45rem;
+  color: var(--color-text-dark);
+  font-weight: 400;
+  margin-bottom: 0.35rem;
+}
+
+.exhibition-specs {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: #7A756C;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .mural-details-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .exhibition-archive-item {
+    padding-left: 1.5rem !important;
+  }
+}
+
 
 

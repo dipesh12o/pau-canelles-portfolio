@@ -1,10 +1,51 @@
-import React, { useEffect } from 'react';
-import { X, ArrowUpRight } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ARTIST_DATA } from '../data/artistData';
 
-export default function ArtworkModal({ artwork, onClose, onNavigateContact }) {
+export default function ArtworkModal({ artwork, item, itemList, activeImgIndex = 0, onClose, onSelectArtwork, lang = 'es' }) {
+  const currentItem = artwork || item;
+  const items = itemList || ARTIST_DATA.artworks;
+  const currentIndex = items.findIndex(a => a.id === currentItem?.id);
+
+  // Extract all available images for multi-image projects (murals, exhibitions)
+  const imageList = currentItem?.images || (currentItem?.mainImage ? [currentItem.mainImage, ...(currentItem.detailImages || [])] : (currentItem?.image ? [currentItem.image] : []));
+  
+  const [currentImgIndex, setCurrentImgIndex] = useState(activeImgIndex);
+  const touchStartX = useRef(null);
+
+  useEffect(() => {
+    setCurrentImgIndex(activeImgIndex || 0);
+  }, [currentItem, activeImgIndex]);
+
+  const handlePrev = (e) => {
+    if (e) e.stopPropagation();
+    if (imageList.length > 1) {
+      setCurrentImgIndex((prev) => (prev - 1 + imageList.length) % imageList.length);
+    } else if (currentIndex > -1) {
+      const prevIndex = (currentIndex - 1 + items.length) % items.length;
+      if (onSelectArtwork) onSelectArtwork(items[prevIndex]);
+    }
+  };
+
+  const handleNext = (e) => {
+    if (e) e.stopPropagation();
+    if (imageList.length > 1) {
+      setCurrentImgIndex((prev) => (prev + 1) % imageList.length);
+    } else if (currentIndex > -1) {
+      const nextIndex = (currentIndex + 1) % items.length;
+      if (onSelectArtwork) onSelectArtwork(items[nextIndex]);
+    }
+  };
+
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') {
+        onClose();
+      } else if (e.key === 'ArrowLeft') {
+        handlePrev();
+      } else if (e.key === 'ArrowRight') {
+        handleNext();
+      }
     };
     window.addEventListener('keydown', handleKeyDown);
     document.body.style.overflow = 'hidden';
@@ -12,101 +53,144 @@ export default function ArtworkModal({ artwork, onClose, onNavigateContact }) {
       window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'auto';
     };
-  }, [onClose]);
+  }, [currentIndex, currentImgIndex, imageList.length, onClose, onSelectArtwork]);
 
-  if (!artwork) return null;
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diffX = touchStartX.current - touchEndX;
+
+    if (Math.abs(diffX) > 40) {
+      if (diffX > 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
+    }
+    touchStartX.current = null;
+  };
+
+  if (!currentItem) return null;
+
+  const currentDisplayImage = imageList[currentImgIndex] || imageList[0];
 
   return (
-    <div className="modal-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      <div className="modal-content-container" onClick={(e) => e.stopPropagation()}>
-        <button 
-          className="modal-close-btn" 
-          onClick={onClose}
-          aria-label="Close artwork view"
-        >
-          <X size={24} />
-        </button>
-
-        {/* Artwork Image or Architectural Display */}
-        <div className="modal-image-display">
-          {artwork.image && artwork.image !== 'null' ? (
-            <img 
-              src={artwork.image} 
-              alt={`${artwork.title} by Pau Canelles`} 
-              loading="eager"
-            />
-          ) : (
-            <div style={{
-              width: '100%',
-              height: '100%',
-              minHeight: '380px',
-              backgroundColor: '#F2EFE9',
-              border: '1px solid #E5E0D8',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              padding: '2.5rem',
-              textAlign: 'center'
-            }}>
-              <span style={{ fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#8C8275', marginBottom: '0.75rem' }}>
-                {artwork.category} &bull; {artwork.year}
-              </span>
-              <h2 style={{ fontFamily: 'var(--font-serif-display)', fontSize: '2.2rem', color: '#0D0D0D', marginBottom: '0.5rem' }}>
-                {artwork.title}
-              </h2>
-              <p style={{ fontStyle: 'italic', color: '#666', fontSize: '0.95rem', maxWidth: '400px' }}>
-                {artwork.medium}
-              </p>
-              <span style={{ fontSize: '0.75rem', color: '#8C8275', marginTop: '1rem', border: '1px solid #D0C9BE', padding: '0.25rem 0.75rem' }}>
-                {artwork.dimensions}
-              </span>
-            </div>
-          )}
-        </div>
-
-        {/* Artwork Details Column */}
-        <div className="modal-details-side">
-          <div>
-            <span className="meta-label">{artwork.category}</span>
-            <h2 id="modal-title" style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{artwork.title}</h2>
-            <p style={{ color: 'var(--color-sepia)', fontSize: '0.92rem' }}>Pau Canelles, {artwork.year}</p>
+    <div 
+      className="artwork-lightbox-overlay" 
+      onClick={onClose}
+      role="dialog" 
+      aria-modal="true" 
+      aria-label={currentItem.title}
+    >
+      <div className="artwork-lightbox-container" onClick={(e) => e.stopPropagation()}>
+        {/* Top Minimal Control Bar */}
+        <div className="lightbox-top-bar">
+          <div className="lightbox-counter">
+            {imageList.length > 1 
+              ? `${currentImgIndex + 1} / ${imageList.length}`
+              : (currentIndex >= 0 ? `${currentIndex + 1} / ${items.length}` : '')}
           </div>
 
-          <div className="modal-specs-list">
-            <div className="modal-spec-item">
-              <span className="spec-key">Medium / Technique</span>
-              <span className="spec-val">{artwork.medium}</span>
-            </div>
-            <div className="modal-spec-item">
-              <span className="spec-key">Dimensions</span>
-              <span className="spec-val">{artwork.dimensions}</span>
-            </div>
-            <div className="modal-spec-item">
-              <span className="spec-key">Year</span>
-              <span className="spec-val">{artwork.year}</span>
-            </div>
-          </div>
-
-          <div>
-            <span className="meta-label">Concept & Description</span>
-            <p style={{ fontSize: '0.95rem', color: '#444444', lineHeight: '1.6' }}>
-              {artwork.description}
-            </p>
-          </div>
-
-          <div style={{ paddingTop: '1rem' }}>
+          <div className="lightbox-nav-center">
             <button 
-              className="btn-editorial" 
-              style={{ width: '100%', justifyContent: 'center' }}
-              onClick={() => {
-                onClose();
-                if (onNavigateContact) onNavigateContact('contact');
-              }}
+              className="lightbox-nav-btn" 
+              onClick={handlePrev}
+              aria-label={lang === 'es' ? 'Anterior' : 'Previous'}
+              type="button"
             >
-              Inquire About This Work <ArrowUpRight size={16} />
+              <ChevronLeft size={20} />
+            </button>
+            <button 
+              className="lightbox-nav-btn" 
+              onClick={handleNext}
+              aria-label={lang === 'es' ? 'Siguiente' : 'Next'}
+              type="button"
+            >
+              <ChevronRight size={20} />
             </button>
           </div>
+
+          <button 
+            className="lightbox-close-btn" 
+            onClick={onClose}
+            aria-label={lang === 'es' ? 'Cerrar vista' : 'Close view'}
+            type="button"
+          >
+            <X size={22} />
+          </button>
+        </div>
+
+        {/* Center Artwork / Project Image View Area */}
+        <div 
+          className="lightbox-image-stage"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          {/* Side Nav Arrows (Desktop) */}
+          <button 
+            className="lightbox-side-nav prev" 
+            onClick={handlePrev}
+            aria-label={lang === 'es' ? 'Anterior' : 'Previous'}
+            type="button"
+          >
+            <ChevronLeft size={28} />
+          </button>
+
+          <div className="lightbox-image-wrapper">
+            {currentDisplayImage && currentDisplayImage !== 'null' ? (
+              <img 
+                src={currentDisplayImage} 
+                alt={`${currentItem.title} — Pau Canelles`} 
+                className="lightbox-img" 
+              />
+            ) : (
+              <div className="lightbox-fallback-frame">
+                <span className="lightbox-fallback-cat">{currentItem.category || currentItem.venue || 'Artwork'}</span>
+                <h3 className="lightbox-fallback-title">{currentItem.title}</h3>
+                <p className="lightbox-fallback-medium">{currentItem.medium || currentItem.technique}</p>
+                <span className="lightbox-fallback-dim">
+                  {[currentItem.dimensions, currentItem.year].filter(Boolean).join(' • ')}
+                </span>
+              </div>
+            )}
+          </div>
+
+          <button 
+            className="lightbox-side-nav next" 
+            onClick={handleNext}
+            aria-label={lang === 'es' ? 'Siguiente' : 'Next'}
+            type="button"
+          >
+            <ChevronRight size={28} />
+          </button>
+        </div>
+
+        {/* Discreet Metadata Footer */}
+        <div className="lightbox-discreet-meta">
+          <h2 className="lightbox-artwork-title">{currentItem.title}</h2>
+
+          {(currentItem.medium || currentItem.technique) && (
+            <p className="lightbox-artwork-medium">{currentItem.medium || currentItem.technique}</p>
+          )}
+
+          <div className="lightbox-artwork-specs">
+            {currentItem.location && <span>{currentItem.location}</span>}
+            {currentItem.venue && <span>{currentItem.venue}{currentItem.city ? `, ${currentItem.city}` : ''}</span>}
+            {(currentItem.location || currentItem.venue) && currentItem.dimensions && <span className="meta-sep">&bull;</span>}
+            {currentItem.dimensions && <span>{currentItem.dimensions}</span>}
+            {(currentItem.location || currentItem.venue || currentItem.dimensions) && currentItem.year && <span className="meta-sep">&bull;</span>}
+            {currentItem.year && <span>{currentItem.year}</span>}
+          </div>
+
+          {currentItem.description && (
+            <p style={{ fontFamily: 'var(--font-serif-body)', fontSize: '0.88rem', color: '#B5B0A4', marginTop: '0.4rem', lineHeight: '1.4' }}>
+              {currentItem.description}
+            </p>
+          )}
         </div>
       </div>
     </div>

@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import { ARTIST_DATA } from '../data/artistData';
 
-export default function Contact() {
+export default function Contact({ lang }) {
   const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [enquiryType, setEnquiryType] = useState('individual'); // 'individual' or 'gallery'
+  const [formData, setFormData] = useState({ name: '', galleryName: '', email: '', message: '' });
 
-  const lang = (() => {
+  const activeLang = lang || (() => {
     try {
-      return localStorage.getItem('pau_about_lang') || 'es';
+      return localStorage.getItem('pau_site_lang') || 'es';
     } catch {
       return 'es';
     }
   })();
 
-  const isEs = lang === 'es';
+  const isEs = activeLang === 'es';
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -91,6 +92,24 @@ export default function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="contact-form">
+                {/* Segmented Control Selector */}
+                <div className="enquiry-segmented-control" style={{ marginBottom: '2rem' }}>
+                  <button 
+                    type="button" 
+                    className={`segmented-btn ${enquiryType === 'individual' ? 'active' : ''}`}
+                    onClick={() => setEnquiryType('individual')}
+                  >
+                    {isEs ? 'Coleccionista privado / Particular' : "I’m a private collector / individual"}
+                  </button>
+                  <button 
+                    type="button" 
+                    className={`segmented-btn ${enquiryType === 'gallery' ? 'active' : ''}`}
+                    onClick={() => setEnquiryType('gallery')}
+                  >
+                    {isEs ? 'Represento a una galería / Profesional del arte' : "I represent a gallery / art professional"}
+                  </button>
+                </div>
+
                 <div className="contact-field-group">
                   <label className="about-section-tag" style={{ display: 'block', marginBottom: '0.5rem' }}>
                     {isEs ? 'NOMBRE' : 'NAME'}
@@ -104,6 +123,23 @@ export default function Contact() {
                     placeholder={isEs ? 'Tu nombre' : 'Your name'}
                   />
                 </div>
+
+                {/* Conditional Gallery Name Input */}
+                {enquiryType === 'gallery' && (
+                  <div className="contact-field-group" style={{ marginTop: '2rem' }}>
+                    <label className="about-section-tag" style={{ display: 'block', marginBottom: '0.5rem' }}>
+                      {isEs ? 'NOMBRE DE LA GALERÍA' : 'NAME OF THE GALLERY'}
+                    </label>
+                    <input 
+                      type="text" 
+                      required 
+                      value={formData.galleryName}
+                      onChange={(e) => setFormData({ ...formData, galleryName: e.target.value })}
+                      className="contact-input"
+                      placeholder={isEs ? 'Nombre de la galería' : 'Name of the gallery'}
+                    />
+                  </div>
+                )}
 
                 <div className="contact-field-group" style={{ marginTop: '2rem' }}>
                   <label className="about-section-tag" style={{ display: 'block', marginBottom: '0.5rem' }}>
