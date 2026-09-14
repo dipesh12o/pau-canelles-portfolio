@@ -196,11 +196,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 80vh;
-  background-color: var(--color-beige-bg);
+  background-color: var(--color-light-grey-bg);
 }
 
 .featured-left-content {
-  background-color: var(--color-beige-bg);
+  background-color: var(--color-light-grey-bg);
   padding: clamp(3rem, 6vw, 6rem);
   display: flex;
   flex-direction: column;
