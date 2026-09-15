@@ -100,6 +100,26 @@ export default function Murals({ lang = 'es' }) {
         '/murals/mestre-caballero-photo.png',   // Photo 2 — Pau & student in front of mural                                      
         '/murals/mestre-caballero-detail.png'   // Photo 3 — detail view of student signing wall
       ]
+    },
+    {
+      id: 'mural-joseph-pilates',
+      title: 'Mural Joseph Pilates',
+      context: 'realizado para el centro Stories Pilates en Castellón, 2026.',
+      location: 'Castellón',
+      city: 'Castellón',
+      size: '2 x 4 m',
+      dimensions: '2 x 4 m',
+      year: '2026',
+      technique: 'Acrílico, óleo y spray sobre tablilla entelada.',
+      videoUrl: 'https://drive.google.com/file/d/1WHVCVnnTTeErwuBUtf32SSi_ALEj6cqg/view',
+      images: [
+        '/murals/joseph-pilates-complete.jpg',
+        '/murals/joseph-pilates-artwork.jpg',
+        '/murals/joseph-pilates-detail.jpg',
+        '/murals/joseph-pilates-event.jpg',
+        '/murals/joseph-pilates-face.jpg',
+        '/murals/joseph-pilates-process.jpg'
+      ]
     }
   ];
 
@@ -137,6 +157,34 @@ export default function Murals({ lang = 'es' }) {
                 <p className="mural-description" style={{ marginTop: '0.75rem' }}>
                   {mural.description}
                 </p>
+              )}
+
+              {mural.videoUrl && (
+                <div style={{ marginTop: '1rem' }}>
+                  <a 
+                    href={mural.videoUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      padding: '0.65rem 1.25rem',
+                      fontSize: '0.75rem',
+                      letterSpacing: '0.15em',
+                      textTransform: 'uppercase',
+                      border: '1px solid #111111',
+                      color: '#111111',
+                      backgroundColor: 'transparent',
+                      textDecoration: 'none',
+                      fontWeight: 600,
+                      borderRadius: '1px',
+                      transition: 'all 0.2s ease'
+                    }}
+                  >
+                    VIEW VIDEO &rarr;
+                  </a>
+                </div>
               )}
             </div>
 
