@@ -22,7 +22,7 @@ export default function Contact({ lang }) {
   };
 
   return (
-    <div className="about-editorial-page" style={{ paddingTop: '1.5rem', minHeight: '100vh' }}>
+    <div className="contact-page" style={{ paddingTop: '1.5rem', minHeight: '100vh' }}>
       <div className="about-container" style={{ maxWidth: '1100px', paddingTop: '1.5rem' }}>
         {/* Hero Section Title & Intro */}
         <div style={{ marginBottom: '3rem' }}>

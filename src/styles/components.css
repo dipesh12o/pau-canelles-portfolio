@@ -2208,6 +2208,12 @@
   background-color: #F4F4F2 !important;
 }
 
+/* Standalone Contact Page: CLEAN LIGHT GREY (#F2F2F2) */
+.contact-page {
+  background-color: #F2F2F2 !important;
+  color: var(--color-text-dark);
+}
+
 .home-page .contact-section-cream .portfolio-title-text {
   color: var(--color-text-dark) !important;
 }
