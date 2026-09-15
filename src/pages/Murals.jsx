@@ -18,10 +18,10 @@ export default function Murals({ lang = 'es' }) {
       year: '2024',
       technique: 'Pintura de fachada sobre pared',
       images: [
-        '/murals/ludiente-detail.jpg',   // Photo 1 — mural/detail
-        '/murals/ludiente-complete.jpg', // Photo 2 — complete mural
-        '/murals/ludiente-photo.jpg',    // Photo 3 — mural/context view
-        '/murals/ludiente-process.jpg'   // Photo 4 — Pau painting/process
+        '/murals/ludiente-complete.jpg', // Photo 1 — complete mural         
+        '/murals/ludiente-photo.jpg',    // Photo 2 — Pau painting/process 
+        '/murals/ludiente-process.jpg', // Photo 3 — mural/context view 
+        '/murals/ludiente-detail.jpg'   // Photo 4— mural/detail
       ]
     },
     {
@@ -83,8 +83,8 @@ export default function Murals({ lang = 'es' }) {
       images: [
         '/murals/mico-gaming-complete.jpg', // Photo 1 — complete wide wall view
         '/murals/mico-gaming-detail.jpg',   // Photo 2 — robot character head detail
-        '/murals/mico-gaming-photo.jpg',    // Photo 3 — Pau standing in front of mural
-        '/murals/mico-gaming-process.jpg'   // Photo 4 — robot on rope detail with brushes jar
+        '/murals/mico-gaming-process.jpg', // Photo 4 — robot on rope detail with brushes jar
+        '/murals/mico-gaming-photo.jpg'   // Photo 3 — Pau standing in front of mural
       ]
     },
     {
