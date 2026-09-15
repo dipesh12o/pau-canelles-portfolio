@@ -27,7 +27,9 @@ export default function ArtworkModal({ artwork, item, itemList, activeImgIndex =
 
   const handlePrev = (e) => {
     if (e) e.stopPropagation();
-    if (currentIndex > -1 && items.length > 1) {
+    if (imageList.length > 1) {
+      setCurrentImgIndex((prev) => (prev - 1 + imageList.length) % imageList.length);
+    } else if (currentIndex > -1 && items.length > 1) {
       const prevIndex = (currentIndex - 1 + items.length) % items.length;
       if (onSelectArtwork) onSelectArtwork(items[prevIndex]);
     }
@@ -35,7 +37,9 @@ export default function ArtworkModal({ artwork, item, itemList, activeImgIndex =
 
   const handleNext = (e) => {
     if (e) e.stopPropagation();
-    if (currentIndex > -1 && items.length > 1) {
+    if (imageList.length > 1) {
+      setCurrentImgIndex((prev) => (prev + 1) % imageList.length);
+    } else if (currentIndex > -1 && items.length > 1) {
       const nextIndex = (currentIndex + 1) % items.length;
       if (onSelectArtwork) onSelectArtwork(items[nextIndex]);
     }
@@ -100,11 +104,13 @@ export default function ArtworkModal({ artwork, item, itemList, activeImgIndex =
         {/* Top Control Bar */}
         <div className="lightbox-top-bar">
           <div className="lightbox-counter">
-            {currentIndex >= 0 ? `${currentIndex + 1} / ${items.length}` : ''}
+            {imageList.length > 1 
+              ? `${currentImgIndex + 1} / ${imageList.length}` 
+              : (currentIndex >= 0 ? `${currentIndex + 1} / ${items.length}` : '')}
           </div>
 
           <div className="lightbox-nav-center">
-            {items.length > 1 && (
+            {(imageList.length > 1 || items.length > 1) && (
               <>
                 <button 
                   className="lightbox-nav-btn" 
@@ -139,7 +145,7 @@ export default function ArtworkModal({ artwork, item, itemList, activeImgIndex =
         {/* 2-Column Split Stage: Left Large Image + Thumbnails, Right Metadata + CTA */}
         <div className="lightbox-detail-split-grid">
           {/* Side Nav Prev Arrow (Desktop) */}
-          {items.length > 1 && (
+          {(imageList.length > 1 || items.length > 1) && (
             <button 
               className="lightbox-side-nav prev" 
               onClick={handlePrev}
@@ -195,7 +201,9 @@ export default function ArtworkModal({ artwork, item, itemList, activeImgIndex =
           {/* RIGHT COLUMN: Artwork Metadata & Enquiry CTA */}
           <div className="lightbox-right-info">
             <div className="lightbox-info-content">
-              <span className="lightbox-category-tag">{currentItem.category || (isEs ? 'Colección' : 'Collection')}</span>
+              <span className="lightbox-category-tag">
+                {currentItem.category || (currentItem.venue ? (isEs ? 'Exposición' : 'Exhibition') : (currentItem.context ? (isEs ? 'Intervención Mural' : 'Mural Project') : (isEs ? 'Colección' : 'Collection')))}
+              </span>
               
               <h2 className="lightbox-artwork-title">{currentItem.title}</h2>
               
@@ -213,10 +221,40 @@ export default function ArtworkModal({ artwork, item, itemList, activeImgIndex =
 
               {/* Stacked Specs Block */}
               <div className="lightbox-specs-block">
-                {currentItem.dimensions && (
+                {(currentItem.event || currentItem.venue) && (
+                  <div className="lightbox-spec-item">
+                    <span className="spec-label">{isEs ? 'Evento / Galería' : 'Event / Gallery'}:</span>
+                    <span className="spec-value">{currentItem.event || currentItem.venue}</span>
+                  </div>
+                )}
+                {currentItem.type && (
+                  <div className="lightbox-spec-item">
+                    <span className="spec-label">{isEs ? 'Tipo' : 'Type'}:</span>
+                    <span className="spec-value">{currentItem.type}</span>
+                  </div>
+                )}
+                {(currentItem.location || currentItem.city) && (
+                  <div className="lightbox-spec-item">
+                    <span className="spec-label">{isEs ? 'Ubicación' : 'Location'}:</span>
+                    <span className="spec-value">{currentItem.location || currentItem.city}</span>
+                  </div>
+                )}
+                {(currentItem.project || currentItem.workPresented) && (
+                  <div className="lightbox-spec-item">
+                    <span className="spec-label">{isEs ? 'Proyecto / Obra' : 'Project / Work'}:</span>
+                    <span className="spec-value">{currentItem.project || currentItem.workPresented}</span>
+                  </div>
+                )}
+                {currentItem.works && (
+                  <div className="lightbox-spec-item">
+                    <span className="spec-label">{isEs ? 'Nº de obras' : 'Number of works'}:</span>
+                    <span className="spec-value">{typeof currentItem.works === 'number' ? `${currentItem.works} ${isEs ? 'obras' : 'works'}` : currentItem.works}</span>
+                  </div>
+                )}
+                {(currentItem.dimensions || currentItem.size) && (
                   <div className="lightbox-spec-item">
                     <span className="spec-label">{isEs ? 'Medidas' : 'Dimensions'}:</span>
-                    <span className="spec-value">{currentItem.dimensions}</span>
+                    <span className="spec-value">{currentItem.dimensions || currentItem.size}</span>
                   </div>
                 )}
                 {currentItem.year && (
@@ -239,9 +277,73 @@ export default function ArtworkModal({ artwork, item, itemList, activeImgIndex =
                 )}
               </div>
 
-              {currentItem.description && (
+              {(currentItem.description || currentItem.context) && (
                 <div className="lightbox-description-block">
-                  <p>{currentItem.description}</p>
+                  {(() => {
+                    const rawDesc = typeof currentItem.description === 'object'
+                      ? (currentItem.description[lang] || currentItem.description.es)
+                      : (currentItem.description || currentItem.context);
+                    if (!rawDesc) return null;
+                    return rawDesc.split('\n\n').map((paragraph, idx) => (
+                      <p key={idx} style={{ marginBottom: '0.75rem' }}>{paragraph}</p>
+                    ));
+                  })()}
+                </div>
+              )}
+
+              {/* Video Button */}
+              {currentItem.videoUrl && (
+                <div style={{ marginBottom: '1.25rem' }}>
+                  <a 
+                    href={currentItem.videoUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      padding: '0.65rem 1.25rem',
+                      fontSize: '0.75rem',
+                      letterSpacing: '0.15em',
+                      textTransform: 'uppercase',
+                      border: '1px solid #111111',
+                      color: '#111111',
+                      backgroundColor: 'transparent',
+                      textDecoration: 'none',
+                      fontWeight: 600,
+                      transition: 'all 0.2s ease'
+                    }}
+                  >
+                    WATCH VIDEO &rarr;
+                  </a>
+                </div>
+              )}
+
+              {/* Interview Button */}
+              {currentItem.interviewUrl && (
+                <div style={{ marginBottom: '1.25rem' }}>
+                  <a 
+                    href={currentItem.interviewUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      padding: '0.65rem 1.25rem',
+                      fontSize: '0.75rem',
+                      letterSpacing: '0.15em',
+                      textTransform: 'uppercase',
+                      border: '1px solid #111111',
+                      color: '#111111',
+                      backgroundColor: 'transparent',
+                      textDecoration: 'none',
+                      fontWeight: 600,
+                      transition: 'all 0.2s ease'
+                    }}
+                  >
+                    WATCH INTERVIEW &rarr;
+                  </a>
                 </div>
               )}
 
@@ -260,7 +362,7 @@ export default function ArtworkModal({ artwork, item, itemList, activeImgIndex =
           </div>
 
           {/* Side Nav Next Arrow (Desktop) */}
-          {items.length > 1 && (
+          {(imageList.length > 1 || items.length > 1) && (
             <button 
               className="lightbox-side-nav next" 
               onClick={handleNext}

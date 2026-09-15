@@ -140,15 +140,15 @@ export default function Home({ setCurrentPage, lang = 'es', onSelectArtwork }) {
             Onda, Castellón &bull; Spain
           </p>
 
-          <button 
+          <a 
+            href="/Calendario-talleres-creativos-2026-27.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-reference-outline"
-            onClick={() => {
-              setCurrentPage('workshops');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
+            style={{ textDecoration: 'none', display: 'inline-block' }}
           >
             {isEs ? 'Explorar Talleres' : 'Explore Workshops'}
-          </button>
+          </a>
         </div>
 
         <div 

@@ -1967,38 +1967,60 @@
 
 .mural-main-hero-wrapper {
   width: 100%;
-  max-height: 600px;
-  overflow: hidden;
-  background-color: #E2DDD5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
   border-radius: 2px;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .mural-hero-img {
   width: 100%;
-  height: 100%;
-  max-height: 600px;
-  object-fit: cover;
+  max-height: 80vh;
+  height: auto;
+  object-fit: contain;
   display: block;
+  margin: 0 auto;
+  border-radius: 2px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mural-details-grid {
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+  width: 100%;
+}
+
+.mural-details-grid.grid-2-cols {
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
 }
 
 .mural-detail-item {
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  background-color: #E2DDD5;
+  width: 100%;
+  background-color: transparent;
   border-radius: 2px;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: block;
 }
 
 .mural-detail-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   display: block;
+  margin: 0 auto;
+  border-radius: 2px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mural-main-hero-wrapper:hover .mural-hero-img,
+.mural-detail-item:hover .mural-detail-img {
+  transform: scale(1.015);
 }
 
 .mural-discreet-meta {
@@ -2090,7 +2112,14 @@
   gap: 0.5rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+  .mural-details-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+}
+
+@media (max-width: 600px) {
   .mural-details-grid {
     grid-template-columns: 1fr !important;
     gap: 1rem !important;
@@ -2100,6 +2129,91 @@
     padding-left: 1.5rem !important;
   }
 }
+
+/* ==========================================================================
+   HOME PAGE EXCLUSIVE BACKGROUND COLOR CORRECTION
+   Sequence: WHITE → VERY LIGHT GREY → WHITE → WORKSHOPS → VERY LIGHT GREY → VERY LIGHT GREY FOOTER
+   ========================================================================== */
+
+/* 1. Main Home Hero Section: WHITE */
+.home-page .split-hero-section,
+.home-page .hero-left-content,
+.home-page .hero-right-image-container {
+  background-color: #FFFFFF !important;
+}
+
+/* 2. Quote Section: VERY LIGHT NEUTRAL GREY (#F4F4F2) */
+.home-page .quote-section-compact {
+  background-color: #F4F4F2 !important;
+}
+
+/* 3. Portfolio Showcase Section: WHITE Section Background + Refined Light Artwork Cards */
+.home-page .portfolio-section-dark {
+  background-color: #FFFFFF !important;
+  color: var(--color-text-dark) !important;
+}
+
+.home-page .portfolio-section-dark .portfolio-title-text {
+  color: var(--color-text-dark) !important;
+}
+
+.home-page .portfolio-section-dark .portfolio-underline-accent {
+  background-color: var(--color-text-dark) !important;
+}
+
+.home-page .portfolio-grid-item {
+  background-color: #F5F5F3 !important;
+  border: 1px solid rgba(36, 35, 30, 0.12) !important;
+  box-sizing: border-box !important;
+}
+
+.home-page .portfolio-grid-item img {
+  border: 1px solid rgba(36, 35, 30, 0.14) !important;
+  box-sizing: border-box !important;
+}
+
+.home-page .portfolio-section-dark .btn-reference-outline-dark {
+  border-color: var(--color-text-dark) !important;
+  color: var(--color-text-dark) !important;
+}
+
+.home-page .portfolio-section-dark .btn-reference-outline-dark:hover {
+  background-color: var(--color-text-dark) !important;
+  color: #FFFFFF !important;
+}
+
+/* 4. Workshops Featured Section on Home: PURE WHITE background */
+.home-page .split-featured-section,
+.home-page .featured-left-content {
+  background-color: #FFFFFF !important;
+}
+
+/* 5. Contact Section: VERY LIGHT NEUTRAL GREY (#F4F4F2) */
+.home-page .contact-section-cream {
+  background-color: #F4F4F2 !important;
+}
+
+.home-page .contact-section-cream .portfolio-title-text {
+  color: var(--color-text-dark) !important;
+}
+
+.home-page .contact-section-cream .contact-input-underline {
+  border-bottom-color: var(--color-text-dark) !important;
+  color: var(--color-text-dark) !important;
+}
+
+/* 5. Footer Section: SAME VERY LIGHT NEUTRAL GREY (#F4F4F2) */
+.footer-section-cream {
+  background-color: #F4F4F2 !important;
+}
+
+/* Mobile container background safety for Home page */
+@media (max-width: 768px) {
+  .home-page .split-hero-section {
+    background-color: #FFFFFF !important;
+  }
+}
+
 
 
 
