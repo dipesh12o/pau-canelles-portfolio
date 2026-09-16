@@ -14,6 +14,7 @@ export default function ArtworkModal({ artwork, item, itemList, activeImgIndex =
   const items = itemList || ARTIST_DATA.artworks;
   const currentIndex = items.findIndex(a => a.id === currentItem?.id);
   const isEs = lang === 'es';
+  const isExhibition = Boolean(currentItem?.isExhibition || currentItem?.id?.startsWith('exh-') || currentItem?.venue);
 
   // Extract all available images (main image first, followed by detail photos)
   const imageList = currentItem?.images || (currentItem?.mainImage ? [currentItem.mainImage, ...(currentItem.detailImages || [])] : (currentItem?.image ? [currentItem.image] : []));
@@ -277,7 +278,7 @@ export default function ArtworkModal({ artwork, item, itemList, activeImgIndex =
                 )}
               </div>
 
-              {(currentItem.description || currentItem.context) && (
+              {!isExhibition && (currentItem.description || currentItem.context) && (
                 <div className="lightbox-description-block">
                   {(() => {
                     const rawDesc = typeof currentItem.description === 'object'
