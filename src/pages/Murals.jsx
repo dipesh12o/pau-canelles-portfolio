@@ -214,10 +214,11 @@ export default function Murals({ lang = 'es' }) {
               <form onSubmit={handleEnquirySubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', maxWidth: '720px' }}>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.25rem' }}>
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.725rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#777777', marginBottom: '0.4rem', fontWeight: 600 }}>
+                    <label htmlFor="mural-name" style={{ display: 'block', fontSize: '0.725rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#777777', marginBottom: '0.4rem', fontWeight: 600 }}>
                       {isEs ? 'NOMBRE' : 'NAME'}
                     </label>
                     <input 
+                      id="mural-name"
                       type="text" 
                       required 
                       value={enquiryForm.name}
@@ -237,10 +238,11 @@ export default function Murals({ lang = 'es' }) {
                   </div>
 
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.725rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#777777', marginBottom: '0.4rem', fontWeight: 600 }}>
+                    <label htmlFor="mural-email" style={{ display: 'block', fontSize: '0.725rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#777777', marginBottom: '0.4rem', fontWeight: 600 }}>
                       EMAIL
                     </label>
                     <input 
+                      id="mural-email"
                       type="email" 
                       required 
                       value={enquiryForm.email}
@@ -261,10 +263,11 @@ export default function Murals({ lang = 'es' }) {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.725rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#777777', marginBottom: '0.4rem', fontWeight: 600 }}>
+                  <label htmlFor="mural-message" style={{ display: 'block', fontSize: '0.725rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#777777', marginBottom: '0.4rem', fontWeight: 600 }}>
                     {isEs ? 'DETALLES DEL PROYECTO MURAL' : 'MURAL PROJECT DETAILS'}
                   </label>
                   <textarea 
+                    id="mural-message"
                     rows="3" 
                     required 
                     value={enquiryForm.message}

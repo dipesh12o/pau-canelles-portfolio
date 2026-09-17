@@ -35,6 +35,11 @@ export default function App() {
     }
   };
 
+  // Keep <html lang="..."> in sync for accessibility and SEO
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
+
   // Handle browser back/forward buttons with URL hash & deep-linking
   useEffect(() => {
     const handleHashChange = () => {

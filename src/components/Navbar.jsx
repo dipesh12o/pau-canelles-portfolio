@@ -11,6 +11,9 @@ export default function Navbar({ currentPage, setCurrentPage, lang = 'es', setLa
     } else {
       document.body.style.overflow = 'auto';
     }
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
   }, [mobileMenuOpen]);
 
   const handleNavClick = (pageId) => {

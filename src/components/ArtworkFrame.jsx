@@ -58,7 +58,7 @@ const ArtworkFrame = memo(function ArtworkFrame({ artwork, className = '', isPri
         justifyContent: 'space-between',
         padding: '2rem',
         position: 'relative',
-        cursor: 'pointer',
+        cursor: onClick ? 'pointer' : 'default',
         width: '100%',
         height: '100%',
         transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)'

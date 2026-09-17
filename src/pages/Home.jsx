@@ -54,7 +54,7 @@ export default function Home({ setCurrentPage, lang = 'es', onSelectArtwork }) {
         </div>
 
         <div className="hero-right-image-container">
-          <ArtworkFrame artwork={ARTIST_DATA.heroArtwork || ARTIST_DATA.artworks[0]} />
+          <ArtworkFrame artwork={ARTIST_DATA.heroArtwork || ARTIST_DATA.artworks[0]} isPriority={true} />
 
           {/* Mobile Overlay */}
           <div className="mobile-hero-overlay">
@@ -213,10 +213,12 @@ export default function Home({ setCurrentPage, lang = 'es', onSelectArtwork }) {
             <form onSubmit={handleContactSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               <div>
                 <input 
+                  id="home-contact-name"
                   type="text" 
                   required 
                   className="contact-input-underline" 
                   placeholder={isEs ? 'Nombre' : 'Name'}
+                  aria-label={isEs ? 'Nombre' : 'Name'}
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 />
@@ -226,10 +228,12 @@ export default function Home({ setCurrentPage, lang = 'es', onSelectArtwork }) {
               {enquiryType === 'gallery' && (
                 <div>
                   <input 
+                    id="home-contact-gallery"
                     type="text" 
                     required 
                     className="contact-input-underline" 
                     placeholder={isEs ? 'Nombre de la galería' : 'Name of the gallery'}
+                    aria-label={isEs ? 'Nombre de la galería' : 'Name of the gallery'}
                     value={formData.galleryName}
                     onChange={(e) => setFormData({ ...formData, galleryName: e.target.value })}
                   />
@@ -238,10 +242,12 @@ export default function Home({ setCurrentPage, lang = 'es', onSelectArtwork }) {
 
               <div>
                 <input 
+                  id="home-contact-email"
                   type="email" 
                   required 
                   className="contact-input-underline" 
                   placeholder="Email" 
+                  aria-label="Email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
@@ -249,10 +255,12 @@ export default function Home({ setCurrentPage, lang = 'es', onSelectArtwork }) {
 
               <div>
                 <textarea 
+                  id="home-contact-message"
                   rows="3" 
                   required 
                   className="contact-input-underline" 
                   placeholder={isEs ? 'Mensaje' : 'Message'} 
+                  aria-label={isEs ? 'Mensaje' : 'Message'}
                   style={{ resize: 'vertical' }}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}

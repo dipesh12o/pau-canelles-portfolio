@@ -121,10 +121,11 @@ export default function Contact({ lang }) {
                 </div>
 
                 <div className="contact-field-group">
-                  <label className="about-section-tag" style={{ display: 'block', marginBottom: '0.5rem' }}>
+                  <label htmlFor="contact-name" className="about-section-tag" style={{ display: 'block', marginBottom: '0.5rem' }}>
                     {isEs ? 'NOMBRE' : 'NAME'}
                   </label>
                   <input 
+                    id="contact-name"
                     type="text" 
                     required 
                     value={formData.name}
@@ -137,10 +138,11 @@ export default function Contact({ lang }) {
                 {/* Conditional Gallery Name Input */}
                 {enquiryType === 'gallery' && (
                   <div className="contact-field-group" style={{ marginTop: '2rem' }}>
-                    <label className="about-section-tag" style={{ display: 'block', marginBottom: '0.5rem' }}>
+                    <label htmlFor="contact-gallery" className="about-section-tag" style={{ display: 'block', marginBottom: '0.5rem' }}>
                       {isEs ? 'NOMBRE DE LA GALERÍA' : 'NAME OF THE GALLERY'}
                     </label>
                     <input 
+                      id="contact-gallery"
                       type="text" 
                       required 
                       value={formData.galleryName}
@@ -152,10 +154,11 @@ export default function Contact({ lang }) {
                 )}
 
                 <div className="contact-field-group" style={{ marginTop: '2rem' }}>
-                  <label className="about-section-tag" style={{ display: 'block', marginBottom: '0.5rem' }}>
+                  <label htmlFor="contact-email" className="about-section-tag" style={{ display: 'block', marginBottom: '0.5rem' }}>
                     EMAIL
                   </label>
                   <input 
+                    id="contact-email"
                     type="email" 
                     required 
                     value={formData.email}
@@ -166,10 +169,11 @@ export default function Contact({ lang }) {
                 </div>
 
                 <div className="contact-field-group" style={{ marginTop: '2rem' }}>
-                  <label className="about-section-tag" style={{ display: 'block', marginBottom: '0.5rem' }}>
+                  <label htmlFor="contact-message" className="about-section-tag" style={{ display: 'block', marginBottom: '0.5rem' }}>
                     {isEs ? 'MENSAJE' : 'MESSAGE'}
                   </label>
                   <textarea 
+                    id="contact-message"
                     rows="5" 
                     required 
                     value={formData.message}
