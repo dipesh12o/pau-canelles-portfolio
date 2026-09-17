@@ -25,17 +25,17 @@ export const ARTIST_DATA = {
     medium: "Acrylic, earth pigments, and fine sand on stretched canvas",
     dimensions: "120 × 100 cm",
     year: "2025",
-    image: "/artworks/DSC_0753.JPG",
+    image: "/artworks/home-pau-studio.jpg",
     aspectRatio: "portrait",
     featured: true,
     description: "Exploration of tactile surfaces through layered earth pigments, heavy impasto, and vivid magenta-pink contours. A powerful visual meditation on texture, expression, and human presence."
   },
 
   aboutImages: {
-    photo1: "/artworks/pau-canelles-hero-artwork.jpg",
-    photo2: "/artworks/pau-canelles-hero-artwork.jpg",
-    photo3: "/artworks/pau-canelles-hero-artwork.jpg",
-    photo4: "/artworks/pau-canelles-hero-artwork.jpg"
+    photo1: "/about/about-pau-easel.jpg",
+    photo2: "/about/about-pau-studio-artworks.jpg",
+    photo3: "/about/about-pau-portrait-smile.jpg",
+    photo4: "/about/about-pau-easel-side.jpg"
   },
 
   aboutStory: {

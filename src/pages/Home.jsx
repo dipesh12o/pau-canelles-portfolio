@@ -11,6 +11,16 @@ export default function Home({ setCurrentPage, lang = 'es', onSelectArtwork }) {
 
   const handleContactSubmit = (e) => {
     e.preventDefault();
+    let msg = `*Nueva consulta desde la web*\n`;
+    msg += `*Nombre:* ${formData.name}\n`;
+    if (enquiryType === 'gallery' && formData.galleryName) {
+      msg += `*Galería / Entidad:* ${formData.galleryName}\n`;
+    }
+    msg += `*Email:* ${formData.email}\n`;
+    msg += `*Mensaje:*\n${formData.message}`;
+
+    const waUrl = `https://wa.me/34619755639?text=${encodeURIComponent(msg)}`;
+    window.open(waUrl, '_blank');
     setContactSubmitted(true);
   };
 
@@ -43,11 +53,7 @@ export default function Home({ setCurrentPage, lang = 'es', onSelectArtwork }) {
           </div>
         </div>
 
-        <div 
-          className="hero-right-image-container img-container-hover" 
-          onClick={() => onSelectArtwork && onSelectArtwork(ARTIST_DATA.heroArtwork || ARTIST_DATA.artworks[0])}
-          style={{ cursor: 'pointer' }}
-        >
+        <div className="hero-right-image-container">
           <ArtworkFrame artwork={ARTIST_DATA.heroArtwork || ARTIST_DATA.artworks[0]} />
 
           {/* Mobile Overlay */}
@@ -151,12 +157,17 @@ export default function Home({ setCurrentPage, lang = 'es', onSelectArtwork }) {
           </a>
         </div>
 
-        <div 
-          className="hero-right-image-container img-container-hover" 
-          onClick={() => onSelectArtwork && onSelectArtwork(ARTIST_DATA.artworks[1] || ARTIST_DATA.artworks[0])}
-          style={{ cursor: 'pointer' }}
-        >
-          <ArtworkFrame artwork={ARTIST_DATA.artworks[1] || ARTIST_DATA.artworks[0]} />
+        <div className="hero-right-image-container">
+          <img 
+            src="/workshops/mientras-todo-pasaba-workshop.jpg" 
+            alt="Mientras todo pasaba — Pau Canelles" 
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain',
+              display: 'block'
+            }}
+          />
         </div>
       </section>
 

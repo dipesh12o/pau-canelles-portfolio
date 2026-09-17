@@ -6,101 +6,24 @@ export default function Murals({ lang = 'es' }) {
 
   const [selectedMural, setSelectedMural] = useState(null);
   const [activeImgIndex, setActiveImgIndex] = useState(0);
+  const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
+  const [enquirySubmitted, setEnquirySubmitted] = useState(false);
+  const [enquiryForm, setEnquiryForm] = useState({ name: '', email: '', message: '' });
+
+  const handleEnquirySubmit = (e) => {
+    e.preventDefault();
+    let msg = `*Consulta sobre proyecto mural*\n`;
+    msg += `*Nombre:* ${enquiryForm.name}\n`;
+    msg += `*Email:* ${enquiryForm.email}\n`;
+    msg += `*Detalles del proyecto:*\n${enquiryForm.message}`;
+
+    const waUrl = `https://wa.me/34619755639?text=${encodeURIComponent(msg)}`;
+    window.open(waUrl, '_blank');
+    setEnquirySubmitted(true);
+  };
 
   // Mural projects with multiple photographs belonging to each mural record
   const muralProjects = [
-    {
-      id: 'mural-ludiente',
-      title: 'Mural de Ludiente',
-      context: 'Realizado para el MALFEST 2024',
-      size: '3 x 5,70 m',
-      dimensions: '3 x 5,70 m',
-      year: '2024',
-      technique: 'Pintura de fachada sobre pared',
-      images: [
-        '/murals/ludiente-complete.jpg', // Photo 1 — complete mural         
-        '/murals/ludiente-photo.jpg',    // Photo 2 — Pau painting/process 
-        '/murals/ludiente-process.jpg', // Photo 3 — mural/context view 
-        '/murals/ludiente-detail.jpg'   // Photo 4— mural/detail
-      ]
-    },
-    {
-      id: 'mural-som-joves',
-      title: 'Mural “Som joves, som Onda”',
-      context: "Casal Jove D'Onda",
-      description: isEs 
-        ? 'Mural colaborativo realizado con las niñas y niños del Casal Jove, un lugar donde todas las personas jóvenes son bienvenidas.'
-        : 'This was a collaborative mural with the kids of Casal Jove, a place where all young people are welcome.',
-      size: '16 x 6,20 m',
-      dimensions: '16 x 6,20 m',
-      year: '2025',
-      technique: 'Pintura de fachada sobre pared',
-      images: [
-        '/murals/som-joves-complete.jpg', // Photo 1 — complete wall view
-        '/murals/som-joves-detail.jpg',   // Photo 2 — detail view & signature
-        '/murals/som-joves-photo.jpg',    // Photo 3 — Pau in front of mural
-        '/murals/som-joves-process.jpg'   // Photo 4 — process view on crane lift
-      ]
-    },
-    {
-      id: 'mural-bandera-onda',
-      title: "Mural Bandera d'Onda reimaginada",
-      context: 'Ayuntamiento de Onda',
-      size: '1 x 30 m',
-      dimensions: '1 x 30 m',
-      year: '2025',
-      technique: 'Pintura de fachada sobre pared',
-      images: [
-        '/murals/bandera-onda-complete.jpg',  // Photo 1 — complete panoramic view
-        '/murals/bandera-onda-detail.jpg',    // Photo 2 — I LOVE ONDA & utility box detail
-        '/murals/bandera-onda-process.jpg',   // Photo 3 — process photo of Pau painting
-        '/murals/bandera-onda-signature.jpg' // Photo 4 — signature & tulip detail
-      ]
-    },
-    {
-      id: 'mural-entrepistes',
-      title: 'Mural de Entrepistes',
-      context: 'Restaurante Entrepistes',
-      size: '2,5 x 5,50 m',
-      dimensions: '2,5 x 5,50 m',
-      year: '2026',
-      technique: 'Pintura de fachada sobre pared',
-      images: [
-        '/murals/entrepistes-complete.jpg', // Photo 1 — complete mural view
-        '/murals/entrepistes-detail.jpg',   // Photo 2 — detail view with castle & signature
-        '/murals/entrepistes-photo.jpg',    // Photo 3 — Pau photo in front of mural
-        '/murals/entrepistes-process.jpg'   // Photo 4 — process view with brushes & paints
-      ]
-    },
-    {
-      id: 'mural-mico-gaming',
-      title: 'Mural de MICO Gaming Zone',
-      context: 'Ayuntamiento de Onda',
-      size: '11 x 1,40 m',
-      dimensions: '11 x 1,40 m',
-      year: '2026',
-      technique: 'Pintura de fachada sobre pared',
-      images: [
-        '/murals/mico-gaming-complete.jpg', // Photo 1 — complete wide wall view
-        '/murals/mico-gaming-detail.jpg',   // Photo 2 — robot character head detail
-        '/murals/mico-gaming-process.jpg', // Photo 4 — robot on rope detail with brushes jar
-        '/murals/mico-gaming-photo.jpg'   // Photo 3 — Pau standing in front of mural
-      ]
-    },
-    {
-      id: 'mural-mestre-caballero',
-      title: 'Murales 40 aniversari del CEIP Mestre Caballero',
-      context: 'Colegio Mestre Caballero',
-      size: '1,5 x 2 m / 3 x 4 m',
-      dimensions: '1,5 x 2 m / 3 x 4 m',
-      year: '2026',
-      technique: 'Pintura de fachada sobre pared',
-      images: [
-        '/murals/mestre-caballero-process.png', // Photo 1 — painting process with rainbow detail
-        '/murals/mestre-caballero-photo.png',   // Photo 2 — Pau & student in front of mural                                      
-        '/murals/mestre-caballero-detail.png'   // Photo 3 — detail view of student signing wall
-      ]
-    },
     {
       id: 'mural-joseph-pilates',
       title: 'Mural Joseph Pilates',
@@ -120,6 +43,98 @@ export default function Murals({ lang = 'es' }) {
         '/murals/joseph-pilates-face.jpg',
         '/murals/joseph-pilates-process.jpg'
       ]
+    },
+    {
+      id: 'mural-mestre-caballero',
+      title: 'Murales 40 aniversari del CEIP Mestre Caballero',
+      context: 'Colegio Mestre Caballero',
+      size: '1,5 x 2 m / 3 x 4 m',
+      dimensions: '1,5 x 2 m / 3 x 4 m',
+      year: '2026',
+      technique: 'Pintura de fachada sobre pared',
+      images: [
+        '/murals/mestre-caballero-process.png',
+        '/murals/mestre-caballero-photo.png',
+        '/murals/mestre-caballero-detail.png'
+      ]
+    },
+    {
+      id: 'mural-entrepistes',
+      title: 'Mural de Entrepistes',
+      context: 'Restaurante Entrepistes',
+      size: '2,5 x 5,50 m',
+      dimensions: '2,5 x 5,50 m',
+      year: '2026',
+      technique: 'Pintura de fachada sobre pared',
+      images: [
+        '/murals/entrepistes-complete.jpg',
+        '/murals/entrepistes-detail.jpg',
+        '/murals/entrepistes-photo.jpg',
+        '/murals/entrepistes-process.jpg'
+      ]
+    },
+    {
+      id: 'mural-mico-gaming',
+      title: 'Mural de MICO Gaming Zone',
+      context: 'Ayuntamiento de Onda',
+      size: '11 x 1,40 m',
+      dimensions: '11 x 1,40 m',
+      year: '2026',
+      technique: 'Pintura de fachada sobre pared',
+      images: [
+        '/murals/mico-gaming-complete.jpg',
+        '/murals/mico-gaming-detail.jpg',
+        '/murals/mico-gaming-process.jpg',
+        '/murals/mico-gaming-photo.jpg'
+      ]
+    },
+    {
+      id: 'mural-som-joves',
+      title: 'Mural “Som joves, som Onda”',
+      context: "Casal Jove D'Onda",
+      description: isEs 
+        ? 'Mural colaborativo realizado con las niñas y niños del Casal Jove, un lugar donde todas las personas jóvenes son bienvenidas.'
+        : 'This was a collaborative mural with the kids of Casal Jove, a place where all young people are welcome.',
+      size: '16 x 6,20 m',
+      dimensions: '16 x 6,20 m',
+      year: '2025',
+      technique: 'Pintura de fachada sobre pared',
+      images: [
+        '/murals/som-joves-complete.jpg',
+        '/murals/som-joves-detail.jpg',
+        '/murals/som-joves-photo.jpg',
+        '/murals/som-joves-process.jpg'
+      ]
+    },
+    {
+      id: 'mural-bandera-onda',
+      title: "Mural Bandera d'Onda reimaginada",
+      context: 'Ayuntamiento de Onda',
+      size: '1 x 30 m',
+      dimensions: '1 x 30 m',
+      year: '2025',
+      technique: 'Pintura de fachada sobre pared',
+      images: [
+        '/murals/bandera-onda-complete.jpg',
+        '/murals/bandera-onda-detail.jpg',
+        '/murals/bandera-onda-process.jpg',
+        '/murals/bandera-onda-signature.jpg'
+      ]
+    },
+    {
+      id: 'mural-ludiente',
+      title: 'Mural de Ludiente',
+      context: 'Realizado para el MALFEST 2024',
+      size: '3 x 5,70 m',
+      dimensions: '3 x 5,70 m',
+      year: '2024',
+      technique: 'Pintura de fachada sobre pared',
+      images: [
+        '/murals/ludiente-complete.jpg',
+        '/murals/ludiente-photo.jpg',
+        '/murals/ludiente-process.jpg',
+        '/murals/ludiente-detail.jpg'
+      ]
     }
   ];
 
@@ -129,11 +144,191 @@ export default function Murals({ lang = 'es' }) {
   };
 
   return (
-    <div className="murals-page site-container" style={{ paddingTop: '1.5rem', paddingBottom: '6rem' }}>
-      {/* Murals Showcase List */}
+    <div className="murals-page site-container" style={{ paddingTop: '1rem', paddingBottom: '2.5rem' }}>
+      {/* Discreet Expandable Mural Commission / Enquiry Banner at the Top */}
+      <div 
+        className="mural-enquiry-banner"
+        style={{
+          marginBottom: '1.5rem',
+          padding: '1.25rem 1.5rem',
+          backgroundColor: '#FAFAFA',
+          border: '1px solid #EAEAEA',
+          borderRadius: '2px',
+          maxWidth: '1200px',
+          margin: '0 auto 1.5rem auto'
+        }}
+      >
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+          <div>
+            <span style={{ fontSize: '0.725rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#888888', fontWeight: 600, display: 'block', marginBottom: '0.25rem' }}>
+              {isEs ? 'ENCARGOS & INTERVENCIONES MURALES' : 'COMMISSIONS & MURAL PROJECTS'}
+            </span>
+            <div style={{ fontFamily: 'Inter, -apple-system, sans-serif', fontSize: '0.95rem', color: '#333333' }}>
+              {isEs ? '¿Tienes un proyecto mural en mente o deseas solicitar información?' : 'Interested in commissioning a mural or inquiring about project details?'}
+            </div>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setIsEnquiryOpen(!isEnquiryOpen)}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              padding: '0.65rem 1.25rem',
+              fontSize: '0.75rem',
+              letterSpacing: '0.15em',
+              textTransform: 'uppercase',
+              border: '1px solid #111111',
+              color: isEnquiryOpen ? '#FFFFFF' : '#111111',
+              backgroundColor: isEnquiryOpen ? '#111111' : 'transparent',
+              cursor: 'pointer',
+              fontWeight: 600,
+              borderRadius: '1px',
+              transition: 'all 0.25s ease'
+            }}
+          >
+            {isEs ? 'SOLICITAR INFORMACIÓN / ENCARGO MURAL' : 'ENQUIRE ABOUT A MURAL'} {isEnquiryOpen ? '↑' : '↓'}
+          </button>
+        </div>
+
+        {/* Smooth Expandable Form */}
+        {isEnquiryOpen && (
+          <div 
+            className="mural-enquiry-expanded-form"
+            style={{ 
+              marginTop: '1.5rem', 
+              paddingTop: '1.5rem', 
+              borderTop: '1px solid #EAEAEA'
+            }}
+          >
+            {enquirySubmitted ? (
+              <div style={{ padding: '0.5rem 0' }}>
+                <p style={{ fontFamily: 'Inter, -apple-system, sans-serif', fontSize: '0.95rem', color: '#1A1916', margin: 0, fontStyle: 'italic' }}>
+                  {isEs 
+                    ? 'Gracias por tu consulta. Pau Canelles te responderá a la brevedad.'
+                    : 'Thank you for your inquiry. Pau Canelles will respond shortly.'}
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleEnquirySubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', maxWidth: '720px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.25rem' }}>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.725rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#777777', marginBottom: '0.4rem', fontWeight: 600 }}>
+                      {isEs ? 'NOMBRE' : 'NAME'}
+                    </label>
+                    <input 
+                      type="text" 
+                      required 
+                      value={enquiryForm.name}
+                      onChange={(e) => setEnquiryForm({ ...enquiryForm, name: e.target.value })}
+                      style={{
+                        width: '100%',
+                        padding: '0.6rem 0.75rem',
+                        fontSize: '0.9rem',
+                        border: '1px solid #CCCCCC',
+                        borderRadius: '1px',
+                        backgroundColor: '#FFFFFF',
+                        color: '#111111',
+                        boxSizing: 'border-box'
+                      }}
+                      placeholder={isEs ? 'Tu nombre' : 'Your name'}
+                    />
+                  </div>
+
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.725rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#777777', marginBottom: '0.4rem', fontWeight: 600 }}>
+                      EMAIL
+                    </label>
+                    <input 
+                      type="email" 
+                      required 
+                      value={enquiryForm.email}
+                      onChange={(e) => setEnquiryForm({ ...enquiryForm, email: e.target.value })}
+                      style={{
+                        width: '100%',
+                        padding: '0.6rem 0.75rem',
+                        fontSize: '0.9rem',
+                        border: '1px solid #CCCCCC',
+                        borderRadius: '1px',
+                        backgroundColor: '#FFFFFF',
+                        color: '#111111',
+                        boxSizing: 'border-box'
+                      }}
+                      placeholder="your@email.com"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.725rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#777777', marginBottom: '0.4rem', fontWeight: 600 }}>
+                    {isEs ? 'DETALLES DEL PROYECTO MURAL' : 'MURAL PROJECT DETAILS'}
+                  </label>
+                  <textarea 
+                    rows="3" 
+                    required 
+                    value={enquiryForm.message}
+                    onChange={(e) => setEnquiryForm({ ...enquiryForm, message: e.target.value })}
+                    style={{
+                      width: '100%',
+                      padding: '0.65rem 0.75rem',
+                      fontSize: '0.9rem',
+                      border: '1px solid #CCCCCC',
+                      borderRadius: '1px',
+                      backgroundColor: '#FFFFFF',
+                      color: '#111111',
+                      boxSizing: 'border-box',
+                      resize: 'vertical'
+                    }}
+                    placeholder={isEs ? 'Dimensiones aproximadas, ubicación, concepto o cualquier detalle...' : 'Approximate dimensions, location, concept, or project inquiry...'}
+                  />
+                </div>
+
+                <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                  <button 
+                    type="submit" 
+                    style={{
+                      padding: '0.65rem 1.5rem',
+                      fontSize: '0.75rem',
+                      letterSpacing: '0.15em',
+                      textTransform: 'uppercase',
+                      border: '1px solid #111111',
+                      color: '#FFFFFF',
+                      backgroundColor: '#111111',
+                      cursor: 'pointer',
+                      fontWeight: 600,
+                      borderRadius: '1px',
+                      transition: 'all 0.2s ease'
+                    }}
+                  >
+                    {isEs ? 'ENVIAR CONSULTA →' : 'SEND ENQUIRY →'}
+                  </button>
+
+                  <button 
+                    type="button" 
+                    onClick={() => setIsEnquiryOpen(false)}
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      fontSize: '0.75rem',
+                      letterSpacing: '0.15em',
+                      textTransform: 'uppercase',
+                      color: '#777777',
+                      cursor: 'pointer',
+                      padding: '0.5rem'
+                    }}
+                  >
+                    {isEs ? 'CANCELAR' : 'CANCEL'}
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        )}
+      </div>
       <div className="murals-showcase-list">
         {muralProjects.map((mural) => (
-          <article key={mural.id} className="mural-project-block" style={{ marginBottom: '5rem' }}>
+          <article key={mural.id} className="mural-project-block" style={{ marginBottom: '2.5rem' }}>
             {/* Title & Metadata Block — Appears ONCE per mural project */}
             <div className="mural-discreet-meta" style={{ marginBottom: '1.75rem' }}>
               <div className="mural-meta-header">

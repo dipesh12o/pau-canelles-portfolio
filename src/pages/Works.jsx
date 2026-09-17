@@ -35,7 +35,7 @@ export default function Works({ lang = 'es', onSelectArtwork }) {
     : artworks.filter((a) => getYearInterval(a.year) === selectedInterval);
 
   return (
-    <div className="works-page site-container" style={{ paddingTop: '1.5rem', paddingBottom: '5rem' }}>
+    <div className="works-page site-container" style={{ paddingTop: '1rem', paddingBottom: '2.5rem' }}>
       {/* Year-Wise Portfolio Navigation Row */}
       {availableIntervals.length > 0 && (
         <div className="portfolio-year-nav">

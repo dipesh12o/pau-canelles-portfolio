@@ -18,14 +18,24 @@ export default function Contact({ lang }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    let msg = `*Nueva consulta desde la web*\n`;
+    msg += `*Nombre:* ${formData.name}\n`;
+    if (enquiryType === 'gallery' && formData.galleryName) {
+      msg += `*Galería / Entidad:* ${formData.galleryName}\n`;
+    }
+    msg += `*Email:* ${formData.email}\n`;
+    msg += `*Mensaje:*\n${formData.message}`;
+
+    const waUrl = `https://wa.me/34619755639?text=${encodeURIComponent(msg)}`;
+    window.open(waUrl, '_blank');
     setSubmitted(true);
   };
 
   return (
-    <div className="contact-page" style={{ paddingTop: '1.5rem', minHeight: '100vh' }}>
-      <div className="about-container" style={{ maxWidth: '1100px', paddingTop: '1.5rem' }}>
+    <div className="contact-page" style={{ paddingTop: '1rem', minHeight: '100vh', paddingBottom: '2.5rem' }}>
+      <div className="about-container" style={{ maxWidth: '1100px', paddingTop: '1rem' }}>
         {/* Hero Section Title & Intro */}
-        <div style={{ marginBottom: '3rem' }}>
+        <div style={{ marginBottom: '1.5rem' }}>
           <h1 className="about-intro-statement" style={{ fontSize: 'clamp(2.4rem, 4vw, 3.8rem)', marginBottom: '1.25rem' }}>
             {isEs ? 'Contacto' : 'Contact'}
           </h1>
@@ -36,7 +46,7 @@ export default function Contact({ lang }) {
           </p>
         </div>
 
-        <hr className="about-hairline-separator" style={{ marginBottom: '3.5rem' }} />
+        <hr className="about-hairline-separator" style={{ marginBottom: '1.5rem' }} />
 
         {/* 2-Column Responsive Layout: Left Info, Right Form */}
         <div className="contact-grid-container">

@@ -71,7 +71,6 @@ export default function About({ setCurrentPage, lang = 'es' }) {
                   alt={item.alt} 
                   className="gallery-strip-img" 
                 />
-                <span className="gallery-strip-caption">{item.alt}</span>
               </div>
             ))}
           </div>
@@ -108,6 +107,7 @@ export default function About({ setCurrentPage, lang = 'es' }) {
           onClose={() => setSelectedPhoto(null)}
           onSelectArtwork={(item) => setSelectedPhoto(item)}
           lang={lang}
+          hideEnquireButton={true}
         />
       )}
     </div>

@@ -125,13 +125,13 @@ export default function Exhibitions({ lang = 'es' }) {
         backgroundColor: '#FFFFFF',
         color: '#1A1916',
         minHeight: '100vh',
-        paddingTop: '2rem',
-        paddingBottom: '6rem'
+        paddingTop: '1rem',
+        paddingBottom: '2.5rem'
       }}
     >
       <div className="site-container" style={{ maxWidth: '1000px', margin: '0 auto' }}>
         {/* Editorial Header */}
-        <header className="exhibitions-header" style={{ marginBottom: '2rem', borderBottom: '1px solid #E5E5E5', paddingBottom: '1.25rem' }}>
+        <header className="exhibitions-header" style={{ marginBottom: '1.25rem', borderBottom: '1px solid #E5E5E5', paddingBottom: '1.25rem' }}>
           <span 
             className="meta-label" 
             style={{ 
@@ -162,7 +162,7 @@ export default function Exhibitions({ lang = 'es' }) {
         <div 
           className="upcoming-exhibition-announcement" 
           style={{ 
-            marginBottom: '2.5rem', 
+            marginBottom: '1.25rem', 
             padding: '1.25rem 1.5rem', 
             backgroundColor: '#FAFAFA', 
             border: '1px solid #EAEAEA', 

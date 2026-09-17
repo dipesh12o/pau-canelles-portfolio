@@ -9,7 +9,7 @@ const hasSubtitle = (sub) => {
   return trimmed !== '' && trimmed.toUpperCase() !== 'N/A' && trimmed.toUpperCase() !== '[BLANK]';
 };
 
-export default function ArtworkModal({ artwork, item, itemList, activeImgIndex = 0, onClose, onSelectArtwork, lang = 'es' }) {
+export default function ArtworkModal({ artwork, item, itemList, activeImgIndex = 0, onClose, onSelectArtwork, lang = 'es', hideEnquireButton = false }) {
   const currentItem = artwork || item;
   const items = itemList || ARTIST_DATA.artworks;
   const currentIndex = items.findIndex(a => a.id === currentItem?.id);
@@ -349,16 +349,18 @@ export default function ArtworkModal({ artwork, item, itemList, activeImgIndex =
               )}
 
               {/* Action / Enquiry Button */}
-              <div className="lightbox-cta-wrapper">
-                <a 
-                  href={whatsappUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="lightbox-enquiry-btn"
-                >
-                  {isEs ? 'CONSULTAR SOBRE ESTA OBRA' : 'ENQUIRE ABOUT THIS ARTWORK'}
-                </a>
-              </div>
+              {!hideEnquireButton && (
+                <div className="lightbox-cta-wrapper">
+                  <a 
+                    href={whatsappUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="lightbox-enquiry-btn"
+                  >
+                    {isEs ? 'CONSULTAR SOBRE ESTA OBRA' : 'ENQUIRE ABOUT THIS ARTWORK'}
+                  </a>
+                </div>
+              )}
             </div>
           </div>
 
