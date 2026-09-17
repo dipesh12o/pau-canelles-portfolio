@@ -159,8 +159,10 @@ export default function Home({ setCurrentPage, lang = 'es', onSelectArtwork }) {
 
         <div className="hero-right-image-container">
           <img 
-            src="/workshops/mientras-todo-pasaba-workshop.jpg" 
+            src="/workshops/mientras-todo-pasaba-workshop.webp" 
             alt="Mientras todo pasaba — Pau Canelles" 
+            loading="lazy"
+            decoding="async"
             style={{
               width: '100%',
               height: '100%',

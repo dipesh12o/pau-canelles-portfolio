@@ -70,6 +70,8 @@ export default function About({ setCurrentPage, lang = 'es' }) {
                   src={item.src} 
                   alt={item.alt} 
                   className="gallery-strip-img" 
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             ))}

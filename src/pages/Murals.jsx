@@ -36,12 +36,12 @@ export default function Murals({ lang = 'es' }) {
       technique: 'Acrílico, óleo y spray sobre tablilla entelada.',
       videoUrl: 'https://drive.google.com/file/d/1WHVCVnnTTeErwuBUtf32SSi_ALEj6cqg/view',
       images: [
-        '/murals/joseph-pilates-complete.jpg',
-        '/murals/joseph-pilates-artwork.jpg',
-        '/murals/joseph-pilates-detail.jpg',
-        '/murals/joseph-pilates-event.jpg',
-        '/murals/joseph-pilates-face.jpg',
-        '/murals/joseph-pilates-process.jpg'
+        '/murals/joseph-pilates-complete.webp',
+        '/murals/joseph-pilates-artwork.webp',
+        '/murals/joseph-pilates-detail.webp',
+        '/murals/joseph-pilates-event.webp',
+        '/murals/joseph-pilates-face.webp',
+        '/murals/joseph-pilates-process.webp'
       ]
     },
     {
@@ -53,9 +53,9 @@ export default function Murals({ lang = 'es' }) {
       year: '2026',
       technique: 'Pintura de fachada sobre pared',
       images: [
-        '/murals/mestre-caballero-process.png',
-        '/murals/mestre-caballero-photo.png',
-        '/murals/mestre-caballero-detail.png'
+        '/murals/mestre-caballero-process.webp',
+        '/murals/mestre-caballero-photo.webp',
+        '/murals/mestre-caballero-detail.webp'
       ]
     },
     {
@@ -67,10 +67,10 @@ export default function Murals({ lang = 'es' }) {
       year: '2026',
       technique: 'Pintura de fachada sobre pared',
       images: [
-        '/murals/entrepistes-complete.jpg',
-        '/murals/entrepistes-detail.jpg',
-        '/murals/entrepistes-photo.jpg',
-        '/murals/entrepistes-process.jpg'
+        '/murals/entrepistes-complete.webp',
+        '/murals/entrepistes-detail.webp',
+        '/murals/entrepistes-photo.webp',
+        '/murals/entrepistes-process.webp'
       ]
     },
     {
@@ -82,10 +82,10 @@ export default function Murals({ lang = 'es' }) {
       year: '2026',
       technique: 'Pintura de fachada sobre pared',
       images: [
-        '/murals/mico-gaming-complete.jpg',
-        '/murals/mico-gaming-detail.jpg',
-        '/murals/mico-gaming-process.jpg',
-        '/murals/mico-gaming-photo.jpg'
+        '/murals/mico-gaming-complete.webp',
+        '/murals/mico-gaming-detail.webp',
+        '/murals/mico-gaming-process.webp',
+        '/murals/mico-gaming-photo.webp'
       ]
     },
     {
@@ -100,10 +100,10 @@ export default function Murals({ lang = 'es' }) {
       year: '2025',
       technique: 'Pintura de fachada sobre pared',
       images: [
-        '/murals/som-joves-complete.jpg',
-        '/murals/som-joves-detail.jpg',
-        '/murals/som-joves-photo.jpg',
-        '/murals/som-joves-process.jpg'
+        '/murals/som-joves-complete.webp',
+        '/murals/som-joves-detail.webp',
+        '/murals/som-joves-photo.webp',
+        '/murals/som-joves-process.webp'
       ]
     },
     {
@@ -115,10 +115,10 @@ export default function Murals({ lang = 'es' }) {
       year: '2025',
       technique: 'Pintura de fachada sobre pared',
       images: [
-        '/murals/bandera-onda-complete.jpg',
-        '/murals/bandera-onda-detail.jpg',
-        '/murals/bandera-onda-process.jpg',
-        '/murals/bandera-onda-signature.jpg'
+        '/murals/bandera-onda-complete.webp',
+        '/murals/bandera-onda-detail.webp',
+        '/murals/bandera-onda-process.webp',
+        '/murals/bandera-onda-signature.webp'
       ]
     },
     {
@@ -130,10 +130,10 @@ export default function Murals({ lang = 'es' }) {
       year: '2024',
       technique: 'Pintura de fachada sobre pared',
       images: [
-        '/murals/ludiente-complete.jpg',
-        '/murals/ludiente-photo.jpg',
-        '/murals/ludiente-process.jpg',
-        '/murals/ludiente-detail.jpg'
+        '/murals/ludiente-complete.webp',
+        '/murals/ludiente-photo.webp',
+        '/murals/ludiente-process.webp',
+        '/murals/ludiente-detail.webp'
       ]
     }
   ];
@@ -405,6 +405,8 @@ export default function Murals({ lang = 'es' }) {
                 src={mural.images[0]} 
                 alt={`${mural.title} — Detail view`} 
                 className="mural-hero-img"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -431,6 +433,8 @@ export default function Murals({ lang = 'es' }) {
                       src={imgSrc} 
                       alt={`${mural.title} — Photo ${idx + 2}`} 
                       className="mural-detail-img" 
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 ))}

@@ -25,10 +25,10 @@ export default function Exhibitions({ lang = 'es' }) {
         en: `Artistes Morts o Artistes Vius? (Dead Artists or Living Artists?) reflects on the opportunities available to young artists compared with the enormous attention still given to the great names of art history.\n\nWhile artists who are no longer alive continue to attract much of the attention of audiences, institutions and the art market, many emerging artists struggle to find spaces where they can show and develop their work.\n\nThe exhibition poses a simple question: if we don’t give opportunities to the artists creating today, how can they become the artists we remember tomorrow?`
       },
       images: [
-        '/exhibitions/artistes-morts-sign.jpg',
-        '/exhibitions/artistes-morts-pau.jpg',
-        '/exhibitions/artistes-morts-hallway.jpg',
-        '/exhibitions/artistes-morts-detail.jpg'
+        '/exhibitions/artistes-morts-sign.webp',
+        '/exhibitions/artistes-morts-pau.webp',
+        '/exhibitions/artistes-morts-hallway.webp',
+        '/exhibitions/artistes-morts-detail.webp'
       ]
     },
     {
@@ -47,11 +47,11 @@ export default function Exhibitions({ lang = 'es' }) {
         en: `Mediante el Arte (Through Art) brought together around 50 works, creating a journey through different stages of my artistic development, from my earliest pieces to the explorations and forms of expression that would later come to define my work.\n\nThe title comes from understanding art as a means of communication. **Through art, I have found a way to express ideas, experiences and concerns that I often find difficult to communicate in other ways.** The exhibition therefore presented not only the evolution of my painting, but also the evolution of my own way of observing, understanding and communicating with the world.\n\nThe diversity of works, techniques and different moments represented in the exhibition offered a way to see this evolution, with each piece forming part of a process that continues to transform.`
       },
       images: [
-        '/exhibitions/mediante-el-arte-poster.jpg',
-        '/exhibitions/mediante-el-arte-gallery.jpg',
-        '/exhibitions/mediante-el-arte-speech.jpg',
-        '/exhibitions/mediante-el-arte-pau.jpg',
-        '/exhibitions/mediante-el-arte-visitors.jpg'
+        '/exhibitions/mediante-el-arte-poster.webp',
+        '/exhibitions/mediante-el-arte-gallery.webp',
+        '/exhibitions/mediante-el-arte-speech.webp',
+        '/exhibitions/mediante-el-arte-pau.webp',
+        '/exhibitions/mediante-el-arte-visitors.webp'
       ]
     },
     {
@@ -68,11 +68,11 @@ export default function Exhibitions({ lang = 'es' }) {
         en: `Vida sin sentido (Life Without Meaning) is a series of six works that reflects on disconnection from oneself and how this can lead to a life that feels devoid of meaning.\n\nThrough the fragmentation and transformation of physical features such as the nose, mouth and eyes, the series reflects on what we recognise as our own and on the elements involved in the construction of our identity.\n\nThe six pieces interact as different fragments of the same individual, exploring the distance that can emerge between who we are, how we perceive ourselves and the identity we gradually construct.`
       },
       images: [
-        '/exhibitions/todos-somos-contingentes-1.jpg',
-        '/exhibitions/todos-somos-contingentes-2.jpg',
-        '/exhibitions/todos-somos-contingentes-3.jpg',
-        '/exhibitions/todos-somos-contingentes-4.jpg',
-        '/exhibitions/todos-somos-contingentes-5.jpg'
+        '/exhibitions/todos-somos-contingentes-1.webp',
+        '/exhibitions/todos-somos-contingentes-2.webp',
+        '/exhibitions/todos-somos-contingentes-3.webp',
+        '/exhibitions/todos-somos-contingentes-4.webp',
+        '/exhibitions/todos-somos-contingentes-5.webp'
       ]
     },
     {
@@ -97,11 +97,11 @@ export default function Exhibitions({ lang = 'es' }) {
         en: `Mirada Felina (Feline Gaze) is a series of 18 works reflecting on social tension and the way conflicts and problems within our surroundings can affect how we perceive, relate to others and construct our own identity.\n\nThrough different faces and gazes, the series focuses on the traces that our surroundings leave on the individual. As a nod to MIAU, the posters also hide numerous visual references to cats, subtly integrated throughout the compositions.`
       },
       images: [
-        '/exhibitions/miau-fanzara-poster.jpg',
-        '/exhibitions/miau-fanzara-wall-posters.jpg',
-        '/exhibitions/miau-fanzara-process-1.jpg',
-        '/exhibitions/miau-fanzara-process-2.jpg',
-        '/exhibitions/miau-fanzara-prep.jpg'
+        '/exhibitions/miau-fanzara-poster.webp',
+        '/exhibitions/miau-fanzara-wall-posters.webp',
+        '/exhibitions/miau-fanzara-process-1.webp',
+        '/exhibitions/miau-fanzara-process-2.webp',
+        '/exhibitions/miau-fanzara-prep.webp'
       ]
     }
   ];
@@ -529,6 +529,8 @@ export default function Exhibitions({ lang = 'es' }) {
                               <img
                                 src={imgSrc}
                                 alt={`${item.title} — Photo ${idx + 1}`}
+                                loading="lazy"
+                                decoding="async"
                                 style={{
                                   width: '100%',
                                   height: '100%',

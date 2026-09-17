@@ -25,17 +25,17 @@ export const ARTIST_DATA = {
     medium: "Acrylic, earth pigments, and fine sand on stretched canvas",
     dimensions: "120 × 100 cm",
     year: "2025",
-    image: "/artworks/home-pau-studio.jpg",
+    image: "/artworks/home-pau-studio.webp",
     aspectRatio: "portrait",
     featured: true,
     description: "Exploration of tactile surfaces through layered earth pigments, heavy impasto, and vivid magenta-pink contours. A powerful visual meditation on texture, expression, and human presence."
   },
 
   aboutImages: {
-    photo1: "/about/about-pau-easel.jpg",
-    photo2: "/about/about-pau-studio-artworks.jpg",
-    photo3: "/about/about-pau-portrait-smile.jpg",
-    photo4: "/about/about-pau-easel-side.jpg"
+    photo1: "/about/about-pau-easel.webp",
+    photo2: "/about/about-pau-studio-artworks.webp",
+    photo3: "/about/about-pau-portrait-smile.webp",
+    photo4: "/about/about-pau-easel-side.webp"
   },
 
   aboutStory: {
@@ -96,17 +96,17 @@ export const ARTIST_DATA = {
       dimensions: "125x60 cm",
       year: "2026",
       edition: "Pieza única",
-      image: "/artworks/completo.png",
+      image: "/artworks/completo.webp",
       detailImages: [
-        "/artworks/asi-fue.jpg",
-        "/artworks/asi-fue-detail-1.jpg",
-        "/artworks/asi-fue-detail-2.jpg"
+        "/artworks/asi-fue.webp",
+        "/artworks/asi-fue-detail-1.webp",
+        "/artworks/asi-fue-detail-2.webp"
       ],
       images: [
-        "/artworks/completo.png",
-        "/artworks/asi-fue.jpg",
-        "/artworks/asi-fue-detail-1.jpg",
-        "/artworks/asi-fue-detail-2.jpg"
+        "/artworks/completo.webp",
+        "/artworks/asi-fue.webp",
+        "/artworks/asi-fue-detail-1.webp",
+        "/artworks/asi-fue-detail-2.webp"
       ],
       aspectRatio: "landscape",
       featured: true
@@ -121,15 +121,15 @@ export const ARTIST_DATA = {
       dimensions: "50x76 cm",
       year: "2026",
       edition: "Pieza única",
-      image: "/artworks/completo-mini.png",
+      image: "/artworks/completo-mini.webp",
       detailImages: [
-        "/artworks/mientras-todo-pasaba-detail-1.jpg",
-        "/artworks/mientras-todo-pasaba-detail-2.jpg"
+        "/artworks/mientras-todo-pasaba-detail-1.webp",
+        "/artworks/mientras-todo-pasaba-detail-2.webp"
       ],
       images: [
-        "/artworks/completo-mini.png",
-        "/artworks/mientras-todo-pasaba-detail-1.jpg",
-        "/artworks/mientras-todo-pasaba-detail-2.jpg"
+        "/artworks/completo-mini.webp",
+        "/artworks/mientras-todo-pasaba-detail-1.webp",
+        "/artworks/mientras-todo-pasaba-detail-2.webp"
       ],
       aspectRatio: "square",
       featured: true
@@ -144,19 +144,19 @@ export const ARTIST_DATA = {
       dimensions: "70x52 cm",
       year: "2026",
       edition: "Pieza única",
-      image: "/artworks/corona-de-espinas-completo.png",
+      image: "/artworks/corona-de-espinas-completo.webp",
       detailImages: [
-        "/artworks/corona-de-espinas-detail-1.jpg",
-        "/artworks/corona-de-espinas-detail-2.jpg",
-        "/artworks/corona-de-espinas-detail-3.jpg",
-        "/artworks/corona-de-espinas-detail-4.jpg"
+        "/artworks/corona-de-espinas-detail-1.webp",
+        "/artworks/corona-de-espinas-detail-2.webp",
+        "/artworks/corona-de-espinas-detail-3.webp",
+        "/artworks/corona-de-espinas-detail-4.webp"
       ],
       images: [
-        "/artworks/corona-de-espinas-completo.png",
-        "/artworks/corona-de-espinas-detail-1.jpg",
-        "/artworks/corona-de-espinas-detail-2.jpg",
-        "/artworks/corona-de-espinas-detail-3.jpg",
-        "/artworks/corona-de-espinas-detail-4.jpg"
+        "/artworks/corona-de-espinas-completo.webp",
+        "/artworks/corona-de-espinas-detail-1.webp",
+        "/artworks/corona-de-espinas-detail-2.webp",
+        "/artworks/corona-de-espinas-detail-3.webp",
+        "/artworks/corona-de-espinas-detail-4.webp"
       ],
       aspectRatio: "square",
       featured: true
@@ -170,15 +170,15 @@ export const ARTIST_DATA = {
       dimensions: "90x72 cm",
       year: "2026",
       edition: "Pieza única",
-      image: "/artworks/empachamama-completo.png",
+      image: "/artworks/empachamama-completo.webp",
       detailImages: [
-        "/artworks/empachamama-detail-1.jpg",
-        "/artworks/empachamama-detail-2.jpg"
+        "/artworks/empachamama-detail-1.webp",
+        "/artworks/empachamama-detail-2.webp"
       ],
       images: [
-        "/artworks/empachamama-completo.png",
-        "/artworks/empachamama-detail-1.jpg",
-        "/artworks/empachamama-detail-2.jpg"
+        "/artworks/empachamama-completo.webp",
+        "/artworks/empachamama-detail-1.webp",
+        "/artworks/empachamama-detail-2.webp"
       ],
       aspectRatio: "portrait",
       featured: true
@@ -193,17 +193,17 @@ export const ARTIST_DATA = {
       dimensions: "125x60x4 cm",
       year: "2026",
       edition: "Pieza única",
-      image: "/artworks/entre-rabia-y-pena.png",
+      image: "/artworks/entre-rabia-y-pena.webp",
       detailImages: [
-        "/artworks/entre-rabia-y-pena-detail-1.jpg",
-        "/artworks/entre-rabia-y-pena-detail-2.jpg",
-        "/artworks/entre-rabia-y-pena-detail-3.jpg"
+        "/artworks/entre-rabia-y-pena-detail-1.webp",
+        "/artworks/entre-rabia-y-pena-detail-2.webp",
+        "/artworks/entre-rabia-y-pena-detail-3.webp"
       ],
       images: [
-        "/artworks/entre-rabia-y-pena.png",
-        "/artworks/entre-rabia-y-pena-detail-1.jpg",
-        "/artworks/entre-rabia-y-pena-detail-2.jpg",
-        "/artworks/entre-rabia-y-pena-detail-3.jpg"
+        "/artworks/entre-rabia-y-pena.webp",
+        "/artworks/entre-rabia-y-pena-detail-1.webp",
+        "/artworks/entre-rabia-y-pena-detail-2.webp",
+        "/artworks/entre-rabia-y-pena-detail-3.webp"
       ],
       aspectRatio: "portrait",
       featured: true
@@ -217,17 +217,17 @@ export const ARTIST_DATA = {
       dimensions: "40x80 cm",
       year: "2026",
       edition: "Pieza única",
-      image: "/artworks/fragil.png",
+      image: "/artworks/fragil.webp",
       detailImages: [
-        "/artworks/fragil-detail-1.jpg",
-        "/artworks/fragil-detail-2.jpg",
-        "/artworks/fragil-detail-3.jpg"
+        "/artworks/fragil-detail-1.webp",
+        "/artworks/fragil-detail-2.webp",
+        "/artworks/fragil-detail-3.webp"
       ],
       images: [
-        "/artworks/fragil.png",
-        "/artworks/fragil-detail-1.jpg",
-        "/artworks/fragil-detail-2.jpg",
-        "/artworks/fragil-detail-3.jpg"
+        "/artworks/fragil.webp",
+        "/artworks/fragil-detail-1.webp",
+        "/artworks/fragil-detail-2.webp",
+        "/artworks/fragil-detail-3.webp"
       ],
       aspectRatio: "portrait",
       featured: true
@@ -244,13 +244,13 @@ export const ARTIST_DATA = {
       finish: "Barniz satinado",
       edition: "Pieza única",
       description: "Me resulta especialmente frustrante observar un sistema de pensiones cuya sostenibilidad se enfrenta a una pirámide poblacional cada vez más desequilibrada. Crecer contribuyendo a un sistema más aumenta la incertidumbre sobre si nosotros podremos beneficiarnos de él algún día, genera una mezcla de rabia, impotencia y desconfianza hacia el futuro.",
-      image: "/artworks/pienso-en-mi-pension.png",
+      image: "/artworks/pienso-en-mi-pension.webp",
       detailImages: [
-        "/artworks/pienso-en-mi-pension-detail-1.jpg"
+        "/artworks/pienso-en-mi-pension-detail-1.webp"
       ],
       images: [
-        "/artworks/pienso-en-mi-pension.png",
-        "/artworks/pienso-en-mi-pension-detail-1.jpg"
+        "/artworks/pienso-en-mi-pension.webp",
+        "/artworks/pienso-en-mi-pension-detail-1.webp"
       ],
       aspectRatio: "portrait",
       featured: true
@@ -265,15 +265,15 @@ export const ARTIST_DATA = {
       dimensions: "125x60x4 cm",
       year: "2026",
       edition: "Pieza única",
-      image: "/artworks/dsc-1360.png",
+      image: "/artworks/dsc-1360.webp",
       detailImages: [
-        "/artworks/retrato-abrupto-3-detail-1.jpg",
-        "/artworks/retrato-abrupto-3-detail-2.jpg"
+        "/artworks/retrato-abrupto-3-detail-1.webp",
+        "/artworks/retrato-abrupto-3-detail-2.webp"
       ],
       images: [
-        "/artworks/dsc-1360.png",
-        "/artworks/retrato-abrupto-3-detail-1.jpg",
-        "/artworks/retrato-abrupto-3-detail-2.jpg"
+        "/artworks/dsc-1360.webp",
+        "/artworks/retrato-abrupto-3-detail-1.webp",
+        "/artworks/retrato-abrupto-3-detail-2.webp"
       ],
       aspectRatio: "portrait",
       featured: true
@@ -288,17 +288,17 @@ export const ARTIST_DATA = {
       dimensions: "125x60x4 cm",
       year: "2026",
       edition: "Pieza única",
-      image: "/artworks/dsc-1370.png",
+      image: "/artworks/dsc-1370.webp",
       detailImages: [
-        "/artworks/retrato-abrupto-2-detail-1.jpg",
-        "/artworks/retrato-abrupto-2-detail-2.jpg",
-        "/artworks/retrato-abrupto-2-detail-3.jpg"
+        "/artworks/retrato-abrupto-2-detail-1.webp",
+        "/artworks/retrato-abrupto-2-detail-2.webp",
+        "/artworks/retrato-abrupto-2-detail-3.webp"
       ],
       images: [
-        "/artworks/dsc-1370.png",
-        "/artworks/retrato-abrupto-2-detail-1.jpg",
-        "/artworks/retrato-abrupto-2-detail-2.jpg",
-        "/artworks/retrato-abrupto-2-detail-3.jpg"
+        "/artworks/dsc-1370.webp",
+        "/artworks/retrato-abrupto-2-detail-1.webp",
+        "/artworks/retrato-abrupto-2-detail-2.webp",
+        "/artworks/retrato-abrupto-2-detail-3.webp"
       ],
       aspectRatio: "portrait",
       featured: true
@@ -313,17 +313,17 @@ export const ARTIST_DATA = {
       dimensions: "125x60x4 cm",
       year: "2026",
       edition: "Pieza única",
-      image: "/artworks/retratos-abruptos-1-amarillo.png",
+      image: "/artworks/retratos-abruptos-1-amarillo.webp",
       detailImages: [
-        "/artworks/retrato-abrupto-1-detail-1.jpg",
-        "/artworks/retrato-abrupto-1-detail-2.jpg",
-        "/artworks/retrato-abrupto-1-detail-3.jpg"
+        "/artworks/retrato-abrupto-1-detail-1.webp",
+        "/artworks/retrato-abrupto-1-detail-2.webp",
+        "/artworks/retrato-abrupto-1-detail-3.webp"
       ],
       images: [
-        "/artworks/retratos-abruptos-1-amarillo.png",
-        "/artworks/retrato-abrupto-1-detail-1.jpg",
-        "/artworks/retrato-abrupto-1-detail-2.jpg",
-        "/artworks/retrato-abrupto-1-detail-3.jpg"
+        "/artworks/retratos-abruptos-1-amarillo.webp",
+        "/artworks/retrato-abrupto-1-detail-1.webp",
+        "/artworks/retrato-abrupto-1-detail-2.webp",
+        "/artworks/retrato-abrupto-1-detail-3.webp"
       ],
       aspectRatio: "portrait",
       featured: true

@@ -9,25 +9,25 @@ export default function Workshops({ lang = 'es', setCurrentPage }) {
 
   // Section 3: Main Workshop Gallery (4 real photos supplied by client)
   const mainGalleryPhotos = [
-    { id: 'main-ws1', src: '/workshops/ws-01.jpg', image: '/workshops/ws-01.jpg', title: isEs ? 'Taller Creativo — Pau Canelles' : 'Creative Workshop — Pau Canelles', alt: isEs ? 'Pau Canelles enseñando en el taller' : 'Pau Canelles teaching in the workshop' },
-    { id: 'main-ws2', src: '/workshops/ws-02.jpg', image: '/workshops/ws-02.jpg', title: isEs ? 'Proceso Creativo' : 'Creative Process', alt: isEs ? 'Niño dibujando en la mesa de trabajo' : 'Child drawing at workshop table' },
-    { id: 'main-ws3', src: '/workshops/ws-03.jpg', image: '/workshops/ws-03.jpg', title: isEs ? 'Visita a Exposición' : 'Exhibition Visit', alt: isEs ? 'Alumnos visitando la exposición de arte' : 'Students visiting art exhibition' },
-    { id: 'main-ws4', src: '/workshops/ws-04.jpg', image: '/workshops/ws-04.jpg', title: isEs ? 'Actividad en Sala' : 'Gallery Activity', alt: isEs ? 'Alumnos creando sobre el suelo de la sala' : 'Students working in the exhibition room' }
+    { id: 'main-ws1', src: '/workshops/ws-01.webp', image: '/workshops/ws-01.webp', title: isEs ? 'Taller Creativo — Pau Canelles' : 'Creative Workshop — Pau Canelles', alt: isEs ? 'Pau Canelles enseñando en el taller' : 'Pau Canelles teaching in the workshop' },
+    { id: 'main-ws2', src: '/workshops/ws-02.webp', image: '/workshops/ws-02.webp', title: isEs ? 'Proceso Creativo' : 'Creative Process', alt: isEs ? 'Niño dibujando en la mesa de trabajo' : 'Child drawing at workshop table' },
+    { id: 'main-ws3', src: '/workshops/ws-03.webp', image: '/workshops/ws-03.webp', title: isEs ? 'Visita a Exposición' : 'Exhibition Visit', alt: isEs ? 'Alumnos visitando la exposición de arte' : 'Students visiting art exhibition' },
+    { id: 'main-ws4', src: '/workshops/ws-04.webp', image: '/workshops/ws-04.webp', title: isEs ? 'Actividad en Sala' : 'Gallery Activity', alt: isEs ? 'Alumnos creando sobre el suelo de la sala' : 'Students working in the exhibition room' }
   ];
 
   // Section 5: Workshop Projects Carousel (11 real photos supplied by client)
   const projectPhotos = [
-    { id: 'proj-ws5', src: '/workshops/ws-05.jpg', image: '/workshops/ws-05.jpg', title: isEs ? 'Pintura Acrílica Fluida' : 'Fluid Acrylic Painting', alt: isEs ? 'Obra acrílica realizada en el taller' : 'Fluid acrylic artwork created in workshop' },
-    { id: 'proj-ws6', src: '/workshops/ws-06.jpg', image: '/workshops/ws-06.jpg', title: isEs ? 'Composición Geométrica' : 'Geometric Composition', alt: isEs ? 'Ejercicio de abstracción e inspiración Kandinsky' : 'Abstract Kandinsky-inspired study' },
-    { id: 'proj-ws7', src: '/workshops/ws-07.jpg', image: '/workshops/ws-07.jpg', title: isEs ? 'Explicación de Técnicas' : 'Technique Demonstration', alt: isEs ? 'Pau Canelles mostrando diferentes lienzos' : 'Pau Canelles demonstrating canvas techniques' },
-    { id: 'proj-ws8', src: '/workshops/ws-08.jpg', image: '/workshops/ws-08.jpg', title: isEs ? 'Trabajo en Grupo' : 'Group Session', alt: isEs ? 'Alumnos concentrados durante el taller' : 'Students during group art session' },
-    { id: 'proj-ws9', src: '/workshops/ws-09.jpg', image: '/workshops/ws-09.jpg', title: isEs ? 'Diseño de Bolsas de Tela' : 'Tote Bag Painting', alt: isEs ? 'Actividad de pintura en bolsas de tela' : 'Tote bag custom painting activity' },
-    { id: 'proj-ws10', src: '/workshops/ws-10.jpg', image: '/workshops/ws-10.jpg', title: isEs ? 'Taller de Ilustración' : 'Illustration Workshop', alt: isEs ? 'Fichas de creación de personajes' : 'Character design activity sheets' },
-    { id: 'proj-ws11', src: '/workshops/ws-11.jpg', image: '/workshops/ws-11.jpg', title: isEs ? 'Collage y Técnica Mixta' : 'Collage & Mixed Media', alt: isEs ? 'Mesa con materiales de collage' : 'Table arranged with collage materials' },
-    { id: 'proj-ws12', src: '/workshops/ws-12.jpg', image: '/workshops/ws-12.jpg', title: isEs ? 'Pixel Art y Recorte' : 'Pixel Art & Paper Cutting', alt: isEs ? 'Ejercicio de recortes y plantilla pixel' : 'Pixel art cutting activity' },
-    { id: 'proj-ws13', src: '/workshops/ws-13.jpg', image: '/workshops/ws-13.jpg', title: isEs ? 'Moldeado y Modelado' : 'Sculpting & Modeling', alt: isEs ? 'Creación tridimensional sobre la mesa' : '3D modeling session' },
-    { id: 'proj-ws14', src: '/workshops/ws-14.jpg', image: '/workshops/ws-14.jpg', title: isEs ? 'Diseño y Color' : 'Design & Color', alt: isEs ? 'Alumna coloreando personaje estilo Minecraft' : 'Student coloring pixel character' },
-    { id: 'proj-ws15', src: '/workshops/ws-15.jpg', image: '/workshops/ws-15.jpg', title: isEs ? 'Composición de Recortes' : 'Collage Composition', alt: isEs ? 'Mesa de taller con composiciones finales' : 'Workshop table with final collage works' }
+    { id: 'proj-ws5', src: '/workshops/ws-05.webp', image: '/workshops/ws-05.webp', title: isEs ? 'Pintura Acrílica Fluida' : 'Fluid Acrylic Painting', alt: isEs ? 'Obra acrílica realizada en el taller' : 'Fluid acrylic artwork created in workshop' },
+    { id: 'proj-ws6', src: '/workshops/ws-06.webp', image: '/workshops/ws-06.webp', title: isEs ? 'Composición Geométrica' : 'Geometric Composition', alt: isEs ? 'Ejercicio de abstracción e inspiración Kandinsky' : 'Abstract Kandinsky-inspired study' },
+    { id: 'proj-ws7', src: '/workshops/ws-07.webp', image: '/workshops/ws-07.webp', title: isEs ? 'Explicación de Técnicas' : 'Technique Demonstration', alt: isEs ? 'Pau Canelles mostrando diferentes lienzos' : 'Pau Canelles demonstrating canvas techniques' },
+    { id: 'proj-ws8', src: '/workshops/ws-08.webp', image: '/workshops/ws-08.webp', title: isEs ? 'Trabajo en Grupo' : 'Group Session', alt: isEs ? 'Alumnos concentrados durante el taller' : 'Students during group art session' },
+    { id: 'proj-ws9', src: '/workshops/ws-09.webp', image: '/workshops/ws-09.webp', title: isEs ? 'Diseño de Bolsas de Tela' : 'Tote Bag Painting', alt: isEs ? 'Actividad de pintura en bolsas de tela' : 'Tote bag custom painting activity' },
+    { id: 'proj-ws10', src: '/workshops/ws-10.webp', image: '/workshops/ws-10.webp', title: isEs ? 'Taller de Ilustración' : 'Illustration Workshop', alt: isEs ? 'Fichas de creación de personajes' : 'Character design activity sheets' },
+    { id: 'proj-ws11', src: '/workshops/ws-11.webp', image: '/workshops/ws-11.webp', title: isEs ? 'Collage y Técnica Mixta' : 'Collage & Mixed Media', alt: isEs ? 'Mesa con materiales de collage' : 'Table arranged with collage materials' },
+    { id: 'proj-ws12', src: '/workshops/ws-12.webp', image: '/workshops/ws-12.webp', title: isEs ? 'Pixel Art y Recorte' : 'Pixel Art & Paper Cutting', alt: isEs ? 'Ejercicio de recortes y plantilla pixel' : 'Pixel art cutting activity' },
+    { id: 'proj-ws13', src: '/workshops/ws-13.webp', image: '/workshops/ws-13.webp', title: isEs ? 'Moldeado y Modelado' : 'Sculpting & Modeling', alt: isEs ? 'Creación tridimensional sobre la mesa' : '3D modeling session' },
+    { id: 'proj-ws14', src: '/workshops/ws-14.webp', image: '/workshops/ws-14.webp', title: isEs ? 'Diseño y Color' : 'Design & Color', alt: isEs ? 'Alumna coloreando personaje estilo Minecraft' : 'Student coloring pixel character' },
+    { id: 'proj-ws15', src: '/workshops/ws-15.webp', image: '/workshops/ws-15.webp', title: isEs ? 'Composición de Recortes' : 'Collage Composition', alt: isEs ? 'Mesa de taller con composiciones finales' : 'Workshop table with final collage works' }
   ];
 
   const scrollCarousel = (direction) => {
@@ -156,6 +156,8 @@ export default function Workshops({ lang = 'es', setCurrentPage }) {
                 src={photo.src} 
                 alt={photo.alt} 
                 className="gallery-strip-img" 
+                loading="lazy"
+                decoding="async"
               />
             </div>
           ))}
@@ -274,6 +276,8 @@ export default function Workshops({ lang = 'es', setCurrentPage }) {
                 src={photo.src} 
                 alt={photo.alt} 
                 className="workshop-carousel-img"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           ))}
