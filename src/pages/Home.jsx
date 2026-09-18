@@ -80,12 +80,9 @@ export default function Home({ setCurrentPage, lang = 'es', onSelectArtwork }) {
           ================================================================== */}
       <section className="quote-section-compact">
         <div className="text-container" style={{ maxWidth: '820px', margin: '0 auto', textAlign: 'center' }}>
-          <blockquote className="serif-quote" style={{ marginBottom: '1rem', fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}>
+          <blockquote className="serif-quote" style={{ marginBottom: 0, fontSize: 'clamp(1.2rem, 2.3vw, 1.65rem)', fontStyle: 'italic' }}>
             "{ARTIST_DATA.quote.text}"
           </blockquote>
-          <p style={{ fontFamily: 'var(--font-serif-body)', fontSize: '0.95rem', color: '#8C8275', letterSpacing: '0.05em' }}>
-            — {ARTIST_DATA.name}
-          </p>
         </div>
       </section>
 
@@ -133,28 +130,59 @@ export default function Home({ setCurrentPage, lang = 'es', onSelectArtwork }) {
           ================================================================== */}
       <section className="split-featured-section">
         <div className="featured-left-content">
-          <h2 className="heading-serif" style={{ fontSize: '2.5rem', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            PAU CANELLES
-          </h2>
-          <h3 className="heading-serif" style={{ fontSize: '1.8rem', fontStyle: 'italic', marginBottom: '1.5rem', color: '#444' }}>
+          <h2 className="heading-serif" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.3rem)', fontStyle: 'italic', marginBottom: '1rem', color: '#111111' }}>
             {isEs ? 'Talleres Creativos 2026 / 2027' : 'Creative Workshops 2026 / 2027'}
-          </h3>
-          <p style={{ fontFamily: 'var(--font-serif-body)', fontSize: '1.1rem', color: '#333', marginBottom: '0.4rem' }}>
-            {isEs ? 'Calendario de Cursos y Experimentación Artística' : 'Course Schedule & Experiential Exploration'}
-          </p>
-          <p style={{ fontFamily: 'var(--font-serif-body)', fontSize: '1rem', color: '#666', marginBottom: '2.5rem' }}>
-            Onda, Castellón &bull; Spain
+          </h2>
+
+          <p style={{ fontFamily: 'var(--font-serif-body)', fontSize: '1.05rem', color: '#333333', marginBottom: '1.25rem', lineHeight: '1.5' }}>
+            {isEs 
+              ? 'Espacio de educación artística y experimentación para descubrir y desarrollar una mirada propia.' 
+              : 'Art education and creative experimentation space to discover and develop your own vision.'}
           </p>
 
-          <a 
-            href="/Calendario-talleres-creativos-2026-27.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+          <ul style={{ 
+            listStyle: 'none', 
+            padding: 0, 
+            margin: '0 0 1.75rem 0', 
+            display: 'flex', 
+            flexDirection: 'column', 
+            gap: '0.4rem',
+            fontFamily: 'var(--font-sans)',
+            fontSize: '0.875rem',
+            color: '#444444'
+          }}>
+            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span style={{ color: '#111111', fontWeight: 600 }}>&bull;</span>
+              <span>{isEs ? 'Talleres desde 25 €' : 'Workshops from €25'}</span>
+            </li>
+            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span style={{ color: '#111111', fontWeight: 600 }}>&bull;</span>
+              <span>Ubicación: C/Escultor Folià 25, Onda (Castellón)</span>
+            </li>
+            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span style={{ color: '#111111', fontWeight: 600 }}>&bull;</span>
+              <span>{isEs ? 'A partir de 6 años' : 'Ages 6+'}</span>
+            </li>
+            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span style={{ color: '#111111', fontWeight: 600 }}>&bull;</span>
+              <span>{isEs ? 'Materiales incluidos • Plazas limitadas / grupos reducidos' : 'Materials included • Limited spots / small groups'}</span>
+            </li>
+            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span style={{ color: '#111111', fontWeight: 600 }}>&bull;</span>
+              <span>{isEs ? 'Bonos con descuento disponibles (3, 5 y 7 talleres)' : 'Discount packages available (3, 5, and 7 workshops)'}</span>
+            </li>
+          </ul>
+
+          <button 
+            type="button"
             className="btn-reference-outline"
-            style={{ textDecoration: 'none', display: 'inline-block' }}
+            onClick={() => {
+              setCurrentPage('workshops');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
           >
             {isEs ? 'Explorar Talleres' : 'Explore Workshops'}
-          </a>
+          </button>
         </div>
 
         <div className="hero-right-image-container">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Facebook } from 'lucide-react';
+import { Instagram, Facebook, Youtube } from 'lucide-react';
 import { ARTIST_DATA } from '../data/artistData';
 
 export default function Footer() {
@@ -9,6 +9,7 @@ export default function Footer() {
         <h2 className="footer-faq-title">F A Q</h2>
 
         <div className="footer-social-icons-group">
+          {/* 1. Instagram */}
           <a
             href={ARTIST_DATA.contact.instagramUrl}
             target="_blank"
@@ -18,14 +19,49 @@ export default function Footer() {
           >
             <Instagram size={28} strokeWidth={1.4} />
           </a>
+
+          {/* 2. Facebook */}
           <a
-            href={ARTIST_DATA.contact.instagramUrl}
+            href="https://www.facebook.com/profile.php?id=100087217848122"
             target="_blank"
             rel="noopener noreferrer"
             className="footer-social-icon-link"
             aria-label="Facebook"
           >
             <Facebook size={28} strokeWidth={1.4} />
+          </a>
+
+          {/* 3. TikTok */}
+          <a
+            href="https://www.tiktok.com/@pau.canelles"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-social-icon-link"
+            aria-label="TikTok"
+          >
+            <svg 
+              width={28} 
+              height={28} 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth={1.4} 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            >
+              <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+            </svg>
+          </a>
+
+          {/* 4. YouTube */}
+          <a
+            href="https://www.youtube.com/@PauCanelles"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-social-icon-link"
+            aria-label="YouTube"
+          >
+            <Youtube size={28} strokeWidth={1.4} />
           </a>
         </div>
 

@@ -1,27 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ARTIST_DATA } from '../data/artistData';
 import ArtworkFrame from '../components/ArtworkFrame';
 
 export default function Works({ lang = 'es', onSelectArtwork }) {
-  const isEs = lang === 'es';
   const artworks = ARTIST_DATA.artworks;
-
-  // Helper to compute 2-year interval label (e.g. 2026-2025, 2024-2023)
-  const getYearInterval = (yearStr) => {
-    const y = parseInt(yearStr, 10);
-    if (isNaN(y)) return yearStr;
-    const upper = y % 2 === 0 ? y : y + 1;
-    const lower = upper - 1;
-    return `${upper}–${lower}`;
-  };
-
-  // Derive unique 2-year intervals present in real artwork data
-  const availableIntervals = Array.from(
-    new Set(artworks.map((a) => getYearInterval(a.year)))
-  ).sort((a, b) => b.localeCompare(a));
-
-  // Default selection is the latest available year interval
-  const [selectedInterval, setSelectedInterval] = useState(availableIntervals[0] || 'all');
 
   const handleArtworkClick = (artwork) => {
     if (onSelectArtwork) {
@@ -29,37 +11,11 @@ export default function Works({ lang = 'es', onSelectArtwork }) {
     }
   };
 
-  // Filter artworks by selected interval
-  const filteredArtworks = selectedInterval === 'all'
-    ? artworks
-    : artworks.filter((a) => getYearInterval(a.year) === selectedInterval);
-
   return (
-    <div className="works-page site-container" style={{ paddingTop: '1rem', paddingBottom: '2.5rem' }}>
-      {/* Year-Wise Portfolio Navigation Row */}
-      {availableIntervals.length > 0 && (
-        <div className="portfolio-year-nav">
-          {availableIntervals.map((interval) => (
-            <button
-              key={interval}
-              onClick={() => setSelectedInterval(interval)}
-              className={`portfolio-year-btn ${selectedInterval === interval ? 'active' : ''}`}
-            >
-              {interval}
-            </button>
-          ))}
-          <button
-            onClick={() => setSelectedInterval('all')}
-            className={`portfolio-year-btn ${selectedInterval === 'all' ? 'active' : ''}`}
-          >
-            {isEs ? 'TODOS' : 'ALL'}
-          </button>
-        </div>
-      )}
-
+    <div className="works-page site-container" style={{ paddingTop: '1.5rem', paddingBottom: '2.5rem' }}>
       {/* Symmetrical 3-Column Editorial Gallery Layout */}
       <div className="portfolio-gallery-grid">
-        {filteredArtworks.map((work, idx) => (
+        {artworks.map((work, idx) => (
           <div
             key={work.id}
             className="portfolio-item"

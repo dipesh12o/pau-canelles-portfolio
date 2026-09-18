@@ -42,6 +42,14 @@ export default function Workshops({ lang = 'es', setCurrentPage }) {
 
   const allPhotos = [...mainGalleryPhotos, ...projectPhotos];
 
+  const handlePackageClick = (count) => {
+    const msg = isEs
+      ? `Hola Pau, estoy interesado/a en el bono de ${count} talleres y me gustaría recibir más información.`
+      : `Hello Pau, I am interested in the ${count}-workshop package and would like to get more information.`;
+    const url = `https://wa.me/34619755639?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <div className="workshops-page site-container" style={{ backgroundColor: '#FFFFFF', minHeight: '100vh', paddingTop: '0.5rem', paddingBottom: '2.5rem' }}>
       {/* ==================================================================
@@ -99,34 +107,55 @@ export default function Workshops({ lang = 'es', setCurrentPage }) {
       </section>
 
       {/* ==================================================================
-          2. WORKSHOP INFORMATION
+          2. WORKSHOP INFORMATION (4 ESSENTIAL CARDS IN 2x2 GRID)
           ================================================================== */}
-      <section className="workshops-intro-section" style={{ maxWidth: '840px', margin: '0 auto 1.5rem auto', textAlign: 'center' }}>
-        <h2 className="heading-serif" style={{ fontSize: '1.5rem', fontWeight: '400', lineHeight: '1.4', color: '#24231E', marginBottom: '1rem' }}>
-          {isEs ? 'Talleres creativos de arte y experimentación para niños y jóvenes en Onda.' : 'Creative art and experimentation workshops for children and youth in Onda.'}
-        </h2>
+      <section className="workshops-info-section" style={{ marginBottom: '2rem' }}>
+        <div style={{ textTransform: 'center', marginBottom: '1.25rem', textAlign: 'center' }}>
+          <span className="meta-label">{isEs ? 'Información General' : 'General Information'}</span>
+          <h2 className="heading-serif" style={{ fontSize: '1.85rem', marginTop: '0.3rem' }}>
+            {isEs ? 'Metodología & Formato' : 'Methodology & Format'}
+          </h2>
+        </div>
 
-        {/* Practical Information Cards */}
-        <div className="workshops-info-grid" style={{ marginBottom: '0' }}>
+        <div className="workshops-info-grid">
           <div className="workshop-info-card">
-            <div>
-              <h4 className="info-card-title">{isEs ? 'Ubicación' : 'Location'}</h4>
-              <p className="info-card-desc">C/Escultor Folià 25, Onda (Castellón)</p>
-            </div>
+            <span className="info-card-tag">{isEs ? '01 • EDAD' : '01 • AGES'}</span>
+            <h3 className="info-card-title">{isEs ? 'A partir de 6 años' : 'From 6 years old'}</h3>
+            <p className="info-card-desc">
+              {isEs 
+                ? 'Grupos organizados por edades para adaptar cada técnica y proceso creativo.' 
+                : 'Groups organized by age to adapt each technique and creative process.'}
+            </p>
           </div>
 
           <div className="workshop-info-card">
-            <div>
-              <h4 className="info-card-title">{isEs ? 'Edades & Materiales' : 'Ages & Materials'}</h4>
-              <p className="info-card-desc">{isEs ? 'A partir de 6 años • Todo el material incluido' : 'Ages 6+ • All materials included'}</p>
-            </div>
+            <span className="info-card-tag">{isEs ? '02 • MATERIALES' : '02 • MATERIALS'}</span>
+            <h3 className="info-card-title">{isEs ? 'Todo incluido' : 'All materials included'}</h3>
+            <p className="info-card-desc">
+              {isEs 
+                ? 'Pinturas, lienzos, pinceles y herramientas incluidos en la tarifa del taller.' 
+                : 'Paints, canvases, brushes, and tools included in the workshop rate.'}
+            </p>
           </div>
 
           <div className="workshop-info-card">
-            <div>
-              <h4 className="info-card-title">{isEs ? 'Inscripción & Plazas' : 'Registration & Spots'}</h4>
-              <p className="info-card-desc">{isEs ? 'Grupos reducidos • Reserva previa requerida' : 'Small groups • Advance reservation required'}</p>
-            </div>
+            <span className="info-card-tag">{isEs ? '03 • AFORO' : '03 • CAPACITY'}</span>
+            <h3 className="info-card-title">{isEs ? 'Plazas limitadas' : 'Limited capacity'}</h3>
+            <p className="info-card-desc">
+              {isEs 
+                ? 'Grupos reducidos para garantizar atención personalizada a cada alumno.' 
+                : 'Small groups to ensure personalized guidance for every student.'}
+            </p>
+          </div>
+
+          <div className="workshop-info-card">
+            <span className="info-card-tag">{isEs ? '04 • UBICACIÓN' : '04 • LOCATION'}</span>
+            <h3 className="info-card-title">C/Escultor Folià 25</h3>
+            <p className="info-card-desc">
+              {isEs 
+                ? 'Onda, Castellón • Espacio de taller acondicionado para el trabajo artístico.' 
+                : 'Onda, Castellón • Studio space equipped for artistic practice.'}
+            </p>
           </div>
         </div>
       </section>
@@ -178,9 +207,22 @@ export default function Workshops({ lang = 'es', setCurrentPage }) {
           </p>
         </div>
 
-        {/* Package Grid (Exact Client PDF Numbers) */}
+        {/* Package Grid (Clickable to open WhatsApp) */}
         <div className="packages-editorial-grid">
-          <div className="package-card">
+          <div 
+            className="package-card"
+            onClick={() => handlePackageClick(3)}
+            role="button"
+            tabIndex={0}
+            aria-label={isEs ? 'Consultar bono de 3 talleres por WhatsApp' : 'Inquire about 3-workshop package via WhatsApp'}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handlePackageClick(3);
+              }
+            }}
+            style={{ cursor: 'pointer' }}
+          >
             <span className="package-discount">10% DTO.</span>
             <h3 className="package-name">{isEs ? 'Bono 3 Talleres' : '3-Workshop Package'}</h3>
             <div className="package-price-row">
@@ -189,7 +231,20 @@ export default function Workshops({ lang = 'es', setCurrentPage }) {
             </div>
           </div>
 
-          <div className="package-card featured">
+          <div 
+            className="package-card featured"
+            onClick={() => handlePackageClick(5)}
+            role="button"
+            tabIndex={0}
+            aria-label={isEs ? 'Consultar bono de 5 talleres por WhatsApp' : 'Inquire about 5-workshop package via WhatsApp'}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handlePackageClick(5);
+              }
+            }}
+            style={{ cursor: 'pointer' }}
+          >
             <span className="package-badge">{isEs ? 'RECOMENDADO' : 'RECOMMENDED'}</span>
             <span className="package-discount">15% DTO.</span>
             <h3 className="package-name">{isEs ? 'Bono 5 Talleres' : '5-Workshop Package'}</h3>
@@ -199,7 +254,20 @@ export default function Workshops({ lang = 'es', setCurrentPage }) {
             </div>
           </div>
 
-          <div className="package-card">
+          <div 
+            className="package-card"
+            onClick={() => handlePackageClick(7)}
+            role="button"
+            tabIndex={0}
+            aria-label={isEs ? 'Consultar bono de 7 talleres por WhatsApp' : 'Inquire about 7-workshop package via WhatsApp'}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handlePackageClick(7);
+              }
+            }}
+            style={{ cursor: 'pointer' }}
+          >
             <span className="package-discount">20% DTO.</span>
             <h3 className="package-name">{isEs ? 'Bono 7 Talleres' : '7-Workshop Package'}</h3>
             <div className="package-price-row">
