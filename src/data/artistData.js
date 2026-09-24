@@ -87,6 +87,160 @@ export const ARTIST_DATA = {
 
   artworks: [
     {
+      id: "art-cuidado",
+      title: "Cuidado",
+      category: "Matter & Abstraction",
+      technique: "Acrílico, óleo, arena y spray sobre lienzo",
+      medium: "Acrílico, óleo, arena y spray sobre lienzo",
+      dimensions: "80 cm diameter",
+      year: "2026",
+      edition: "Pieza única",
+      image: "/artworks/cuidado.webp",
+      detailImages: [
+        "/artworks/cuidado-detail-1.webp",
+        "/artworks/cuidado-detail-2.webp",
+        "/artworks/cuidado-detail-3.webp",
+        "/artworks/cuidado-detail-4.webp"
+      ],
+      images: [
+        "/artworks/cuidado.webp",
+        "/artworks/cuidado-detail-1.webp",
+        "/artworks/cuidado-detail-2.webp",
+        "/artworks/cuidado-detail-3.webp",
+        "/artworks/cuidado-detail-4.webp"
+      ],
+      aspectRatio: "square",
+      featured: true
+    },
+    {
+      id: "art-besos-que-manchan",
+      title: "Besos que manchan",
+      category: "Matter & Abstraction",
+      technique: "Acrílico, óleo y spray sobre tabla",
+      medium: "Acrílico, óleo y spray sobre tabla",
+      dimensions: "100 × 70 cm",
+      year: "2026",
+      edition: "Pieza única",
+      image: "/artworks/besos-que-manchan.webp",
+      detailImages: [
+        "/artworks/besos-que-manchan-detail-1.webp",
+        "/artworks/besos-que-manchan-detail-2.webp",
+        "/artworks/besos-que-manchan-detail-3.webp",
+        "/artworks/besos-que-manchan-detail-4.webp"
+      ],
+      images: [
+        "/artworks/besos-que-manchan.webp",
+        "/artworks/besos-que-manchan-detail-1.webp",
+        "/artworks/besos-que-manchan-detail-2.webp",
+        "/artworks/besos-que-manchan-detail-3.webp",
+        "/artworks/besos-que-manchan-detail-4.webp"
+      ],
+      aspectRatio: "portrait",
+      featured: true
+    },
+    {
+      id: "art-fragil-2",
+      title: "Frágil 2",
+      category: "Matter & Abstraction",
+      technique: "Acrílico, óleo y spray sobre lienzo",
+      medium: "Acrílico, óleo y spray sobre lienzo",
+      dimensions: "39 × 55 cm",
+      year: "2026",
+      edition: "Pieza única",
+      image: "/artworks/fragil-2.webp",
+      detailImages: [
+        "/artworks/fragil-2-detail-1.webp",
+        "/artworks/fragil-2-detail-2.webp",
+        "/artworks/fragil-2-detail-3.webp"
+      ],
+      images: [
+        "/artworks/fragil-2.webp",
+        "/artworks/fragil-2-detail-1.webp",
+        "/artworks/fragil-2-detail-2.webp",
+        "/artworks/fragil-2-detail-3.webp"
+      ],
+      aspectRatio: "portrait",
+      featured: true
+    },
+    {
+      id: "art-girasol-sin-sol",
+      title: "Girasol sin sol",
+      category: "Matter & Abstraction",
+      technique: "Acrílico, óleo y spray sobre lienzo",
+      medium: "Acrílico, óleo y spray sobre lienzo",
+      dimensions: "72 × 90 cm",
+      year: "2026",
+      edition: "Pieza única",
+      image: "/artworks/girasol-sin-sol.webp",
+      detailImages: [
+        "/artworks/girasol-sin-sol-detail-1.webp",
+        "/artworks/girasol-sin-sol-detail-2.webp",
+        "/artworks/girasol-sin-sol-detail-3.webp",
+        "/artworks/girasol-sin-sol-detail-4.webp"
+      ],
+      images: [
+        "/artworks/girasol-sin-sol.webp",
+        "/artworks/girasol-sin-sol-detail-1.webp",
+        "/artworks/girasol-sin-sol-detail-2.webp",
+        "/artworks/girasol-sin-sol-detail-3.webp",
+        "/artworks/girasol-sin-sol-detail-4.webp"
+      ],
+      aspectRatio: "portrait",
+      featured: true
+    },
+    {
+      id: "art-trauma",
+      title: "Trauma",
+      category: "Matter & Abstraction",
+      technique: "Acrílico, óleo y spray sobre lienzo",
+      medium: "Acrílico, óleo y spray sobre lienzo",
+      dimensions: "90 × 72 cm",
+      year: "2026",
+      edition: "Pieza única",
+      image: "/artworks/trauma.webp",
+      detailImages: [
+        "/artworks/trauma-detail-1.webp",
+        "/artworks/trauma-detail-2.webp",
+        "/artworks/trauma-detail-3.webp",
+        "/artworks/trauma-detail-4.webp"
+      ],
+      images: [
+        "/artworks/trauma.webp",
+        "/artworks/trauma-detail-1.webp",
+        "/artworks/trauma-detail-2.webp",
+        "/artworks/trauma-detail-3.webp",
+        "/artworks/trauma-detail-4.webp"
+      ],
+      aspectRatio: "portrait",
+      featured: true
+    },
+    {
+      id: "art-y-ahora-que",
+      title: "¿Y ahora qué?",
+      category: "Matter & Abstraction",
+      technique: "Acrílico, óleo y spray sobre tabla",
+      medium: "Acrílico, óleo y spray sobre tabla",
+      dimensions: "60 × 70 cm",
+      year: "2026",
+      edition: "Pieza única",
+      image: "/artworks/y-ahora-que.webp",
+      detailImages: [
+        "/artworks/y-ahora-que-dsc-0254.webp",
+        "/artworks/y-ahora-que-dsc-0256.webp",
+        "/artworks/y-ahora-que-dsc-0257.webp",
+        "/artworks/y-ahora-que-dsc-0261.webp"
+      ],
+      images: [
+        "/artworks/y-ahora-que.webp",
+        "/artworks/y-ahora-que-dsc-0254.webp",
+        "/artworks/y-ahora-que-dsc-0256.webp",
+        "/artworks/y-ahora-que-dsc-0257.webp",
+        "/artworks/y-ahora-que-dsc-0261.webp"
+      ],
+      aspectRatio: "portrait",
+      featured: true
+    },
+    {
       id: "art-completo",
       title: "Así fué",
       subtitle: "Lo que queda",
